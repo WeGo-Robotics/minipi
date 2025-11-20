@@ -1,0 +1,17 @@
+{
+  "BRIGHTNESS": 255,
+  "CONTRAST": 0,
+  "SATURATION": 0,
+  "HUE": 59,
+  "GAIN": 151,
+  "EXPOSURE": 8,
+  "WB_TEMPERATURE": 5320,
+  "AUTO_EXPOSURE": 0,
+  "AUTO_WB": 0,
+  "RES": [
+    640,
+    480
+  ],
+  "FPS": 30,
+  "DEVICE": "4"
+}

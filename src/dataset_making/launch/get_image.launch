@@ -1,0 +1,22 @@
+<launch>
+  <arg name="bag_filename" default="/home/hightorque/soccer_ws/src/dataset_making/bags" />
+  <arg name="output_dir" default="/home/hightorque/soccer_ws/src/dataset_making/image"/>
+  <arg name="filename_format" default="$(arg output_dir)/frame%06i.jpg" />
+
+  <arg name="cam_format" default="/usb_cam/image_raw">
+
+  <node pkg="image_view" type="extract_images" name="image_extractor" output="screen">
+    <remap from="image" to="$(arg cam_format)" />
+
+    <param name="filename_format" value="$(arg filename_format)"/>
+    <!-- 필요 시 시작 인덱스/프레임 속도도 이렇게 -->
+    <!-- <param name="start_index" value="0"/> -->
+    <!-- <param name="sec_per_frame" value="0.1"/> -->
+  </node>
+
+  <!-- bag 재생 (3초 지연) -->
+  <node pkg="rosbag" type="play" name="bag_player"
+        args="$(arg bag_filename)"
+        output="screen"
+        launch-prefix="bash -c 'sleep 3; $0 $@'"/>
+</launch>

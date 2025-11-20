@@ -1,0 +1,17 @@
+{
+  "BRIGHTNESS": 20,
+  "CONTRAST": 30,
+  "SATURATION": 60,
+  "HUE": 7,
+  "GAIN": 0,
+  "EXPOSURE": 400,
+  "WB_TEMPERATURE": 4300,
+  "AUTO_EXPOSURE": 0,
+  "AUTO_WB": 0,
+  "RES": [
+    640,
+    480
+  ],
+  "FPS": 30,
+  "DEVICE": "0"
+}

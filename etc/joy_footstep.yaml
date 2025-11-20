@@ -1,0 +1,106 @@
+# sim2real_master/install/share/sim2real_master/joy_footstep.yaml에서 joy의 키에 따른 값을 매핑
+teleop:
+  walk:
+    type: topic
+    message_type: geometry_msgs/Twist
+    topic_name: cmd_vel
+    # deadman_buttons: [ 6 ]   # # 4 map F710 Speed commands can only be issued by pressing this button  
+    axis_mappings:
+      - axis: 3
+        target: angular.z
+        scale: 1.0
+      - axis: 1
+        target: linear.x
+        scale: 1.0 
+      - axis: 0
+        target: linear.y
+        scale: 0.25
+      - axis: 2
+        target: linear.z
+        scale: 1.0
+
+  mode_change:
+    type: topic
+    message_type: sim2real_msg/ControlState
+    topic_name: /joy_msg
+    axis_mappings:
+      - axis: 2                
+        scale: 1.0             
+        offset: 0.0           
+        target: candidate_left
+      - axis: 5            
+        scale: 1.0             
+        offset: 0.0            
+        target: candidate_right
+      - axis: 6            
+        scale: 1.0             
+        offset: 0.0            
+        target: switch_mode
+      - button: 0
+        target: confirm
+      - button: 1
+        target: quit
+      - button: 3
+        target: hip_angle_increase
+      - button: 0
+        target: hip_angle_decrease
+      - button: 1
+        target: knee_angle_increase
+      - button: 2
+        target: knee_angle_decrease
+      - button: 7
+        target: ankle_angle_increase
+      - button: 6
+        target: ankle_angle_decrease
+      - button: 9
+        target: save_all_angle_left
+      - button: 10
+        target: save_all_angle_right
+      - button: 9
+        target: standby
+      - button: 5
+        target: sitdown
+      - button: 4
+        target: running_standby_switch
+      - axis: 4                
+        scale: -1.0             
+        offset: 0.0           
+        target: pitch_ctrl
+
+  wap_point:
+    type: topic
+    message_type: sim2real_msg/WayPoint
+    topic_name: /waypoint_control
+    axis_mappings:
+      - axis: 2                
+        scale: 1.0             
+        offset: 0.0           
+        target: LT
+      - axis: 5            
+        scale: 1.0             
+        offset: 0.0            
+        target: RT
+      - axis: 6            
+        scale: 1.0             
+        offset: 0.0            
+        target: lock_unlock_right
+      - axis: 7           
+        scale: 1.0             
+        offset: 0.0            
+        target: lock_unlock_left
+      - button: 6
+        target: start
+      - button: 3
+        target: add_point
+      - button: 2
+        target: delete_point
+      - button: 2
+        target: delete_all_point
+      - button: 0
+        target: recording_finish
+      - button: 1
+        target: lock_unlock_joints
+      - button: 7
+        target: load_path
+      - button: 9
+        target: execute_path

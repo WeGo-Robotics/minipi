@@ -1,0 +1,38 @@
+<launch>
+  <!-- <arg name="rknn_file" default="$(find yolo11_detect_pkg)/config/rknn/roboworld3_best-rk3588.rknn" />
+  <arg name="yaml_file" default="$(find yolo11_detect_pkg)/config/rknn/roboworld3_metadata.yaml" /> -->
+  <arg name="rknn_file" default="$(find yolo11_detect_pkg)/config/rknn/things_roboworld2_best-rk3588.rknn" />
+  <arg name="yaml_file" default="$(find yolo11_detect_pkg)/config/rknn/things_roboworld2_metadata.yaml" />
+  <arg name="output_topic" default="/yolo/detections" />
+  <arg name="tracker_output_topic" default="/ball/state" />
+
+  <arg name="camera_topic" default="/camera/color/image_raw" />
+  <arg name="pixel_format" default="yuyv" />
+  <arg name="run_image_view" default="true" />
+
+  <node pkg="image_view" 
+        type="image_view" 
+        name="image_view" 
+        output="screen"
+        if="$(arg run_image_view)">
+    
+    <remap from="image" to="$(arg camera_topic)" />
+  </node>
+
+  <node pkg="yolo11_detect_pkg" 
+        type="yolo_send_topic_cam_efficient_d435.py" 
+        name="yolo_detector"  
+        output="screen"
+        respawn="false"
+        required="true" 
+        log_level="INFO" >
+    <env name="ROS_PYTHON_LOG_CONFIG_FILE" value="$(env HOME)/.ros/py_logging_nolevel.ini"/>
+    <param name="~rknn_path" value="$(arg rknn_file)" />
+    
+    <param name="~yaml_path" value="$(arg yaml_file)" />
+    
+    <remap from="/yolo_output" to="$(arg output_topic)" />
+  </node>
+
+</launch>
+

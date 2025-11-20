@@ -1,0 +1,22 @@
+description: Ultralytics YOLO11n model trained on things_roboworld.v2i.yolov11/data.yaml
+author: Ultralytics
+date: '2025-10-30T11:16:35.366655'
+version: 8.3.94
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: ball
+  1: goal
+  2: hat
+  3: jelly
+  4: ramen
+  5: tumblr
+args:
+  batch: 1
+  name: rk3588
