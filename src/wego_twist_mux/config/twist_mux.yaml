@@ -1,0 +1,22 @@
+topics:
+  - name: joystick
+    topic: /cmd_vel/joy # 조이스틱
+    timeout: 0.15
+    priority: 80
+
+  - name: wall
+    topic: /cmd_vel/wall # 벽 회피
+    timeout: 0.5
+    priority: 100
+  
+  - name: auto
+    topic: /cmd_vel/auto # 공 추적
+    timeout: 0.07
+    priority: 90
+
+
+locks:
+  - name: estop
+    topic: /twist_mux/lock   # std_msgs/Bool
+    timeout: 0.0             # 잠금은 타임아웃 없음
+    priority: 255            # 최상위 = 잠기면 무조건 정지 유지

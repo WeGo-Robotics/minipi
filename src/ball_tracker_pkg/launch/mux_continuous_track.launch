@@ -1,0 +1,51 @@
+<launch>
+
+  <arg name="rknn_file" default="$(find yolo11_detect_pkg)/config/rknn/pi_soccer3_best-rk3588.rknn" />
+  <arg name="yaml_file" default="$(find yolo11_detect_pkg)/config/rknn/metadata.yaml" />
+  <arg name="image_topic" default="/usb_cam/image_raw" />
+  <!-- <arg name="image_topic" default="/camera/color/image_raw" /> -->
+  <arg name="pixel_format" default="yuyv" />
+  <arg name="run_image_view" default="false" />
+  <arg name="detection_topic" default="/yolo/detections" />
+  <arg name="tracker_output_topic" default="/ball/state" />
+  <arg name="record_output_dir" default="$(find ball_tracker_pkg)/scripts/video" />
+  <arg name="run_visualizer" default="true" />
+  
+  <include file="$(find yolo11_detect_pkg)/launch/yolo_detect_efficient.launch">
+    <arg name="rknn_file" value="$(arg rknn_file)" />
+    <arg name="yaml_file" value="$(arg yaml_file)" />
+    <arg name="camera_topic" value="$(arg image_topic)" />
+    <arg name="pixel_format" value="$(arg pixel_format)" />
+    <arg name="run_image_view" value="$(arg run_image_view)" />
+    <arg name="output_topic" value="$(arg detection_topic)" />
+  </include>
+  
+  
+  <node pkg="ball_tracker_pkg" 
+        type="mux_ball_tracking_continuous.py" 
+        name="ball_tracker" 
+        output="screen">
+
+    <remap from="/input_detections" to="$(arg detection_topic)"/>
+    
+    <remap from="/tracker_output" to="$(arg tracker_output_topic)"/>
+    
+    <param name="confidence_threshold" value="0.7" />
+    <param name="history_length" value="10" />
+
+  </node>
+
+
+  <node pkg="ball_tracker_pkg" 
+        type="visualize_ball_tracking.py" 
+        name="ball_visualizer" 
+        output="screen"
+        if="$(arg run_visualizer)"
+        args="--record --display --record-path $(arg record_output_dir)">
+        
+    <remap from="/input_image" to="$(arg image_topic)"/> 
+    <remap from="/input_state" to="$(arg tracker_output_topic)"/> 
+    
+  </node>
+
+</launch>

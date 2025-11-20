@@ -1,0 +1,17 @@
+{
+  "BRIGHTNESS": 0,
+  "CONTRAST": 76,
+  "SATURATION": 0,
+  "HUE": 0,
+  "GAIN": 64,
+  "EXPOSURE": 166,
+  "WB_TEMPERATURE": 4600,
+  "AUTO_EXPOSURE": 1,
+  "AUTO_WB": 1,
+  "RES": [
+    1280,
+    720
+  ],
+  "FPS": 30,
+  "DEVICE": "4"
+}
