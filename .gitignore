@@ -3,3 +3,4 @@ devel/
 logs/
 .catkin_workspace
 .catkin_tools/
+.vscode/
