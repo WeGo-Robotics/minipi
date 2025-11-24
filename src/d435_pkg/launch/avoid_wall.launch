@@ -1,0 +1,19 @@
+<launch>
+  <arg name="image_topic" default="/camera/depth/image_rect_raw" />
+    <arg name="enable_infra2" value="false" />
+    <arg name="allow_system_power_suspend" value="false" />
+  
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <!-- <arg name="width" value="640" />
+    <arg name="height" value="480" /> -->
+  </include>
+  
+  
+  <node pkg="d435_pkg" 
+        type="mux_avoidWall.py" 
+        name="avoidWall" 
+        output="screen">
+  </node>
+
+
+</launch>

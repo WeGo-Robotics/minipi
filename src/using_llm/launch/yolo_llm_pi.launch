@@ -1,0 +1,51 @@
+<launch>
+  <!-- topics (하나로 통일해서 사용) -->
+  <arg name="image_topic"     default="/camera/color/image_raw" />
+  <arg name="detection_topic" default="/yolo/detections" />  <!-- 최종적으로 이걸로 통일 -->
+
+  <!-- options -->
+  <arg name="pixel_format"    default="yuyv" />
+  <arg name="run_image_view"  default="true" />
+  <arg name="run_visualizer"  default="true" />
+  <arg name="use_compressed"  default="false" />
+
+  <!-- RealSense -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch"/>
+
+  <!-- YOLO detector (내부에서 뭘 하든 최종 토픽을 detection_topic으로 강제 통일) -->
+  <group>
+    <!-- 핵심: YOLO가 /YoloInfo 로 내보내더라도 전역에서 detection_topic 으로 바꿈 -->
+    <remap from="/YoloInfo" to="$(arg detection_topic)"/>
+    <!-- 만약 내부가 /yolo/detections 로 내보내면 이미 동일하니 영향 없음 -->
+
+    <include file="$(find yolo11_detect_pkg)/launch/yolo_detect_efficient_d435.launch">
+      <arg name="camera_topic" value="$(arg image_topic)" />
+      <arg name="pixel_format" value="$(arg pixel_format)" />
+      <arg name="run_image_view" value="false" />
+      <!-- 내부가 별도 인자명을 쓰더라도, 위 전역 remap이 있으니 최종적으로 일치 -->
+      <arg name="output_topic" value="$(arg detection_topic)" />
+    </include>
+  </group>
+
+  <!-- Visualizer: detection_topic만 구독 -->
+  <node pkg="using_llm"
+        type="yolo_visualizer.py"
+        name="yolo_visualizer"
+        output="screen"
+        if="$(arg run_visualizer)">
+    <param name="~image_topic"    value="$(arg image_topic)"/>
+    <param name="~info_topic"     value="$(arg detection_topic)"/>
+    <param name="~use_compressed" value="$(arg use_compressed)"/>
+    <param name="~publish_image"  value="true"/>
+    <param name="~pub_topic"      value="/yolo/visualized"/>
+  </node>
+
+  <!-- 합성 영상 보기 -->
+  <node pkg="image_view"
+        type="image_view"
+        name="image_view_visualized"
+        output="screen"
+        if="false">
+    <remap from="image" to="/yolo/visualized"/>
+  </node>
+</launch>

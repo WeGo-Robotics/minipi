@@ -1,0 +1,17 @@
+{
+  "BRIGHTNESS": 40,
+  "CONTRAST": 38,
+  "SATURATION": 82,
+  "HUE": 0,
+  "GAIN": 0,
+  "EXPOSURE": 1945,
+  "WB_TEMPERATURE": 4380,
+  "AUTO_EXPOSURE": 0,
+  "AUTO_WB": 0,
+  "RES": [
+    640,
+    480
+  ],
+  "FPS": 30,
+  "DEVICE": "6"
+}

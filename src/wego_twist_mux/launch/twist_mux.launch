@@ -1,0 +1,27 @@
+<launch>
+  <node pkg="twist_mux" type="twist_mux" name="twist_mux" output="screen">
+    <rosparam file="$(find wego_twist_mux)/config/twist_mux.yaml" command="load"/>
+    <!-- <param name="output" value="/cmd_vel" /> -->
+    <remap from="/cmd_vel_out" to="/cmd_vel" />
+  </node>
+
+
+  <node pkg="joy" type="joy_node" name="joy_driver_node">
+        <param name="dev" value="/dev/input/js0"/>
+        <param name="deadzone" value="0.12"/>
+        <param name="autorepeat_rate" value="20.0"/>
+        <remap from="joy" to="/joy_input" />
+  </node>
+
+  <node pkg="wego_twist_mux" type="set_joy.py" name="joystick_wrapper_node" output="screen">
+      <!-- 래퍼 노드가 Joy 메시지에서 linear.x를 읽을 축은 1번 (기존과 동일) -->
+      <param name="axis_linear_x" value="1"/> 
+      <!-- 래퍼 노드가 Joy 메시지에서 angular.z를 읽을 축은 3번 (YAML과 일치시킴) -->
+      <param name="axis_angular_z" value="3"/>
+      
+      <param name="scale_linear" value="0.6"/>
+      <param name="scale_angular" value="1.2"/>
+      <param name="deadzone" value="0.10"/> <!-- 노이즈 제거를 위해 0.05에서 0.10으로 증가 권장 -->
+  </node>
+
+</launch>

@@ -1,0 +1,14 @@
+{
+  "BRIGHTNESS": 11,
+  "CONTRAST": 45,
+  "SATURATION": 65,
+  "HUE": 0,
+  "GAIN": 0,
+  "EXPOSURE": 164,
+  "WB_TEMPERATURE": 4600,
+  "AUTO_EXPOSURE": 1,
+  "AUTO_WB": 1,
+  "RES": null,
+  "FPS": null,
+  "DEVICE": "/usb_cam/image_raw"
+}

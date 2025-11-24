@@ -1,0 +1,24 @@
+description: Ultralytics YOLO11n model trained on /home/wego/ultralytics/things_korean.v5i.yolov11/data.yaml
+author: Ultralytics
+date: '2025-10-27T18:18:59.358971'
+version: 8.3.94
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: J110G
+  1: J65G
+  2: J_M110G
+  3: J_M65G
+  4: O115G
+  5: O67G
+  6: S114G
+  7: S65G
+args:
+  batch: 1
+  name: rk3588

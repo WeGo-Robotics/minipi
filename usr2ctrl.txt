@@ -1,0 +1,7098 @@
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 0
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.29999598122427984
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.2999600096187712
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3828376566049083
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.3
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 4
+twist_data: 
+  linear: 
+    x: 0.8
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: -0.26585242035304174
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---
+robot_mode: 0
+robot_speed: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+robot_status: 3
+twist_data: 
+  linear: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  angular: 
+    x: 0.0
+    y: 0.0
+    z: 0.0
+---

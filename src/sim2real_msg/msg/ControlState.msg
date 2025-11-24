@@ -1,0 +1,17 @@
+float32 candidate_left
+float32 candidate_right
+float32 switch_mode
+float32 confirm
+float32 quit
+float32 hip_angle_increase
+float32 hip_angle_decrease
+float32 knee_angle_increase
+float32 knee_angle_decrease
+float32 ankle_angle_increase
+float32 ankle_angle_decrease
+float32 save_all_angle_left
+float32 save_all_angle_right
+float32 standby
+float32 sitdown
+float32 running_standby_switch
+float32 pitch_ctrl

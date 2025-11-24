@@ -1,0 +1,22 @@
+<launch>
+  <arg name="pixel_format" default="yuyv" />
+  <arg name="run_image_view" default="true" />
+
+  <!-- d435 -->
+  <!-- <arg name="cam_format" default="/camera/color/image_raw" />
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" /> -->
+
+  <arg name="cam_format" default="/usb_cam/image_raw" />
+  <node pkg="usb_cam" type="usb_cam_node" name="usb_cam" output="screen">
+      <param name="video_device" value="/dev/video0" />
+      <param name="pixel_format" value="$(arg pixel_format)" />
+      <param name="image_width" value="640" /> 
+      <param name="image_height" value="480" /> 
+  </node>
+
+  <arg name="bag_dir" value="$(find dataset_making)/bags" />
+  <arg name="file_prefix" value="usbcamnode_redGoal" />
+
+  <node pkg="rosbag" type="record" name="bag_recorder" args="-O $(arg bag_dir)/$(arg file_prefix) $(arg cam_format)" output="screen"/>
+    
+</launch>

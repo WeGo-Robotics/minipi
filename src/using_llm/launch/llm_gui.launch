@@ -1,0 +1,19 @@
+<launch>
+
+    <node pkg="using_llm"
+          type="rkllama_serve.sh"
+          name="rkllama_serve"
+          output="screen"
+          respawn="true" />
+    
+    <node pkg="using_llm" 
+        type="llm_gui.py" 
+        name="llm_gui" 
+        output="screen" />
+
+    <node pkg="using_llm" 
+        type="rkllama_conv.py" 
+        name="rkllama_conversation" 
+        output="screen" />
+          
+</launch>

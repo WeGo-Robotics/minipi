@@ -1,0 +1,8 @@
+<launch>
+    <include file="$(find wego_twist_mux)/launch/twist_mux.launch"/>
+    
+    <include file="$(find d435_pkg)/launch/avoid_wall.launch"/>
+    
+    <include file="$(find ball_tracker_pkg)/launch/mux_discrete_track_efficient.launch"/>
+
+</launch>

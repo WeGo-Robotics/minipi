@@ -1,0 +1,14 @@
+{
+  "BRIGHTNESS": 0,
+  "CONTRAST": 32,
+  "SATURATION": 108,
+  "HUE": 0,
+  "GAIN": 16,
+  "EXPOSURE": 157,
+  "WB_TEMPERATURE": 4600,
+  "AUTO_EXPOSURE": 1,
+  "AUTO_WB": 1,
+  "RES": null,
+  "FPS": null,
+  "DEVICE": "/camera/color/image_raw"
+}
