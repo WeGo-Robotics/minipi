@@ -44,6 +44,10 @@ rkllama 연결 및 gui 켜기
 #### yolo11_detect_pkg
 yolo11을 사용한 검출 기능 (mini pi에서는 rockchip을 사용하였으므로 rknn 형식 포맷 사용함)
 
+---
+#### web_gui_pkg
+동일 네트워크 연결 시 웹/모바일로 로봇 구동 가능한 패키지
+
 
 
 # 2025 로보월드 전용 GUI
