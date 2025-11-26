@@ -20,7 +20,7 @@
   
   
   <node pkg="ball_tracker_pkg" 
-        type="mux_ball_goal_tracking_efficient_4(better).py" 
+        type="mux_ball_goal_tracking.py" 
         name="ball_tracker" 
         output="screen">
 
