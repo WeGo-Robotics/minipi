@@ -162,23 +162,11 @@ include_directories(
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
-  scripts/ball_tracking_basic.py
-  scripts/ball_tracking_basic2.py
-  scripts/ball_tracking_basic3.py
-  scripts/ball_tracking_efficient_usr2ctrl.py
-  scripts/ball_tracking_km.py
-  scripts/ball_tracking.py
   scripts/cam_setting.py
   scripts/load_camera_preset.py
   scripts/mux_ball_goal_tracking_2222.py
-  scripts/mux_ball_goal_tracking_efficient2(best).py
-  scripts/mux_ball_goal_tracking_efficient3(worst).py
-  scripts/mux_ball_goal_tracking_efficient4(better).py
-  scripts/mux_ball_goal_tracking_efficient5(normal).py
-  scripts/mux_ball_goal_tracking_efficient_origin.py
-  scripts/mux_ball_tracking_origin.py
-  scripts/mux_ball_tracking_efficient.py
-  scripts/mux_ball_tracking.py
+  scripts/mux_ball_goal_tracking.py
+  scripts/mux_ball_tracking_2.py
   scripts/visualize_ball_tracking.py
   scripts/visualize_ballDetect.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
