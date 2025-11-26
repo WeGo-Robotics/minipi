@@ -1,1 +1,28 @@
-nicegui == 2.24.2
+# =================================================================
+# Core Frameworks and UI
+# =================================================================
+nicegui==2.24.2 # GUI for web
+fastapi>=0.121.1
+uvicorn>=0.22.0
+PyQt5>=5.15 # GUI for local
+
+# =================================================================
+# Data Handling and Utilities
+# =================================================================
+numpy>=1.26.4
+PyYAML>=6.0
+roslibpy==1.4.1
+
+# =================================================================
+# Computer Vision and Hardware
+# =================================================================
+# 상황에 따라 opencv-python 대신 opencv-contrib-python을 설치할 수 있습니다.
+opencv-python>=4.11.0 
+rknn-toolkit-lite2==2.3.2 
+
+# =================================================================
+# ROS-dependent packages (NOTE: Do NOT install with pip generally)
+# - rospy: Installed via ROS distribution (e.g., ROS Noetic)
+# - cv-bridge: Installed via ROS distribution (built from source or apt)
+# These dependencies must be handled by your ROS catkin workspace setup.
+# =================================================================
