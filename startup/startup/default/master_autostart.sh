@@ -9,7 +9,11 @@ source /home/hightorque/soccer_ws/devel/setup.bash
 
 # [⭐️ 핵심 수정 사항 2] 네트워크 IP를 메인 스크립트에 강제로 설정
 # 노드들이 통신할 자신의 IP를 명확히 지정하여 통신 오류를 방지합니다.
-export ROS_IP=192.168.0.48
+# export ROS_IP=192.168.0.48
+
+export ROS_IP=$(hostname -I | awk '{print $1}')
+
+echo "Set ROS_IP to $ROS_IP"
 
 # --- 1. 이전 로봇 구동 서비스 중지 및 노드 정리 ---
 echo "1️⃣ 이전 서비스 중지 및 로봇 노드 정리를 시도합니다."

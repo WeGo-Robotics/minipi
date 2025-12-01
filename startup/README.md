@@ -77,13 +77,17 @@ python3.10 --version
  
 ## 3. 미니파이 프로그램 설치 및 시작 프로그램 등록
 
-아래 setting.sh를 실행하여 startup 내 .desktop과 .sh, wego_minipi_ws를 지정된 장소에 둡니다.
+아래 setting.sh를 실행하여 startup 내 .sh파일들이 든 startup폴더, .desktop과 wego_minipi_ws를 지정된 장소에 둡니다.
 
 ```bash
 cd startup && ./setting.sh
 cd /home/hightorque/wego_minipi_ws
 pip install  -r  requirements.txt
 ```
+
+로봇을 재부팅 했을 때 다음과 같이 터미널들이 나타나면 정상 설치된 것입니다.
+<img src="./image/autostart_screen.gif"  alt="시작화면"  width="60%"  style="display: block; margin: 0 auto;">
+
 
 ### a. 시작 프로그램 등록
 
@@ -94,7 +98,7 @@ mini pi에는 기본적으로 로봇이 부팅될 때 로봇 구동 코드를 �
 
   
 
-mini pi의 기본 디렉토리 (/home/hightorque)에 startup 내 세 .sh파일을 저장한 후 권한을 부여합니다.  
+mini pi의 기본 디렉토리 (/home/hightorque)에 startup 내 startup 폴더를 저장한 후 권한을 부여합니다.  
 - master_autostart.sh: 아래 두 기능을 한 번에 묶은 것입니다.
 - run_standup_only.sh: 로봇 부팅 후 스스로 일어나고 잠김을 해제합니다.
 - soccer_web_gui.sh: 웹 gui 접속을 할 수 있도록 합니다.
@@ -103,6 +107,8 @@ mini pi의 기본 디렉토리 (/home/hightorque)에 startup 내 세 .sh파일�
 이후, 바탕화면에 startup 내 두 .desktop파일을 저장합니다.
 - joy_Switch_alg.desktop: 기본 로봇 구동 실행입니다.
 - robot_wego.desktop: master_autostart.sh를 실행합니다.
+
+또한, .config/autostart에 robot_wego.desktop을 지정하여 재부팅 및 재로그인 시 구동되도록 설정합니다.
 
 wego_minipi_ws는 mini를 활용하여 다양한 기능을 할 수 있도록 한 워크스페이스입니다.
 공 추적, llm 기반 대화 등 다양한 기능에 대한 패키지가 들어있습니다.

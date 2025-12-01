@@ -10,23 +10,29 @@ echo "현재 스크립트 디렉토리: $SCRIPT_DIR"
 
 # 대상 디렉토리 설정
 TARGET_HOME_DIR="/home/hightorque"
+
 TARGET_DESKTOP_DIR="$TARGET_HOME_DIR/Desktop"
+TARGET_DESKTOP_DIR2="$TARGET_HOME_DIR/.config/autostart"
+
 TARGET_SIM2REAL_MASTER_DIR="$TARGET_HOME_DIR/sim2real_master/install/share/sim2real_master"
 
 # 1. .desktop 파일들을 ~/Desktop으로 복사 (여기서는 /home/hightorque/Desktop)
 echo "--- .desktop 파일 복사 시작 ---"
 # joy_Switch_alg.desktop
 if [ -f "$SCRIPT_DIR/joy_Switch_alg.desktop" ]; then
-    echo "joy_Switch_alg.desktop 파일을 $TARGET_DESKTOP_DIR 로 복사합니다."
-    cp "$SCRIPT_DIR/joy_Switch_alg.desktop" "$TARGET_DESKTOP_DIR/"
+    echo "joy_Switch_alg.desktop 파일을 $TARGET_DESKTOP_DIR1 로 복사합니다."
+    cp "$SCRIPT_DIR/joy_Switch_alg.desktop" "$TARGET_DESKTOP_DIR1/"
 else
     echo "경고: joy_Switch_alg.desktop 파일을 찾을 수 없습니다."
 fi
 
 # robot_wego.desktop
 if [ -f "$SCRIPT_DIR/robot_wego.desktop" ]; then
-    echo "robot_wego.desktop 파일을 $TARGET_DESKTOP_DIR 로 복사합니다."
-    cp "$SCRIPT_DIR/robot_wego.desktop" "$TARGET_DESKTOP_DIR/"
+    echo "robot_wego.desktop 파일을 $TARGET_DESKTOP_DIR1 로 복사합니다."
+    cp "$SCRIPT_DIR/robot_wego.desktop" "$TARGET_DESKTOP_DIR1/"
+
+    echo "robot_wego.desktop 파일을 $TARGET_DESKTOP_DIR2 로 복사합니다."
+    cp "$SCRIPT_DIR/robot_wego.desktop" "$TARGET_DESKTOP_DIR2/"
 else
     echo "경고: robot_wego.desktop 파일을 찾을 수 없습니다."
 fi
@@ -35,28 +41,11 @@ echo "--- .desktop 파일 복사 완료 ---"
 # 2. .sh 스크립트 파일들과 wego_minipi_ws 폴더를 /home/hightorque로 복사
 echo "--- .sh 스크립트 파일 및 폴더 복사 시작 ---"
 
-# master_autostart.sh
-if [ -f "$SCRIPT_DIR/master_autostart.sh" ]; then
-    echo "master_autostart.sh 파일을 $TARGET_HOME_DIR 로 복사합니다."
-    cp "$SCRIPT_DIR/master_autostart.sh" "$TARGET_HOME_DIR/"
+if [ -d "$SCRIPT_DIR/startup" ]; then
+    echo "startup 폴더를 $TARGET_HOME_DIR 로 복사합니다."
+    cp -r "$SCRIPT_DIR/startup" "$TARGET_HOME_DIR/"
 else
-    echo "경고: master_autostart.sh 파일을 찾을 수 없습니다."
-fi
-
-# run_standup_only.sh
-if [ -f "$SCRIPT_DIR/run_standup_only.sh" ]; then
-    echo "run_standup_only.sh 파일을 $TARGET_HOME_DIR 로 복사합니다."
-    cp "$SCRIPT_DIR/run_standup_only.sh" "$TARGET_HOME_DIR/"
-else
-    echo "경고: run_standup_only.sh 파일을 찾을 수 없습니다."
-fi
-
-# soccer_web_gui.sh
-if [ -f "$SCRIPT_DIR/soccer_web_gui.sh" ]; then
-    echo "soccer_web_gui.sh 파일을 $TARGET_HOME_DIR 로 복사합니다."
-    cp "$SCRIPT_DIR/soccer_web_gui.sh" "$TARGET_HOME_DIR/"
-else
-    echo "경고: soccer_web_gui.sh 파일을 찾을 수 없습니다."
+    echo "경고: startup 폴더를 찾을 수 없습니다."
 fi
 
 # joy_footstep.yaml

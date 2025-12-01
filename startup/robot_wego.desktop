@@ -3,11 +3,10 @@ Encoding=UTF-8
 Version=0.9.4
 Type=Application
 Name=robot_wego
-Comment=
-Exec=/home/hightorque/master_autostart.sh
+Comment=Check Wifi and Start Robot
+Exec=gnome-terminal --window --title="Robot Startup Log" -- bash -c "/home/hightorque/startup/default/total_startup.sh; echo 'Press Enter to close...'; read"
 OnlyShowIn=XFCE;
 RunHook=0
 StartupNotify=false
 Terminal=false
 Hidden=false
-
