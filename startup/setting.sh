@@ -11,6 +11,7 @@ echo "현재 스크립트 디렉토리: $SCRIPT_DIR"
 # 대상 디렉토리 설정
 TARGET_HOME_DIR="/home/hightorque"
 TARGET_DESKTOP_DIR="$TARGET_HOME_DIR/Desktop"
+TARGET_SIM2REAL_MASTER_DIR="$TARGET_HOME_DIR/sim2real_master/install/share/sim2real_master"
 
 # 1. .desktop 파일들을 ~/Desktop으로 복사 (여기서는 /home/hightorque/Desktop)
 echo "--- .desktop 파일 복사 시작 ---"
@@ -56,6 +57,38 @@ if [ -f "$SCRIPT_DIR/soccer_web_gui.sh" ]; then
     cp "$SCRIPT_DIR/soccer_web_gui.sh" "$TARGET_HOME_DIR/"
 else
     echo "경고: soccer_web_gui.sh 파일을 찾을 수 없습니다."
+fi
+
+# joy_footstep.yaml
+if [ -f "$SCRIPT_DIR/joy_footstep.yaml" ]; then
+    echo "joy_footstep.yaml 파일을 $TARGET_SIM2REAL_MASTER_DIR 로 복사합니다."
+    cp "$SCRIPT_DIR/joy_footstep.yaml" "$TARGET_SIM2REAL_MASTER_DIR/"
+else
+    echo "경고: joy_footstep.yaml 파일을 찾을 수 없습니다."
+fi
+
+# joy_kid.yaml
+if [ -f "$SCRIPT_DIR/joy_kid.yaml" ]; then
+    echo "joy_kid.yaml 파일을 $TARGET_SIM2REAL_MASTER_DIR 로 복사합니다."
+    cp "$SCRIPT_DIR/joy_kid.yaml" "$TARGET_SIM2REAL_MASTER_DIR/"
+else
+    echo "경고: joy_kid.yaml 파일을 찾을 수 없습니다."
+fi
+
+# joy_teleop_kid.launch
+if [ -f "$SCRIPT_DIR/joy_teleop_kid.launch" ]; then
+    echo "joy_teleop_kid.launch 파일을 $TARGET_SIM2REAL_MASTER_DIR/launch 로 복사합니다."
+    cp "$SCRIPT_DIR/joy_teleop_kid.launch" "$TARGET_SIM2REAL_MASTER_DIR/launch/"
+else
+    echo "경고: joy_teleop_kid.launch 파일을 찾을 수 없습니다."
+fi
+
+# joy_teleop.launch
+if [ -f "$SCRIPT_DIR/joy_teleop.launch" ]; then
+    echo "joy_teleop.launch 파일을 $TARGET_SIM2REAL_MASTER_DIR/launch 로 복사합니다."
+    cp "$SCRIPT_DIR/joy_teleop.launch" "$TARGET_SIM2REAL_MASTER_DIR/launch/"
+else
+    echo "경고: joy_teleop.launch 파일을 찾을 수 없습니다."
 fi
 
 # 🌟 wego_minipi_ws 폴더 복사 추가 (재귀적 옵션 -r 사용) 🌟

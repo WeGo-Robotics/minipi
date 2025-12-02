@@ -1,0 +1,19 @@
+teleop:
+  walk:
+    type: topic
+    message_type: geometry_msgs/Twist
+    topic_name: cmd_vel/joy
+    # deadman_buttons: [ 6 ]   # # 4 map F710 Speed commands can only be issued by pressing this button  
+    axis_mappings:
+      - axis: 3
+        target: angular.z
+        scale: 0.6
+      - axis: 1
+        target: linear.x
+        scale: 0.6 
+      - axis: 0
+        target: linear.y
+        scale: 0.6
+      - axis: 2
+        target: linear.z
+        scale: 0.6
