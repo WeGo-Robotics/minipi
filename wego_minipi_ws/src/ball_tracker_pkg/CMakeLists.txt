@@ -164,11 +164,14 @@ include_directories(
 catkin_install_python(PROGRAMS
   scripts/cam_setting.py
   scripts/load_camera_preset.py
-  scripts/mux_ball_goal_tracking_2222.py
   scripts/mux_ball_goal_tracking.py
-  scripts/mux_ball_tracking_2.py
+  scripts/mux_ball_tracking.py
+  scripts/mux_person_tracking.py
   scripts/visualize_ball_tracking.py
   scripts/visualize_ballDetect.py
+  scripts/visualize_person_tracking.py
+  scripts/visualize_person_tracking(1119).py
+  scripts/visualize_display.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
