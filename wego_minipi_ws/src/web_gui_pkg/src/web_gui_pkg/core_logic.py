@@ -246,7 +246,7 @@ class NiceGUIRos:
                     found_packages.add(item.name)
         else:
             print(f"ERROR: Source path {src_path} not found!")
-        explicit_packages = ["realsense2_camera", "usb_cam", "using_llm"]  # 사용자 정의 추가 패키지
+        explicit_packages = ["realsense2_camera", "usb_cam", "using_llm", "sim2real_master"]  # 사용자 정의 추가 패키지
         found_packages.update(explicit_packages)
         return sorted(list(found_packages))  # src 경로 내 패키지 + 추가 패키지
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <arg name="joy_dev" default="/dev/input/js0"/>
+    <!--arg name="teleop_config" default="$(find sim2real_master)/joy.yaml"/-->
+    <!--footstep config-->
+    <arg name="teleop_config" default="$(find sim2real_master)/joy_footstep.yaml"/>
+    <!-- <arg name="teleop_config" default="$(find sim2real_master)/joy_kid.yaml"/> -->
+
+    <node pkg="joy" type="joy_node" name="joy_node">
+        <param name="dev" value="$(arg joy_dev)"/>
+        <param name="deadzone" value="1e-3"/>
+        <param name="autorepeat_rate" value="0"/>
+        <param name="coalesce_interval" value="0.05"/>
+        <!-- <remap from="/joy" to="/joy_input"/> -->
+    </node>
+
+    <rosparam file="$(arg teleop_config)" command="load"/>
+    <node pkg="joy_teleop" type="joy_teleop.py" name="joy_teleop">
+    </node>
+
+    <!-- Launch the humanoid driver -->
+    <!-- <include file="$(find robot_driver)/launch/humanoid_driver.launch"/> -->
+
+</launch>
