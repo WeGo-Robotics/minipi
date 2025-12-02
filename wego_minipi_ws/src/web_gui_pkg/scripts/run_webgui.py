@@ -20,6 +20,7 @@ import web_gui_pkg.page_launch  # 메인 페이지 등록 (@ui.page 데코레이
 import web_gui_pkg.page_llm_chat  # 채팅 페이지 등록 (@ui.page 데코레이터 실행)
 import web_gui_pkg.page_cam_setting  # 카메라 세팅 페이지 등록 (@ui.page 데코레이터 실행)
 import web_gui_pkg.page_startup  # 스타트업 파일 생성 페이지 등록 (@ui.page 데코레이터 실행)
+import web_gui_pkg.page_wifi  # 와이파이 변경 페이지 등록 (@ui.page 데코레이터 실행)
 
 
 def main():
