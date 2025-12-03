@@ -4,32 +4,25 @@
 ### 바로 사용하기 (nomachine을 이용한 GUI)
 새 터미널을 켜거나, 기존 터미널에서 `source ~/.bashrc`를 입력하면 아래 사진과 같이 단축어가 나옵니다.
 
-![start](/etc/docs/image/manual/GUI_start.png)
+<img src="../image/manual/GUI_start.png" alt="설명" width="100%" style="display: block; margin: 0 auto;">
+<br>
 
 차례대로 `soccer_ws`, `roboworld_gui`를 입력하면 GUI 창이 나타납니다.
 
-![start2](/etc/docs/image/manual/GUI_start2.png)
+<img src="../image/manual/GUI_start2.png" alt="설명" width="100%" style="display: block; margin: 0 auto;">
+<br>
 
-![GUI_main](/etc/docs/image/manual/GUI_main.png)
+<img src="../image/manual/GUI_main.png" alt="설명" width="100%" style="display: block; margin: 0 auto;">
+<br>
 
 아래처럼 표시된 항목을 재생하십시오.
 
-![twist_mux](/etc/docs/image/manual/BallTracking.png)
+<div style="display: flex; justify-content: center; gap: 10px;">
+    <img src="../image/manual/BallTracking.png" alt="설명 1" width="45%">
+    <img src="../image/manual/BallTracking_2.png" alt="설명 2" width="45%">
+</div>
+<br>
 
-![avoid_wall, ball_tracking](/etc/docs/image/manual/BallTracking_2.png)
-
-
-### 바로 사용하기 (웹 GUI 접속)
-기본적으로, 로봇을 켜거나 다시 로그인 할 때 자동으로 웹 GUI에 접속 할 수 있는 설정이 완료됩니다.
-
-마찬가지로 아래처럼 표시된 항목을 재생하십시오.
-
-![twist_mux](/etc/docs/image/manual/BallTracking_web.png)
-
-![avoid_wall, ball_tracking](/etc/docs/image/manual/BallTracking_2_web.png)
-
-
----
 ## 커스텀환경에서 공 추적하기
 mini pi는 rk3588기반 npu가 지원됩니다. 따라서 yolo학습 이후 나오는 .pt 파일을 .rknn 파일로 바꾸어 적용할 수 있습니다.
 
@@ -81,9 +74,10 @@ $ yolo export model=(변경할 pt 모델) format=rknn
 
 아래 사진과 같이 soccer_ws/src/yolo11_detect_pkg/config/rknn에 저장합니다.
 
-![rknn file dir](/etc/docs/image/manual/rknn_file.png)
+<img src="../image/manual/rknn_file.png" alt="설명" width="50%" style="display: block; margin: 0 auto;">
+<br>
 
 이후, yolo11_detect_pkg의 yolo_detect_efficient_d435.launch에서 rknn_file과 yaml_file의 기본 경로를 변경합니다.
 
-![launch rknn name](/etc/docs/image/manual/rknn_launch.png)
+<img src="../image/manual/rknn_launch.png" alt="설명" width="100%" style="display: block; margin: 0 auto;">
 
