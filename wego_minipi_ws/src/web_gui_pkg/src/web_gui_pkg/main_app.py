@@ -12,6 +12,8 @@ from .core_logic import NiceGUIRos_instance, mjpeg_streamer
 from .page_launch import main_page
 from .page_llm_chat import llm_chat_page
 from .page_cam_setting import cam_setting_page
+from .page_startup import startup_page
+from .page_wifi import wifi_setup_page
 
 # 정적 파일 설정
 current_dir = Path(__file__).parent
