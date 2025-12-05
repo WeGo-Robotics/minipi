@@ -27,8 +27,8 @@ try:
 except ImportError as e:
     print(f"WARNING: Could not import config.py ({e}). Using Hardcoded Defaults.")
     ROBOT_NAME = "Mini Pi"
-    ROSBRIDGE_HOST = "0.0.0.0"  # rosbridge 호스트 적절히 설정 (로봇 측의 rosbridge와 주소 맞아야 함)
-    ROSBRIDGE_PORT = 9090  # rosbridge 호스트 적절히 설정 (로봇 측의 rosbridge와 주소 맞아야 함)
+    ROSBRIDGE_HOST = "0.0.0.0"
+    ROSBRIDGE_PORT = 9090
     MAX_LOG_LINES = 100
     HOME_DIR = Path(os.path.expanduser("~"))
     ROS_SRC_DIR = HOME_DIR / "soccer_ws" / "src"
@@ -250,6 +250,24 @@ class NiceGUIRos:
         found_packages.update(explicit_packages)
         return sorted(list(found_packages))  # src 경로 내 패키지 + 추가 패키지
 
+    def get_running_launches(self) -> Set[str]:
+        """현재 OS에서 실행 중인 roslaunch 목록을 .launch 파일명 기준으로 반환"""
+        try:
+            cmd = "ps aux | grep roslaunch | grep -v grep"
+            result = subprocess.check_output(cmd, shell=True).decode()
+
+            running = set()
+            for line in result.splitlines():
+                parts = line.split()
+                # roslaunch pkg file.launch 형태가 마지막 인자로 등장함
+                for token in parts:
+                    if token.endswith(".launch"):
+                        running.add(token)
+            return running
+        except Exception as e:
+            print("Failed to get running launches:", e)
+            return set()
+
     def find_launch_files(self, packages: List[str]) -> Dict[str, Any]:
         result: Dict[str, Any] = {}
         for pkg in packages:
@@ -420,6 +438,15 @@ class NiceGUIRos:
         if not self.launch_list_container:
             return
 
+        running_set = self.get_running_launches()
+
+        for pkg, pkg_data in self.launch_files_data.items():
+            for file_name, info in pkg_data["files"].items():
+                if file_name in running_set:
+                    info["status"] = "RUNNING"
+                else:
+                    info["status"] = "STOPPED"
+
         try:
             # 1. 컨테이너 비우기 (여기서 에러가 가장 많이 발생)
             self.launch_list_container.clear()
@@ -497,27 +524,26 @@ class NiceGUIRos:
 
         def _cb(res):
             opts = []
+            topic_dict = {}  # [추가] 토픽 저장을 위한 임시 딕셔너리
+
             # 이름과 타입을 가져와서 이미지 토픽만 필터링
             for n, t in zip(res.get("topics", []), res.get("types", [])):
                 if "sensor_msgs/Image" in str(t) or "sensor_msgs/CompressedImage" in str(t):
                     opts.append(n)
+                    topic_dict[n] = t  # [추가] 타입 정보도 저장
 
-            # UI 업데이트
+            # ★★★ [핵심 수정] 클래스 변수에 저장해야 다른 페이지에서 갖다 쓸 수 있음! ★★★
+            self.available_image_topics = topic_dict
+
+            # (기존) 메인 페이지 UI 업데이트
             if self.image_topic_select:
                 sorted_opts = sorted(opts)
                 self.image_topic_select.set_options(sorted_opts)
 
-                # 현재 선택된 토픽이 사라졌으면 선택 해제 및 구독 중지
                 if self.image_topic_select.value and self.image_topic_select.value not in sorted_opts:
                     self.image_topic_select.set_value(None)
                     self.unsubscribe_current_image_topic()
                     ui.notify("선택된 영상 토픽이 사라졌습니다.", type="warning")
-
-                # (옵션) 선택된 것이 없고, 가능한 토픽이 1개 이상이면 첫 번째 자동 선택?
-                # -> 사용자가 직접 선택하는게 나을 수 있어 자동선택은 주석처리
-                # elif not self.image_topic_select.value and sorted_opts:
-                #     self.image_topic_select.set_value(sorted_opts[0])
-                #     self.subscribe_image_topic(sorted_opts[0])
 
         try:
             self.ros_client.get_topics(callback=_cb)
