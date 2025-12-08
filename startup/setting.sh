@@ -104,6 +104,9 @@ if [ -d "$SCRIPT_DIR/../wego_minipi_ws" ]; then
     echo "wego_minipi_ws 폴더를 $TARGET_HOME_DIR 로 복사합니다."
     # -r 옵션은 디렉토리와 그 내용을 재귀적으로 복사하는 데 사용됩니다.
     sudo cp -r "$SCRIPT_DIR/../wego_minipi_ws" "$TARGET_HOME_DIR/"
+
+    sudo chown -R "$USER" "$TARGET_HOME_DIR/wego_minipi_ws"
+    
 else
     echo "경고: wego_minipi_ws 폴더를 찾을 수 없습니다."
 fi
