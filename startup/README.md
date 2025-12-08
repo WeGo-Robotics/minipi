@@ -65,6 +65,23 @@ sudo apt  update
 sudo apt  install  python3.10  python3.10-distutils  python3.10-venv
 ```
 
+만약 위의 명령어로 설치가 안된다면, 아래 명령어를 통해 설치해 주십시오.
+```bash
+sudo apt update
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+
+wget https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz
+tar -xf Python-3.10.13.tgz
+
+cd Python-3.10.13
+./configure --enable-optimizations --enable-shared
+make -j$(nproc)
+sudo make altinstall
+
+echo "/usr/local/lib" | sudo tee /etc/ld.so.conf.d/python3.10.conf
+sudo ldconfig
+```
+
 이를 수행 후, 다음 명령어로 설치를 확인합니다.
 
 ```bash
