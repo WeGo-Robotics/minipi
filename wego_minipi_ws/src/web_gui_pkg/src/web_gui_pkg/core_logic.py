@@ -33,7 +33,7 @@ except ImportError as e:
     MAX_LOG_LINES = 100
 
     HOME_DIR = Path(os.path.expanduser("~"))
-    ROS_SRC_DIR = HOME_DIR / "soccer_ws" / "src"
+    ROS_SRC_DIR = HOME_DIR / "wego_minipi_ws" / "src"
 
     # 안전한 source 구현
     def safe_source(path):
@@ -42,7 +42,7 @@ except ImportError as e:
     ROS_SETUP_COMMAND = (
         f"source /opt/ros/noetic/setup.bash; "
         f"{safe_source(HOME_DIR / 'realsense_ws/devel/setup.bash')}; "
-        f"{safe_source(HOME_DIR / 'soccer_ws/devel/setup.bash')}"
+        f"{safe_source(HOME_DIR / 'wego_minipi_ws/devel/setup.bash')}"
     )
 
 

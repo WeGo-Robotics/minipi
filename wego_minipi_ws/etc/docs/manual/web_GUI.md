@@ -21,7 +21,7 @@ nomachine이나 HDMI, ssh 접속 없이 같은 네트워크를 사용한다면 �
   <img src="/etc/docs/image/manual/WebGUI_mobile.png" alt="설명" width="30%">
 
 #### 런치 리스트 보기
-soccer_ws 내의 패키지들이 갖고 있는 런치파일들이 있습니다.
+wego_minipi_ws 내의 패키지들이 갖고 있는 런치파일들이 있습니다.
 패키지 명을 클릭하시면 해당 패키지에서 실행할 수 있는 런치파일들이 나타납니다.
 
 <img src="/etc/docs/image/manual/WebGUI_list.png" alt="설명" width="50%">

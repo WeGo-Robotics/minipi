@@ -1,6 +1,6 @@
 <launch>
-  <arg name="bag_filename" default="/home/hightorque/soccer_ws/src/dataset_making/bags" />
-  <arg name="output_dir" default="/home/hightorque/soccer_ws/src/dataset_making/image"/>
+  <arg name="bag_filename" default="/home/hightorque/wego_minipi_ws/src/dataset_making/bags" />
+  <arg name="output_dir" default="/home/hightorque/wego_minipi_ws/src/dataset_making/image"/>
   <arg name="filename_format" default="$(arg output_dir)/frame%06i.jpg" />
 
   <arg name="cam_format" default="/usb_cam/image_raw">

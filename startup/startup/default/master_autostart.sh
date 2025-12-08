@@ -4,7 +4,7 @@
 # [⭐️ 핵심 수정 사항 1] 메인 스크립트에 ROS 환경 로드
 # 이 스크립트에서 직접 실행되는 모든 ROS 명령어(python3)를 위해 필수입니다.
 source /opt/ros/noetic/setup.bash
-source /home/hightorque/soccer_ws/devel/setup.bash 
+source /home/hightorque/wego_minipi_ws/devel/setup.bash 
 # =============================================================
 
 # [⭐️ 핵심 수정 사항 2] 네트워크 IP를 메인 스크립트에 강제로 설정
@@ -25,8 +25,6 @@ sleep 2
 
 # --- 2. 로봇 구동 터미널 시작 (백그라운드) ---
 echo "2️⃣ 로봇 구동 터미널(sim2real)을 시작합니다."
-# [⭐️ 수정] 복잡한 명령을 헬퍼 스크립트로 분리하여 gnome-terminal 명령을 단순화합니다.
-# 헬퍼 스크립트를 실행 파일로 만든 후 사용하세요. (chmod +x /home/hightorque/soccer_ws/sim2real_run.sh)
 gnome-terminal --window --title="sim2real" -- bash -c "~/Desktop/joy_Switch_alg/joy_switch_alg.sh" &
   
 # [⭐️ 핵심 수정 사항 3] sim2real 노드에 충분한 초기화 시간 제공 (20초)

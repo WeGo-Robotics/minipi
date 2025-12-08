@@ -17,8 +17,8 @@ class WifiPage:
         self.is_running = False
 
         # [수정됨] 기존에 존재하는 파일 경로를 직접 지정
-        # 위치: ~/soccer_ws/ble_wifi_setup.py
-        self.script_path = os.path.join(HOME_DIR, "soccer_ws", "ble_wifi_setup.py")
+        # 위치: ~/wego_minipi_ws/ble_wifi_setup.py
+        self.script_path = os.path.join(HOME_DIR, "wego_minipi_ws", "ble_wifi_setup.py")
 
     def start_ble_process(self):
         # 파일이 실제로 있는지 확인

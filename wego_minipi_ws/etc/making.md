@@ -127,7 +127,7 @@ $ roslaunch sim2real_master joy_control.launch
 
 2. twist_mux 실행
 ```bash
-$ cd ~/soccer_ws
+$ cd ~/wego_minipi_ws
 $ source devel/setup.bash
 $ roslaunch wego_twist_mux twist_mux.launch
 ```
@@ -145,14 +145,14 @@ $ roslaunch realsense2_camera rs_camera.launch width:=640 height:=480
 
 5. 공 추적
 ```bash
-$ cd ~/soccer_ws
+$ cd ~/wego_minipi_ws
 $ source devel.setup.bash
 $ roslaunch ball_tracker_pkg ball_track.launch
 ```
 
 6. 벽 감지
 ```bash
-$ cd ~/soccer_ws
+$ cd ~/wego_minipi_ws
 $ source devel/setup.bash
 $ rosrun d435_pkg avoidWall.py
 ```
@@ -174,21 +174,21 @@ $ roslaunch sim2real_master joy_control.launch
 
 2. twist mux 실행
 ```bash
-$ cd ~/soccer_ws
+$ cd ~/wego_minipi_ws
 $ source devel/setup.bash
 $ roslaunch wego_twist_mux twist_mux.launch
 ```
 
 3. avoid wall 실행 (realsense2_camera rs_camera 자동으로 켜지니 중복되지 않게 주의!)
 ```bash
-$ cd ~/soccer_ws
+$ cd ~/wego_minipi_ws
 $ source devel/setup.bash
 $ roslaunch d435_pkg avoid_wall.launch
 ```
 
 4. ball tracking 실행, discrete 버전 (usb_cam usb_cam_node 사용 시 해당 노드 켜야 함!)
 ```bash
-$ cd ~/soccer_ws
+$ cd ~/wego_minipi_ws
 $ source devel/setup.bash
 $ roslaunch ball_tracking_pkg mux_discrete_ball_track.launch
 ```

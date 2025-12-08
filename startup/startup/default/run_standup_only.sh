@@ -12,7 +12,7 @@ echo "ROS 환경을 로드하고 Standup 시퀀스를 실행합니다."
 
 # 1. ROS 환경 및 워크스페이스 로드 (필수)
 source /opt/ros/noetic/setup.bash
-source /home/hightorque/soccer_ws/devel/setup.bash
+source /home/hightorque/wego_minipi_ws/devel/setup.bash
 
 # 2. joy_teleop.launch 실행 (백그라운드)
 echo "joy_teleop_kid.launch 를 백그라운드에서 실행합니다."
@@ -25,7 +25,7 @@ echo "   -> joy_teleop 런치 프로세스 PID: $JOY_TELEOP_PID"
 # 기존 gnome-terminal 실행을 제거하고 현재 스크립트 흐름에서 실행하여
 # 파이썬 스크립트가 완전히 종료될 때까지 **대기(Blocking)** 하도록 합니다.
 echo "🏃‍♂️ Standup Sequence Python 스크립트를 현재 창에서 실행합니다. (종료 대기)"
-python3 /home/hightorque/soccer_ws/start_standup.py
+python3 /home/hightorque/wego_minipi_ws/start_standup.py
 
 # 파이썬 스크립트가 종료되면 다음 라인으로 진행합니다.
 

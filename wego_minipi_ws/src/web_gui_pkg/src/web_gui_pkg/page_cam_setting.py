@@ -10,22 +10,32 @@ from .config import ROBOT_NAME, HOME_DIR
 
 # 기본 범위값
 RANGES = {
-    "BRIGHTNESS": (-64, 64), "CONTRAST": (0, 64), "SATURATION": (0, 128),
-    "HUE": (-40, 40), "GAIN": (0, 100), "EXPOSURE": (1, 5000), 
+    "BRIGHTNESS": (-64, 64),
+    "CONTRAST": (0, 64),
+    "SATURATION": (0, 128),
+    "HUE": (-40, 40),
+    "GAIN": (0, 100),
+    "EXPOSURE": (1, 5000),
     "WB_TEMPERATURE": (2800, 6500),
 }
 DEFAULTS = {
-    "BRIGHTNESS": 0, "CONTRAST": 32, "SATURATION": 64, "HUE": 0, "GAIN": 0, 
-    "EXPOSURE": 157, "WB_TEMPERATURE": 4600,
+    "BRIGHTNESS": 0,
+    "CONTRAST": 32,
+    "SATURATION": 64,
+    "HUE": 0,
+    "GAIN": 0,
+    "EXPOSURE": 157,
+    "WB_TEMPERATURE": 4600,
 }
+
 
 @ui.page("/cam_setting")
 def cam_setting_page():
-    
+
     # 프리셋 저장 폴더 설정 (없으면 생성)
-    PRESET_DIR = os.path.join(HOME_DIR, "soccer_ws", "cam_preset")
+    PRESET_DIR = os.path.join(HOME_DIR, "wego_minipi_ws", "cam_preset")
     os.makedirs(PRESET_DIR, exist_ok=True)
-    
+
     controls = {}
     control_container = None
 
@@ -37,13 +47,11 @@ def cam_setting_page():
             )
             ui.label(ROBOT_NAME + " Camera Setting Viewer").classes("text-white font-bold text-lg")
             ui.space()
-            ui.button("메인으로", icon="home", color="indigo-6").props("flat").classes("font-semibold").on(
-                "click", lambda: ui.navigate.to("/", new_tab=False)
-            )
+            ui.button("메인으로", icon="home", color="indigo-6").props("flat").classes("font-semibold").on("click", lambda: ui.navigate.to("/", new_tab=False))
             ui.button("모두 정지", icon="stop", color="red-6").props("flat").classes("font-semibold").on(
                 "click", lambda _: NiceGUIRos_instance.stop_all_launches()
             )
-    
+
     # ============================================================
     # 내부 로직 함수들
     # ============================================================
@@ -63,12 +71,12 @@ def cam_setting_page():
         if not dev:
             ui.notify("디바이스(또는 토픽)를 선택해주세요.", type="warning")
             return
-        
+
         # --- 케이스 1: 로컬 장치 ---
         if dev.startswith("/dev/"):
             NiceGUIRos_instance.unsubscribe_current_image_topic()
             NiceGUIRos_instance.start_local_camera(dev)
-            
+
             if NiceGUIRos_instance.is_local_cam_running:
                 enable_controls(True)
                 load_current_values()
@@ -85,7 +93,8 @@ def cam_setting_page():
             ui.notify(f"ROS 토픽 구독: {dev}", type="positive")
 
     def enable_controls(enable: bool):
-        if not control_container: return
+        if not control_container:
+            return
         control_container.visible = enable
         if not enable:
             status_label.set_text("ROS 토픽 모드에서는 하드웨어 제어가 불가능합니다.")
@@ -95,18 +104,22 @@ def cam_setting_page():
             status_label.classes("text-green-500")
 
     def load_current_values():
-        if not NiceGUIRos_instance.is_local_cam_running: return
+        if not NiceGUIRos_instance.is_local_cam_running:
+            return
         for key, slider in controls.items():
-            if key in ["AUTO_EXPOSURE", "AUTO_WB"]: continue
+            if key in ["AUTO_EXPOSURE", "AUTO_WB"]:
+                continue
             val = NiceGUIRos_instance.get_camera_prop(key)
-            if val != -1: slider.set_value(val)
+            if val != -1:
+                slider.set_value(val)
 
     def on_prop_change(name, value):
         if NiceGUIRos_instance.is_local_cam_running:
             NiceGUIRos_instance.set_camera_prop(name, value)
 
     def on_auto_change(name, value):
-        if not NiceGUIRos_instance.is_local_cam_running: return
+        if not NiceGUIRos_instance.is_local_cam_running:
+            return
         if name == "AUTO_EXPOSURE":
             cam_val = 0.75 if value else 0.25
             NiceGUIRos_instance.set_camera_prop("AUTO_EXPOSURE", cam_val)
@@ -125,22 +138,24 @@ def cam_setting_page():
         with ui.dialog() as dialog, ui.card():
             ui.label("프리셋 저장").classes("text-lg font-bold")
             name_input = ui.input("파일 이름", placeholder="예: night_mode").classes("w-full")
-            
+
             def _save():
                 name = name_input.value.strip()
                 if not name:
                     ui.notify("이름을 입력해주세요.", type="warning")
                     return
-                if not name.endswith(".json"): name += ".json"
-                
+                if not name.endswith(".json"):
+                    name += ".json"
+
                 path = os.path.join(PRESET_DIR, name)
-                
+
                 # 데이터 수집
                 data = {k: v.value for k, v in controls.items()}
                 data["DEVICE"] = device_select.value
-                
+
                 try:
-                    with open(path, "w") as f: json.dump(data, f, indent=2)
+                    with open(path, "w") as f:
+                        json.dump(data, f, indent=2)
                     ui.notify(f"저장 완료: {name}", type="positive")
                     dialog.close()
                 except Exception as e:
@@ -156,24 +171,26 @@ def cam_setting_page():
         # 저장된 파일 목록 가져오기
         files = glob.glob(os.path.join(PRESET_DIR, "*.json"))
         file_names = [os.path.basename(f) for f in files]
-        
+
         if not file_names:
             ui.notify("저장된 프리셋 파일이 없습니다.", type="warning")
             return
 
         with ui.dialog() as dialog, ui.card().classes("w-80"):
             ui.label("프리셋 불러오기").classes("text-lg font-bold")
-            
+
             selected_file = ui.select(file_names, label="파일 선택", value=file_names[0]).classes("w-full")
-            
+
             def _load():
                 fname = selected_file.value
-                if not fname: return
-                
+                if not fname:
+                    return
+
                 path = os.path.join(PRESET_DIR, fname)
                 try:
-                    with open(path, "r") as f: data = json.load(f)
-                    
+                    with open(path, "r") as f:
+                        data = json.load(f)
+
                     # 장치 선택 적용
                     if "DEVICE" in data:
                         dev = data["DEVICE"]
@@ -181,12 +198,12 @@ def cam_setting_page():
                             current_opts = device_select.options
                             device_select.set_options(current_opts + [dev])
                         device_select.set_value(dev)
-                    
+
                     # 값 적용
                     for k, v in data.items():
                         if k in controls:
                             controls[k].set_value(v)
-                            
+
                     ui.notify(f"로드 완료: {fname} (Open Camera를 눌러 적용하세요)", type="positive")
                     dialog.close()
                 except Exception as e:
@@ -209,10 +226,10 @@ def cam_setting_page():
                     initial_opts = get_all_sources()
                     device_select = ui.select(initial_opts, label="Source", with_input=True).classes("w-60")
                     ui.button(icon="refresh", on_click=refresh_sources).props("flat dense").tooltip("소스 목록 새로고침")
-                    
+
                     ui.button("Open Camera", icon="videocam", on_click=on_open_camera).classes("ml-auto")
                     ui.button("Close", icon="close", color="red", on_click=NiceGUIRos_instance.stop_local_camera)
-            
+
             ui.image("/video_feed").classes("w-full border-2 border-slate-300 rounded mt-4 min-h-[400px] bg-black")
 
         # [오른쪽] 컨트롤 패널
@@ -234,8 +251,7 @@ def cam_setting_page():
                         min_v, max_v = RANGES.get(name, (0, 100))
                         def_v = DEFAULTS.get(name, 0)
                         ui.label(name).classes("text-xs font-bold text-gray-500 mt-2")
-                        sl = ui.slider(min=min_v, max=max_v, value=def_v, step=1, 
-                                    on_change=lambda e: on_prop_change(name, e.value)).props("label-always")
+                        sl = ui.slider(min=min_v, max=max_v, value=def_v, step=1, on_change=lambda e: on_prop_change(name, e.value)).props("label-always")
                         controls[name] = sl
 
                     create_slider("BRIGHTNESS")

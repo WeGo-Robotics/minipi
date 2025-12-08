@@ -64,7 +64,7 @@ yolo11을 사용한 검출 기능 (mini pi에서는 rockchip을 사용하였으�
 
 ```bash
 
-$ cd  ~/soccer_ws
+$ cd  ~/wego_minipi_ws
 
 $ source  devel/setup.bash
 
@@ -80,7 +80,7 @@ $ python3  src/roboworld_soccer.py
 
 ```bash
 
-$ cd  ~/soccer_ws
+$ cd  ~/wego_minipi_ws
 
 $ source  devel/setup.bash
 
@@ -90,7 +90,7 @@ $ roslaunch  using_llm  yolo_llm_pi.launch
 
 ```bash
 
-$ cd  ~/soccer_ws
+$ cd  ~/wego_minipi_ws
 
 $ source  devel/setup.bash
 

@@ -6,7 +6,7 @@ echo "1️⃣ ROS Noetic 환경 설정을 로드합니다..."
 source /opt/ros/noetic/setup.bash
 
 # --- 2. ROS 워크스페이스 환경 설정 및 이동 ---
-WS_DIR="/home/hightorque/soccer_ws"
+WS_DIR="/home/hightorque/wego_minipi_ws"
 
 # 워크스페이스 디렉토리로 이동 시도
 echo "2️⃣ 워크스페이스 디렉토리로 이동합니다: ${WS_DIR}"

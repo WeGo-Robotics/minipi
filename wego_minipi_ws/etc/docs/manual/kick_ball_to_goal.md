@@ -6,7 +6,7 @@
 
 ![start](/etc/docs/image/manual/GUI_start.png)
 
-차례대로 `soccer_ws`, `roboworld_gui`를 입력하면 GUI 창이 나타납니다.
+차례대로 `wego_minipi_ws`, `roboworld_gui`를 입력하면 GUI 창이 나타납니다.
 
 ![start2](/etc/docs/image/manual/GUI_start2.png)
 

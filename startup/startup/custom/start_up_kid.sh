@@ -5,7 +5,7 @@
 
 source /opt/ros/noetic/setup.bash
 source /home/hightorque/realsense_ws/devel/setup.bash
-source /home/hightorque/soccer_ws/devel/setup.bash
+source /home/hightorque/wego_minipi_ws/devel/setup.bash
 
 # === [WAIT SEQUENCE START] ===
 echo '[GUI Startup] Waiting for ROS Core...'
