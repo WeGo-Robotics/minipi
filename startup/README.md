@@ -82,6 +82,11 @@ echo "/usr/local/lib" | sudo tee /etc/ld.so.conf.d/python3.10.conf
 sudo ldconfig
 ```
 
+또는 아래 명령어를 통해 간단히 설치할 수 있습니다.
+```bash
+./install_python310.sh
+```
+
 이를 수행 후, 다음 명령어로 설치를 확인합니다.
 
 ```bash
@@ -90,6 +95,11 @@ python3 --version
 
 python3.10 --version
 # Python 3.10.x
+```
+
+이후 아래 명령어를 입력하여 기본적으로 설치할 것들을 설치합니다.
+```bash
+./install_pkg_deps.sh
 ```
  
 ## 3. 미니파이 프로그램 설치 및 시작 프로그램 등록
@@ -100,6 +110,11 @@ python3.10 --version
 cd startup && ./setting.sh
 cd /home/hightorque/wego_minipi_ws
 pip install  -r  requirements.txt
+```
+
+이후 아래 명령어를 통해 ~/.bashrc를 변경합니다.
+```bash
+./update_bashrc.sh
 ```
 
 로봇을 재부팅 했을 때 다음과 같이 터미널들이 나타나면 정상 설치된 것입니다.
