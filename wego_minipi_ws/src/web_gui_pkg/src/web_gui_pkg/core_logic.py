@@ -26,14 +26,23 @@ try:
     from .config import ROBOT_NAME, ROSBRIDGE_HOST, ROSBRIDGE_PORT, MAX_LOG_LINES, ROS_SETUP_COMMAND, ROS_SRC_DIR
 except ImportError as e:
     print(f"WARNING: Could not import config.py ({e}). Using Hardcoded Defaults.")
+
     ROBOT_NAME = "Mini Pi"
     ROSBRIDGE_HOST = "0.0.0.0"
     ROSBRIDGE_PORT = 9090
     MAX_LOG_LINES = 100
+
     HOME_DIR = Path(os.path.expanduser("~"))
     ROS_SRC_DIR = HOME_DIR / "soccer_ws" / "src"
+
+    # 안전한 source 구현
+    def safe_source(path):
+        return f'[ -f "{path}" ] && source "{path}"'
+
     ROS_SETUP_COMMAND = (
-        f"source /opt/ros/noetic/setup.bash; " f"source {HOME_DIR}/realsense_ws/devel/setup.bash; " f"source {HOME_DIR}/soccer_ws/devel/setup.bash"
+        f"source /opt/ros/noetic/setup.bash; "
+        f"{safe_source(HOME_DIR / 'realsense_ws/devel/setup.bash')}; "
+        f"{safe_source(HOME_DIR / 'soccer_ws/devel/setup.bash')}"
     )
 
 

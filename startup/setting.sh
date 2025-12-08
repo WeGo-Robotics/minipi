@@ -46,7 +46,6 @@ if [ -d "$SCRIPT_DIR/startup" ]; then
     cp -r "$SCRIPT_DIR/startup" "$TARGET_HOME_DIR/"
 else
     echo "경고: startup 폴더를 찾을 수 없습니다."
-<<<<<<< HEAD
 fi
 
 # joy_footstep.yaml
@@ -79,8 +78,6 @@ if [ -f "$SCRIPT_DIR/joy_teleop.launch" ]; then
     cp "$SCRIPT_DIR/joy_teleop.launch" "$TARGET_SIM2REAL_MASTER_DIR/launch/"
 else
     echo "경고: joy_teleop.launch 파일을 찾을 수 없습니다."
-=======
->>>>>>> 1557300 (gui 기능 추가에 따른 startup 구조 수정 및 설명 업데이트)
 fi
 
 # 🌟 wego_minipi_ws 폴더 복사 추가 (재귀적 옵션 -r 사용) 🌟
