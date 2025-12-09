@@ -54,6 +54,45 @@ else
     echo " python3-pyqt5 (PyQt5)는 이미 설치되어 있습니다."
 fi
 
+# --- Twist Mux 설치 ---
+echo "--- 5. twist_mux 설치 (ROS cmd_vel 관리용) ---"
+if ! dpkg -l | grep -q "ros-noetic-twist-mux"; then
+    sudo apt install -y ros-noetic-twist-mux
+    if [ $? -eq 0 ]; then
+        echo "ros-noetic-twist-mux 설치 완료."
+    else
+        echo "오류: ros-noetic-twist-mux 설치에 실패했습니다."
+    fi
+else
+    echo "ros-noetic-twist-mux는 이미 설치되어 있습니다."
+fi
 
-echo "--- 5. 필수 패키지 설치 완료 ---"
+# --- USB Camera 설치 ---
+echo "--- 6. USB Camera 패키지 설치 ---"
+
+# v4l2_camera (권장)
+if ! dpkg -l | grep -q "ros-noetic-v4l2-camera"; then
+    sudo apt install -y ros-noetic-v4l2-camera
+    if [ $? -eq 0 ]; then
+        echo "ros-noetic-v4l2-camera 설치 완료."
+    else
+        echo "오류: ros-noetic-v4l2-camera 설치 실패."
+    fi
+else
+    echo "ros-noetic-v4l2-camera는 이미 설치되어 있습니다."
+fi
+
+# usb_cam (옵션)
+if ! dpkg -l | grep -q "ros-noetic-usb-cam"; then
+    sudo apt install -y ros-noetic-usb-cam
+    if [ $? -eq 0 ]; then
+        echo "ros-noetic-usb-cam 설치 완료."
+    else
+        echo "오류: ros-noetic-usb-cam 설치 실패."
+    fi
+else
+    echo "ros-noetic-usb-cam는 이미 설치되어 있습니다."
+fi
+
+echo "--- 필수 패키지 설치 완료 ---"
 echo "이제 requirements.txt에서 'numpy', 'opencv-python', 'PyQt5'를 제거/주석 처리한 후, 나머지 패키지를 python3.10 -m pip install로 설치하세요."
