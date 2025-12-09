@@ -11,19 +11,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 add_message_files(
   FILES
-  RL2PD.msg
-  PD2RL.msg
-  Orient.msg
-  MtrState.msg
-  RbtState.msg
-  MtrTarget.msg
-  RbtTarget.msg
-  ControlState.msg
-  WayPoint.msg
   Yolo.msg
   YoloDetect.msg
-  usr2ctrl.msg
-  ctrl2usr.msg
 )
 
 generate_messages(

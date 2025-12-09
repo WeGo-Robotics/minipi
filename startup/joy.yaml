@@ -20,7 +20,7 @@ teleop:
 
   mode_change:
     type: topic
-    message_type: sim2real_msg/ControlState
+    message_type: sim2real_msg/Joy
     topic_name: /joy_msg
     axis_mappings:
       - axis: 2                

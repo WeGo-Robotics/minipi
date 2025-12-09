@@ -24,12 +24,10 @@ fi
 source devel/setup.bash
 
 # --- 3. NiceGUI 애플리케이션 실행 ---
-APP_SCRIPT="src/niceGUI_ROS_funcCom.py"
-PYTHON_EXEC="python3.10"
 
-echo "3️⃣ NiceGUI 애플리케이션 실행을 시도합니다: ${PYTHON_EXEC} ${APP_SCRIPT}"
+echo "3️⃣ NiceGUI 애플리케이션 실행을 시도합니다: rosrun web_gui_pkg run_webgui.py"
 # NiceGUI 실행 시도
-"${PYTHON_EXEC}" "${APP_SCRIPT}"
+rosrun web_gui_pkg run_webgui.py
 STATUS=$?
 
 echo "---"
