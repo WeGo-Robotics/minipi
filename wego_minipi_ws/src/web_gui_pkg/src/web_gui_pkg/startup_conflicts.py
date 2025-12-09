@@ -7,6 +7,7 @@ LAUNCH_CONFLICTS = {
         ("sim2real_master", "joy_control_hi.launch"),
         ("sim2real_master", "joy_control_pi.launch"),
         ("sim2real_master", "joy_control_pi_plus.launch"),
+        ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"),
     ],
     ("sim2real_master", "gdb_joy_control_pi.launch"): [
         ("sim2real_master", "gdb_joy_control_hi.launch"),
@@ -14,6 +15,7 @@ LAUNCH_CONFLICTS = {
         ("sim2real_master", "joy_control_hi.launch"),
         ("sim2real_master", "joy_control_pi.launch"),
         ("sim2real_master", "joy_control_pi_plus.launch"),
+        ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"),
     ],
     ("sim2real_master", "gdb_joy_control_pi_plus.launch"): [
         ("sim2real_master", "gdb_joy_control_hi.launch"),
@@ -21,6 +23,7 @@ LAUNCH_CONFLICTS = {
         ("sim2real_master", "joy_control_hi.launch"),
         ("sim2real_master", "joy_control_pi.launch"),
         ("sim2real_master", "joy_control_pi_plus.launch"),
+        ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"),
     ],
     ("sim2real_master", "joy_control_hi.launch"): [
         ("sim2real_master", "gdb_joy_control_hi.launch"),
@@ -28,6 +31,7 @@ LAUNCH_CONFLICTS = {
         ("sim2real_master", "gdb_joy_control_pi_plus.launch"),
         ("sim2real_master", "joy_control_pi.launch"),
         ("sim2real_master", "joy_control_pi_plus.launch"),
+        ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"),
     ],
     ("sim2real_master", "joy_control_pi.launch"): [
         ("sim2real_master", "gdb_joy_control_hi.launch"),
@@ -35,6 +39,7 @@ LAUNCH_CONFLICTS = {
         ("sim2real_master", "gdb_joy_control_pi_plus.launch"),
         ("sim2real_master", "joy_control_hi.launch"),
         ("sim2real_master", "joy_control_pi_plus.launch"),
+        ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"),
     ],
     ("sim2real_master", "joy_control_pi_plus.launch"): [
         ("sim2real_master", "gdb_joy_control_hi.launch"),
@@ -42,6 +47,15 @@ LAUNCH_CONFLICTS = {
         ("sim2real_master", "gdb_joy_control_pi_plus.launch"),
         ("sim2real_master", "joy_control_hi.launch"),
         ("sim2real_master", "joy_control_pi.launch"),
+        ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"),
+    ],
+    ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"): [
+        ("sim2real_master", "gdb_joy_control_hi.launch"),
+        ("sim2real_master", "gdb_joy_control_pi.launch"),
+        ("sim2real_master", "gdb_joy_control_pi_plus.launch"),
+        ("sim2real_master", "joy_control_hi.launch"),
+        ("sim2real_master", "joy_control_pi.launch"),
+        ("sim2real_master", "joy_control_pi_plus.launch"),
     ],
 }
 
@@ -65,6 +79,7 @@ BLOCKED_LAUNCHES = [
     ("sim2real_master", "joy_control_hi.launch"),
     ("sim2real_master", "joy_control_pi.launch"),
     ("sim2real_master", "joy_control_pi_plus.launch"),
+    ("sim2real_master", "joy_control_pi_plus_lowerbody.launch"),
     ("realsense2_camera", "demo_pointcloud.launch"),
     ("realsense2_camera", "rs_d435_camera_with_model.launch"),
     ("realsense2_camera", "demo_t265.launch"),
