@@ -39,10 +39,20 @@ except ImportError as e:
     def safe_source(path):
         return f'[ -f "{path}" ] && source "{path}"'
 
+    # 1. 각 작업 공간의 핵심 경로 정의
+    SIM2REAL_SHARE_PATH = f"{HOME_DIR}/sim2real_master/install/share"
+    WEGO_SHARE_PATH = f"{HOME_DIR}/wego_minipi_ws/devel/share"
+    REALSENSE_SHARE_PATH = f"{HOME_DIR}/realsense_ws/devel/share"
+
+    # 2. ROS_SETUP_COMMAND 수정: 모든 source 실행 후 강제 병합
     ROS_SETUP_COMMAND = (
+        # 1. 모든 작업 공간 source 실행
         f"source /opt/ros/noetic/setup.bash; "
+        f"{safe_source(HOME_DIR / 'sim2real_master/install/setup.bash')}; "
+        f"{safe_source(HOME_DIR / 'wego_minipi_ws/devel/setup.bash')}; "
         f"{safe_source(HOME_DIR / 'realsense_ws/devel/setup.bash')}; "
-        f"{safe_source(HOME_DIR / 'wego_minipi_ws/devel/setup.bash')}"
+        # 2. 강제 병합: 어떤 source가 덮어썼더라도 핵심 경로를 ROS_PACKAGE_PATH 맨 앞에 추가하여 복구 및 보장
+        f"export ROS_PACKAGE_PATH={SIM2REAL_SHARE_PATH}:{WEGO_SHARE_PATH}:{REALSENSE_SHARE_PATH}:$ROS_PACKAGE_PATH"
     )
 
 
