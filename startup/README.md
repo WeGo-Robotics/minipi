@@ -100,6 +100,7 @@ python3.10 --version
 이후 아래 명령어를 입력하여 기본적으로 설치할 것들을 설치합니다.
 ```bash
 ./install_pkg_deps.sh
+./install_llm.sh
 ```
  
 ## 3. 미니파이 프로그램 설치 및 시작 프로그램 등록
@@ -144,19 +145,3 @@ mini pi의 기본 디렉토리 (/home/hightorque)에 startup 내 startup 폴더�
 
 wego_minipi_ws는 mini를 활용하여 다양한 기능을 할 수 있도록 한 워크스페이스입니다.
 공 추적, llm 기반 대화 등 다양한 기능에 대한 패키지가 들어있습니다.
-
-## 4. 부가 설치 사항
-
-rkllama와 hugging face에서 다운받은 모델을 다운받아야 mini pi의 NPU를 활용한 LLM 사용이 가능합니다.
-[rkllama github](https://github.com/NotPunchnox/rkllama/tree/Beta)를 클론합니다.
-  
-
-클론 후, `git checkout Beta`를 통해 Beta 브랜치를 사용하도록 합니다.
-
-이후, [rkllama에서 사용하는 모델](https://huggingface.co/c01zaut/Qwen2.5-3B-Instruct-RK3588-1.1.4)을 설치합니다.
-
-```bash
-rkllama pull
-Repo ID ( example:  punchnox/Tinnyllama-1.1B-rk3588-rkllm-1.1.4): <your response>
-File ( example:  TinyLlama-1.1B-Chat-v1.0-rk3588-w8a8-opt-0-hybrid-ratio-0.5.rkllm): <your response>
-```
