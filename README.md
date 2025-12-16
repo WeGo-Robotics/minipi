@@ -26,4 +26,4 @@ wlan0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-wlan0의 inet을 이용하여 원격접속에 사용할 수 있습니다
+wlan0의 inet을 이용하여 원격접속에 사용할 수 있습니다 
