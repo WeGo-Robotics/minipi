@@ -97,11 +97,6 @@ python3.10 --version
 # Python 3.10.x
 ```
 
-이후 아래 명령어를 입력하여 기본적으로 설치할 것들을 설치합니다.
-```bash
-./install_pkg_deps.sh
-./install_llm.sh
-```
  
 ## 3. 미니파이 프로그램 설치 및 시작 프로그램 등록
 
@@ -112,24 +107,55 @@ cd startup && ./setting.sh
 cd /home/hightorque/wego_minipi_ws
 pip install  -r  requirements.txt
 ```
+<br>
 
 이후 아래 명령어를 통해 ~/.bashrc를 변경합니다.
 ```bash
 ./update_bashrc.sh
 ```
 
+이후 아래 명령어를 입력하여 기본적으로 설치할 것들을 설치합니다.
+```bash
+./install_pkg_deps.sh
+./install_llm.sh
+```
+<br>
+
+로봇 내 sim2real_master에서 지정한 sim2real_msg를 복사해야 합니다.
+
+```bash
+cd ~/wego_minipi_ws/src/sim2real_msg/msg
+find ~/sim2real_master/install/share/sim2real_msg/msg -maxdepth 1 -name "*.msg" | grep -v 'lowlevel_' | xargs -I {} cp {} .
+sudo vim ../CMakeLists.txt
+```
+CMakeLists.txt에 추가된 메세지를 넣습니다.
+```CMakeLists.txt
+add_message_files(
+  FILES
+  Yolo.msg
+  YoloDetect.msg
+  # 추가된 .msg 파일
+)
+```
+<br>
+
+이후, 빌드를 진행합니다.
+```bash
+cd ~/wego_minpi_ws
+catkin_make
+```
+<br>
+
 로봇을 재부팅 했을 때 다음과 같이 터미널들이 나타나면 정상 설치된 것입니다.
 <img src="./image/autostart_screen.gif"  alt="시작화면"  width="60%"  style="display: block; margin: 0 auto;">
 
 
-### a. 시작 프로그램 등록
+### 참고) 시작 프로그램 등록
 
 mini pi에는 기본적으로 로봇이 부팅될 때 로봇 구동 코드를 실행하도록 하는 start up이 세팅되어있습니다.
 
 추가된 기능(일어서기, 웹 gui 켜기 등)들이 있으므로, 새로운 start up을 등록합니다.
 <br> 
-
-  
 
 mini pi의 기본 디렉토리 (/home/hightorque)에 startup 내 startup 폴더를 저장한 후 권한을 부여합니다.  
 - master_autostart.sh: 아래 두 기능을 한 번에 묶은 것입니다.
