@@ -31,6 +31,15 @@ if [ -f "$SCRIPT_DIR/robot_wego.desktop" ]; then
     sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR2/robot_wego.desktop"
 fi
 
+# custom_startup.desktop
+if [ -f "$SCRIPT_DIR/custom_startup.desktop" ]; then
+    sudo cp "$SCRIPT_DIR/custom_startup.desktop" "$TARGET_DESKTOP_DIR1/"
+    sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR1/custom_startup.desktop"
+
+    sudo cp "$SCRIPT_DIR/custom_startup.desktop" "$TARGET_DESKTOP_DIR2/"
+    sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR2/custom_startup.desktop"
+fi
+
 # 실행 권한 부여 (Desktop 폴더) - 소유권 변경 후 실행해야 root 소유 파일에 대한 문제 해결됨
 if [ -d "$TARGET_DESKTOP_DIR1" ]; then
     echo "$TARGET_DESKTOP_DIR1 내 .desktop 파일에 실행 권한을 부여합니다."

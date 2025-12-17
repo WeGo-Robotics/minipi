@@ -21,7 +21,7 @@ class PersonTrack:
         # ---------------- 파라미터 ----------------
         self.cmd_topic = rospy.get_param("~cmd_topic", "/cmd_vel/auto")
         self.detections_topic = rospy.get_param("~detections_topic", "/yolo/detections")
-        self.state_topic = rospy.get_param("~state_topic", "/ball/state")   # 토픽 이름은 필요하면 나중에 /person/state 로 변경
+        self.state_topic = rospy.get_param("~state_topic", "/ball/state")  # 토픽 이름은 필요하면 나중에 /person/state 로 변경
         self.mode_topic = rospy.get_param("~mode_topic", "/pi_mode")
 
         self.image_width = rospy.get_param("~image_width", 640)
@@ -44,7 +44,7 @@ class PersonTrack:
         self.search_ang_vel = rospy.get_param("~search_ang_vel", 0.8)
 
         # bbox 면적 기반 거리 제어
-        self.target_area = rospy.get_param("~target_area", 0.10)     # normalized
+        self.target_area = rospy.get_param("~target_area", 0.10)  # normalized
         self.area_tolerance = rospy.get_param("~area_tolerance", 0.04)
 
         # 히스토리 / 타이밍
@@ -61,12 +61,12 @@ class PersonTrack:
         self.state_pub = rospy.Publisher(self.state_topic, Int8, queue_size=10)
         self.mode_pub = rospy.Publisher(self.mode_topic, String, queue_size=10)
 
-        self.last_person = None          # 최근 검출 정보 (dict)
-        self.last_person_stamp = None    # 최근 검출 시각
-        self.prev_person_center = None   # 마지막 위치 (x,y)
-        self.no_det_elapsed = 0.0        # 마지막 검출 이후 경과 시간
+        self.last_person = None  # 최근 검출 정보 (dict)
+        self.last_person_stamp = None  # 최근 검출 시각
+        self.prev_person_center = None  # 마지막 위치 (x,y)
+        self.no_det_elapsed = 0.0  # 마지막 검출 이후 경과 시간
 
-        self.is_aligned = False          # 중심 정렬 상태
+        self.is_aligned = False  # 중심 정렬 상태
         self.align_start_time = None
 
         self.last_cmd_time = rospy.Time.now()
@@ -118,11 +118,11 @@ class PersonTrack:
         YOLO detection 이 우리가 원하는 '사람(person)'인지 판단
         """
         label = (det.label or "").strip().lower()
-        label_ok = (label == self.person_label)
+        label_ok = label == self.person_label
 
         class_ok = True
         if self.person_class_id >= 0:
-            class_ok = (det.class_id == self.person_class_id)
+            class_ok = det.class_id == self.person_class_id
 
         conf = float(getattr(det, "conf", 1.0))
         if conf < self.min_confidence:
@@ -193,60 +193,130 @@ class PersonTrack:
         # 종료 시 정지
         self._publish_cmd(0.0, 0.0)
 
+    # def _step(self):
+    #     self._stop_cmd_if_timeout()
+
+    #     now = rospy.Time.now()
+
+    #     # 사람을 오래 못 봤으면 검색 모드
+    #     if self.last_person is None or self.no_det_elapsed > self.max_no_detection:
+    #         self._search_mode()
+    #         return
+
+    #     # ---------------- 사람 추적 로직 ----------------
+    #     xc = float(self.last_person["xc"])
+    #     yc = float(self.last_person["yc"])
+
+    #     dx = xc - self.img_cx
+    #     dy = self.img_cy - yc  # 화면 위쪽이 + 가 되도록
+
+    #     # 화면 기준 정규화 (대략 [-1, 1] 범위)
+    #     nx = dx / (self.image_width * 0.5)
+    #     ny = dy / (self.image_height * 0.5)
+
+    #     # 회전 제어: 사람을 화면 중앙으로 오게
+    #     ang_z = -self.kp_angular * nx  # 오른쪽 있으면 음, 왼쪽 있으면 양
+    #     ang_z = clamp(ang_z, -self.max_ang_vel, self.max_ang_vel)
+
+    #     # 거리 제어: bbox 면적 기반
+    #     w = float(self.last_person["w"])
+    #     h = float(self.last_person["h"])
+    #     area = (w * h) / float(self.image_width * self.image_height + 1e-6)
+
+    #     err_area = self.target_area - area
+    #     lin_x = self.kp_linear * err_area
+    #     lin_x = clamp(lin_x, -self.max_lin_vel, self.max_lin_vel)
+
+    #     # 일정 범위 안에 들어오면 전진 멈춤
+    #     if abs(err_area) < self.area_tolerance:
+    #         lin_x = 0.0
+
+    #     # 중심 정렬 여부 체크
+    #     if abs(nx) < 0.05:  # x 오차가 작으면 정렬 상태
+    #         if not self.is_aligned:
+    #             self.is_aligned = True
+    #             self.align_start_time = now
+    #         else:
+    #             if (now - self.align_start_time).to_sec() > self.align_timeout:
+    #                 self._publish_state(STATE_HOLD)
+    #                 self._publish_mode("person chase")
+    #     else:
+    #         self.is_aligned = False
+
+    #     # 실제 명령 퍼블리시
+    #     self._publish_cmd(lin_x, ang_z)
+    #     self._publish_state(STATE_GO)
+    #     self._publish_mode("person chase")
+
     def _step(self):
         self._stop_cmd_if_timeout()
-
         now = rospy.Time.now()
 
-        # 사람을 오래 못 봤으면 검색 모드
+        # ------------------------------------------------
+        # 1. 사람을 잃어버린 경우 → 탐색
+        # ------------------------------------------------
         if self.last_person is None or self.no_det_elapsed > self.max_no_detection:
             self._search_mode()
             return
 
-        # ---------------- 사람 추적 로직 ----------------
+        # ------------------------------------------------
+        # 2. 위치 정보 계산
+        # ------------------------------------------------
         xc = float(self.last_person["xc"])
-        yc = float(self.last_person["yc"])
-
         dx = xc - self.img_cx
-        dy = self.img_cy - yc  # 화면 위쪽이 + 가 되도록
-
-        # 화면 기준 정규화 (대략 [-1, 1] 범위)
         nx = dx / (self.image_width * 0.5)
-        ny = dy / (self.image_height * 0.5)
 
-        # 회전 제어: 사람을 화면 중앙으로 오게
-        ang_z = -self.kp_angular * nx  # 오른쪽 있으면 음, 왼쪽 있으면 양
-        ang_z = clamp(ang_z, -self.max_ang_vel, self.max_ang_vel)
-
-        # 거리 제어: bbox 면적 기반
         w = float(self.last_person["w"])
         h = float(self.last_person["h"])
-        area = (w * h) / float(self.image_width * self.image_height + 1e-6)
+        area = (w * h) / float(self.image_width * self.image_height)
 
         err_area = self.target_area - area
-        lin_x = self.kp_linear * err_area
-        lin_x = clamp(lin_x, -self.max_lin_vel, self.max_lin_vel)
 
-        # 일정 범위 안에 들어오면 전진 멈춤
-        if abs(err_area) < self.area_tolerance:
+        # ------------------------------------------------
+        # 3. 상태 판단
+        # ------------------------------------------------
+        is_close = area > self.area_tolerance
+        aligned = abs(nx) < 0.05
+
+        # ------------------------------------------------
+        # 4. 기본 출력값
+        # ------------------------------------------------
+        lin_x = 0.0
+        ang_z = 0.0
+        state = STATE_GO
+        mode = "person chase"
+
+        # ------------------------------------------------
+        # 5. 통합 제어 로직
+        # ------------------------------------------------
+        if is_close and aligned:
+            # 가까움 + 정렬됨 → 완전 정지
             lin_x = 0.0
+            ang_z = 0.0
+            state = STATE_HOLD
+            mode = "stop"
 
-        # 중심 정렬 여부 체크
-        if abs(nx) < 0.05:  # x 오차가 작으면 정렬 상태
-            if not self.is_aligned:
-                self.is_aligned = True
-                self.align_start_time = now
-            else:
-                if (now - self.align_start_time).to_sec() > self.align_timeout:
-                    self._publish_state(STATE_HOLD)
-                    self._publish_mode("person chase")
+        elif is_close and not aligned:
+            # 가까운데 정렬 안 됨 → 회전만
+            lin_x = 0.0
+            ang_z = clamp(-self.kp_angular * nx, -self.max_ang_vel, self.max_ang_vel)
+            mode = "align only"
+
         else:
-            self.is_aligned = False
+            # 아직 멀다 → 접근 + 회전
+            lin_x = self.kp_linear * err_area
+            lin_x = clamp(lin_x, -self.max_lin_vel, self.max_lin_vel)
 
-        # 실제 명령 퍼블리시
+            ang_z = clamp(-self.kp_angular * nx, -self.max_ang_vel, self.max_ang_vel)
+
+            mode = f"person chase, area:{area:.3f}"
+
+        # ------------------------------------------------
+        # 6. 명령 퍼블리시 (한 번만)
+        # ------------------------------------------------
         self._publish_cmd(lin_x, ang_z)
-        self._publish_state(STATE_GO)
-        self._publish_mode("person chase")
+        self._publish_state(state)
+        self._publish_mode(mode)
 
     def _search_mode(self):
         """
