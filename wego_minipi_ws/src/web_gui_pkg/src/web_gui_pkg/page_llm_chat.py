@@ -29,7 +29,6 @@ def llm_chat_page():
     # ----- 메인 컨텐츠 -----
     with ui.column().classes("p-4 w-full max-w-screen-xl mx-auto"):
         with ui.row().classes("w-full gap-4 flex-wrap lg:flex-nowrap lg:justify-between"):
-
             # 1. 왼쪽 (영상)
             with ui.column().classes("w-full lg:w-7/12"):
                 with ui.row().classes("w-full items-center gap-2"):

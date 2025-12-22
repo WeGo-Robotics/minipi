@@ -71,12 +71,10 @@ def cam_setting_page():
         if not dev:
             ui.notify("디바이스(또는 토픽)를 선택해주세요.", type="warning")
             return
-
         # --- 케이스 1: 로컬 장치 ---
         if dev.startswith("/dev/"):
             NiceGUIRos_instance.unsubscribe_current_image_topic()
             NiceGUIRos_instance.start_local_camera(dev)
-
             if NiceGUIRos_instance.is_local_cam_running:
                 enable_controls(True)
                 load_current_values()
@@ -171,7 +169,6 @@ def cam_setting_page():
         # 저장된 파일 목록 가져오기
         files = glob.glob(os.path.join(PRESET_DIR, "*.json"))
         file_names = [os.path.basename(f) for f in files]
-
         if not file_names:
             ui.notify("저장된 프리셋 파일이 없습니다.", type="warning")
             return
@@ -198,12 +195,10 @@ def cam_setting_page():
                             current_opts = device_select.options
                             device_select.set_options(current_opts + [dev])
                         device_select.set_value(dev)
-
                     # 값 적용
                     for k, v in data.items():
                         if k in controls:
                             controls[k].set_value(v)
-
                     ui.notify(f"로드 완료: {fname} (Open Camera를 눌러 적용하세요)", type="positive")
                     dialog.close()
                 except Exception as e:

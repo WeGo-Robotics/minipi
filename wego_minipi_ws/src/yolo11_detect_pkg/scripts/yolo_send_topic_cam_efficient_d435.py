@@ -163,7 +163,6 @@ class YoloInfo(object):
                 if a[5] != b[5]:
                     tmp.append(b)
                     continue
-
                 # IOU 계산
                 xx1 = max(a[0], b[0])
                 yy1 = max(a[1], b[1])
@@ -173,7 +172,6 @@ class YoloInfo(object):
                 h = max(0.0, yy2 - yy1)
                 inter = w * h
                 iou = inter / (((a[2] - a[0]) * (a[3] - a[1])) + ((b[2] - b[0]) * (b[3] - b[1])) - inter + 1e-6)
-
                 if iou <= iou_th:
                     tmp.append(b)
             boxes = tmp
@@ -229,7 +227,6 @@ class YoloInfo(object):
         has_obj_conf = False
         obj_conf_idx = -1
         cls_probs_start_idx = -1
-
         if C == C_FULL:
             # Case 1: Obj Conf 존재 (예: 3클래스 C=8, 1클래스 C=6)
             has_obj_conf = True
@@ -246,7 +243,6 @@ class YoloInfo(object):
             return dets
 
         # 3. 점수 및 클래스 추출 (통합 로직)
-
         # Obj Conf 추출 및 정규화
         obj_conf = None
         if has_obj_conf:
@@ -255,7 +251,6 @@ class YoloInfo(object):
             if max_obj_conf > 1.5:
                 # 255/65535 등으로 정규화되지 않은 경우, 최대값으로 정규화
                 obj_conf /= max_obj_conf
-
         # Class Probs 추출 및 정규화
         cls_probs = arr[:, cls_probs_start_idx:].astype(np.float32)
         max_cls_probs = float(cls_probs.max())

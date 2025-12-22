@@ -355,7 +355,7 @@ class Viz:
 
             cv2.putText(frame, text_to_display, (text_x, text_y), font, font_scale, color, font_thickness, cv2.LINE_AA)
 
-        # ⭐️ 중앙: 'avoid wall' 메시지 표시 (수정된 로직) ⭐️
+        # 중앙: 'avoid wall' 메시지 표시 (수정된 로직)
         # pi_mode_text가 정확히 "avoid wall"이고, 데이터가 오래되지 않았을 때만 메시지를 표시합니다.
         if self.pi_mode_text == "avoid wall" and not is_mode_old:
             text_to_display = "AVOID OBSTACLE"

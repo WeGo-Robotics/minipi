@@ -581,7 +581,7 @@ class CamTuner(QWidget):
             # ROS 구독 중일 때 self.ros_frame을 사용하여 표시
             if self.playing and self.ros_frame is not None:
                 frame = self.ros_frame.copy()
-                # 💡 ROS 토픽은 카메라 속성 제어가 안 되므로, B/C/S는 소프트웨어적으로 보정
+                # ROS 토픽은 카메라 속성 제어가 안 되므로, B/C/S는 소프트웨어적으로 보정
                 alpha, beta, saturation_factor = self._get_alpha_beta()
                 frame = cv2.convertScaleAbs(frame, alpha=alpha, beta=beta)
                 if saturation_factor != 1.0:
@@ -627,7 +627,7 @@ class CamTuner(QWidget):
             if name == "WB_TEMPERATURE" and self.cbAutoWB.isChecked():
                 return
 
-            # 💡 클리핑 로직: SpinBox에서 값이 넘어왔을 때 현재 Min/Max를 벗어나지 않도록 클리핑
+            # 클리핑 로직: SpinBox에서 값이 넘어왔을 때 현재 Min/Max를 벗어나지 않도록 클리핑
             v_min = self.spinBoxes[name].minimum()
             v_max = self.spinBoxes[name].maximum()
 
@@ -753,7 +753,7 @@ class CamTuner(QWidget):
             if k in data and self.sliders.get(k):
                 val_from_file = int(data[k])
 
-                # 💡 파일 로드 시 클리핑 로직 강화 (min/max는 현재 SpinBox 범위 기준)
+                # 파일 로드 시 클리핑 로직 강화 (min/max는 현재 SpinBox 범위 기준)
                 v_min = self.spinBoxes[k].minimum()
                 v_max = self.spinBoxes[k].maximum()
                 val_to_set = max(v_min, min(v_max, val_from_file))

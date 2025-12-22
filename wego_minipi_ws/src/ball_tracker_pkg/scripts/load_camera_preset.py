@@ -26,7 +26,7 @@ def load_params_from_json(json_path):
 
     rospy.init_node("camera_param_loader", anonymous=True)
 
-    # ⭐️ ROS 파라미터 서버에 값 설정 ⭐️
+    # ROS 파라미터 서버에 값 설정
     rospy.set_param("/camera_settings/brightness", data.get("BRIGHTNESS"))
     rospy.set_param("/camera_settings/contrast", data.get("CONTRAST"))
     rospy.set_param("/camera_settings/saturation", data.get("SATURATION"))
@@ -54,7 +54,6 @@ if __name__ == "__main__":
         path = sys.argv[1]
     else:
         path = DEFAULT_JSON_PATH
-
     if load_params_from_json(path):
         # 파라미터 로드 후 노드가 종료되어도 파라미터는 서버에 남아있습니다.
         rospy.loginfo("Parameter loading complete.")
