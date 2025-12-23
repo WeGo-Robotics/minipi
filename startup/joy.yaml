@@ -10,7 +10,7 @@ teleop:
         scale: 0.6
       - axis: 1
         target: linear.x
-        scale: 0.6 
+        scale: 0.6
       - axis: 0
         target: linear.y
         scale: 0.6
@@ -23,83 +23,57 @@ teleop:
     message_type: sim2real_msg/Joy
     topic_name: /joy_msg
     axis_mappings:
-      - axis: 2                
-        scale: 1.0             
-        offset: 0.0           
-        target: candidate_left
-      - axis: 5            
-        scale: 1.0             
-        offset: 0.0            
-        target: candidate_right
-      - axis: 6            
-        scale: 1.0             
-        offset: 0.0            
-        target: switch_mode
+      - axis: 0
+        scale: 1.0
+        offset: 0.0
+        target: l_horizontal
+      - axis: 1
+        scale: 1.0
+        offset: 0.0
+        target: l_vertical
+      - axis: 2
+        scale: 1.0
+        offset: 0.0
+        target: lt
+      - axis: 3
+        scale: 1.0
+        offset: 0.0
+        target: r_horizontal
+      - axis: 4
+        scale: 1.0
+        offset: 0.0
+        target: r_vertical
+      - axis: 5
+        scale: 1.0
+        offset: 0.0
+        target: rt
+      - axis: 6
+        scale: 1.0
+        offset: 0.0
+        target: dpad_horizontal
+      - axis: 7
+        scale: 1.0
+        offset: 0.0
+        target: dpad_vertical
       - button: 0
-        target: confirm
+        target: a
       - button: 1
-        target: quit
-      - button: 3
-        target: hip_angle_increase
-      - button: 0
-        target: hip_angle_decrease
-      - button: 1
-        target: knee_angle_increase
+        target: b
       - button: 2
-        target: knee_angle_decrease
-      - button: 7
-        target: ankle_angle_increase
-      - button: 6
-        target: ankle_angle_decrease
-      - button: 9
-        target: save_all_angle_left
-      - button: 10
-        target: save_all_angle_right
-      - button: 9
-        target: standby
-      - button: 5
-        target: sitdown
+        target: x
+      - button: 3
+        target: y
       - button: 4
-        target: running_standby_switch
-      - axis: 4                
-        scale: -1.0             
-        offset: 0.0           
-        target: pitch_ctrl
-
-  wap_point:
-    type: topic
-    message_type: sim2real_msg/WayPoint
-    topic_name: /waypoint_control
-    axis_mappings:
-      - axis: 2                
-        scale: 1.0             
-        offset: 0.0           
-        target: LT
-      - axis: 5            
-        scale: 1.0             
-        offset: 0.0            
-        target: RT
-      - axis: 6            
-        scale: 1.0             
-        offset: 0.0            
-        target: lock_unlock_right
-      - axis: 7           
-        scale: 1.0             
-        offset: 0.0            
-        target: lock_unlock_left
+        target: lb
+      - button: 5
+        target: rb
       - button: 6
-        target: start
-      - button: 3
-        target: add_point
-      - button: 2
-        target: delete_point
-      - button: 2
-        target: delete_all_point
-      - button: 0
-        target: recording_finish
-      - button: 1
-        target: lock_unlock_joints
+        target: back
       - button: 7
-        target: load_path
+        target: start
+      - button: 8
+        target: center
       - button: 9
-        target: execute_path
+        target: L
+      - button: 10
+        target: R

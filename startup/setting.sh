@@ -97,7 +97,7 @@ if [ -d "$SCRIPT_DIR/startup" ]; then
     sudo cp -r "$SCRIPT_DIR/startup" "$TARGET_HOME_DIR/"
     
     # 복사된 폴더의 소유권을 사용자에게 넘김 (재귀적 -R 사용)
-    sudo chown -R "$TARGET_USER":"$TARGET_USER" "$TARGET_STARTUP_DIR"
+    sudo chown -R "$TARGET_USER":"$TARGET_GROUP" "$TARGET_STARTUP_DIR"
     echo "$TARGET_STARTUP_DIR 폴더 소유권을 $TARGET_USER 에게 부여했습니다."
     
     # startup 폴더 내 모든 .sh 스크립트에 실행 권한 부여
