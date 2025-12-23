@@ -195,6 +195,7 @@ class NiceGUIRos:
         # Main Loop Capture
         self.main_loop = None
         app.on_startup(self._capture_loop)
+        self.on_launch_started = None
 
     async def _capture_loop(self):
         try:
@@ -606,6 +607,9 @@ class NiceGUIRos:
 
             self.create_log_view(pkg, file_name, str(log_path))
             ui.notify(f"{file_name} started (PID={pid})", type="positive")
+
+            if self.on_launch_started:
+                self.on_launch_started(pkg, file_name)
 
         except Exception as e:
             ui.notify(f"Launch failed: {e}", type="negative")

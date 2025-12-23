@@ -101,9 +101,9 @@ python3.10 --version
 아래 setting.sh를 실행하여 startup 내 .sh파일들이 든 startup폴더, .desktop과 wego_minipi_ws를 지정된 장소에 둡니다.
 
 ```bash
-cd startup && ./setting.sh
-cd /home/hightorque/wego_minipi_ws
-pip install  -r  requirements.txt
+cd ~/minipi/startup
+chmod +x *
+./setting.sh
 ```
 <br>
 
@@ -116,10 +116,14 @@ pip install  -r  requirements.txt
 ```bash
 ./install_pkg_deps.sh
 ./install_llm.sh
+./install_llm_model.sh
+
+cd ~/wego_minipi_ws
+pip install -r requirements.txt
 ```
 <br>
 
-로봇 내 sim2real_master에서 지정한 sim2real_msg를 복사해야 합니다.
+로봇 내 sim2real_master에서 지정한 sim2real_msg를 복사합니다.
 
 ```bash
 cd ~/wego_minipi_ws/src/sim2real_msg/msg

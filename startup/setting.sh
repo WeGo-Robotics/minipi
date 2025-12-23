@@ -19,25 +19,25 @@ echo "--- .desktop 파일 복사 및 권한 설정 시작 ---"
 if [ -f "$SCRIPT_DIR/joy_Switch_alg.desktop" ]; then
     sudo cp "$SCRIPT_DIR/joy_Switch_alg.desktop" "$TARGET_DESKTOP_DIR1/"
     # 복사 후 소유권을 원래 사용자에게 넘김 (중요!)
-    sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR1/joy_Switch_alg.desktop"
+    sudo chown "$TARGET_USER":"$TARGET_GROUP" "$TARGET_DESKTOP_DIR1/joy_Switch_alg.desktop"
 fi
 
 # robot_wego.desktop
 if [ -f "$SCRIPT_DIR/robot_wego.desktop" ]; then
     sudo cp "$SCRIPT_DIR/robot_wego.desktop" "$TARGET_DESKTOP_DIR1/"
-    sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR1/robot_wego.desktop"
+    sudo chown "$TARGET_USER":"$TARGET_GROUP" "$TARGET_DESKTOP_DIR1/robot_wego.desktop"
 
     sudo cp "$SCRIPT_DIR/robot_wego.desktop" "$TARGET_DESKTOP_DIR2/"
-    sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR2/robot_wego.desktop"
+    sudo chown "$TARGET_USER":"$TARGET_GROUP" "$TARGET_DESKTOP_DIR2/robot_wego.desktop"
 fi
 
 # custom_startup.desktop
 if [ -f "$SCRIPT_DIR/custom_startup.desktop" ]; then
     sudo cp "$SCRIPT_DIR/custom_startup.desktop" "$TARGET_DESKTOP_DIR1/"
-    sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR1/custom_startup.desktop"
+    sudo chown "$TARGET_USER":"$TARGET_GROUP" "$TARGET_DESKTOP_DIR1/custom_startup.desktop"
 
     sudo cp "$SCRIPT_DIR/custom_startup.desktop" "$TARGET_DESKTOP_DIR2/"
-    sudo chown "$TARGET_USER":"$TARGET_USER" "$TARGET_DESKTOP_DIR2/custom_startup.desktop"
+    sudo chown "$TARGET_USER":"$TARGET_GROUP" "$TARGET_DESKTOP_DIR2/custom_startup.desktop"
 fi
 
 # 실행 권한 부여 (Desktop 폴더) - 소유권 변경 후 실행해야 root 소유 파일에 대한 문제 해결됨
@@ -65,6 +65,12 @@ fi
 if [ -f "$SCRIPT_DIR/joy_kid.yaml" ]; then
     sudo cp "$SCRIPT_DIR/joy_kid.yaml" "$TARGET_SIM2REAL_MASTER_DIR/"
     sudo chown "$TARGET_USER":"$TARGET_GROUP" "$TARGET_SIM2REAL_MASTER_DIR/joy_kid.yaml"
+fi
+
+# joy.yaml
+if [ -f "$SCRIPT_DIR/joy.yaml" ]; then
+    sudo cp "$SCRIPT_DIR/joy.yaml" "$TARGET_SIM2REAL_MASTER_DIR/"
+    sudo chown "$TARGET_USER":"$TARGET_GROUP" "$TARGET_SIM2REAL_MASTER_DIR/joy.yaml"
 fi
 
 # joy_teleop_kid.launch
