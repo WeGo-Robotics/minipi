@@ -1,12 +1,12 @@
 # Mini Pi manual
 
-### 처음 로봇을 개봉할 때
+## 처음 로봇을 개봉할 때
 맨 처음 로봇을 개봉하여 사용하기 까지의 단계는 다음과 같습니다.
 1. 로봇 전원 인가
 2. 로봇 와이파이 연결
 3. 조이패드로 로봇 구동하기
 
-#### 1. 로봇 전원 인가
+### 1. 로봇 전원 인가
 <table>
   <tr>
     <td width="50%" valign="top">
@@ -38,7 +38,7 @@
 </table>
 
 
-#### 2. 로봇 와이파이 연결
+### 2. 로봇 와이파이 연결
 아래 [초기 와이파이 연결](#초기-와이파이-연결)을 참고해주세요.
 현재, **minipi는 와이파이가 연결되어있지 않으면 구동을 할 수 없도록 하였습니다.**
 
@@ -48,7 +48,7 @@
 <br>
 
 
-#### 3. 조이패드로 로봇 구동하기
+### 3. 조이패드로 로봇 구동하기
 로봇이 일어섰다면, 조이패드를 이용해 로봇을 이동시킬 수 있습니다.
 아래 사진을 참고해주세요.
 
@@ -59,7 +59,7 @@
 
 ---
 
-### Ip 확인
+## Ip 확인
 mini pi를 와이파이에 연결한 후, ip를 확인하기 위해 번거롭게 터미널을 열 필요가 없습니다.
 
 mini pi 뒷면의 LCD 화면 옆 스위치를 조종하여 다양한 상태 화면을 확인할 수 있습니다.
@@ -125,7 +125,7 @@ wlan0의 inet을 이용하여 원격접속에 사용할 수 있습니다.
       <p>0002로 끝나는 uuid에 연결하고자하는 와이파이 이름을 입력하고 전송하세요. utf8 형식, commend 형식으로 전송합니다.</p>
     </td>
     <td width="50%" align="center">
-      <img src="./image/nRF_scanner_wifiname.PNG" alt="UUID 확인" width="300">
+      <img src="./image/nRF_scanner_wifiname.PNG" alt="ssid 입력" width="300">
     </td>
   </tr>
     </tr>
@@ -135,7 +135,7 @@ wlan0의 inet을 이용하여 원격접속에 사용할 수 있습니다.
       <p>0003으로 끝나는 uuid에 연결하고자하는 와이파이 비밀번호를 입력하고 전송하세요. utf8 형식, commend 형식으로 전송합니다.</p>
     </td>
     <td width="50%" align="center">
-      <img src="./image/nRF_scanner_wifipw.PNG" alt="UUID 확인" width="300">
+      <img src="./image/nRF_scanner_wifipw.PNG" alt="ssid pw 입력" width="300">
     </td>
   </tr>
 </table>
@@ -151,17 +151,17 @@ wlan0의 inet을 이용하여 원격접속에 사용할 수 있습니다.
 `http://minipi의_ip주소:8089`를 통해 gui에 접속하세요. 아래와 같은 화면이 나타납니다.
 
 `워크스페이스 추가` 버튼을 통해 직접 만든 워크스페이스를 추가할 수 있으며, `워크스페이스 관리` 버튼을 통해 워크스페이스 내 패키지를 숨길 수 있습니다.
-<img src="./image/minipi_launcher.png" alt="ip 화면" width="90%" style="display: block; margin: 0 auto;">
+<img src="./image/minipi_launcher.png" alt="launcher 메인화면" width="90%" style="display: block; margin: 0 auto;">
 <br>
 
 네트워크를 변경하고 싶다면, `와이파이 재조정` 페이지로 이동하여 설정해줍니다.
-<img src="./image/minipi_launcher_wifi.png" alt="ip 화면" width="90%" style="display: block; margin: 0 auto;">
+<img src="./image/minipi_launcher_wifi.png" alt="와이파이 재조정 화면" width="90%" style="display: block; margin: 0 auto;">
 <br>
 
 로봇을 부팅할 때 자동으로 구동시키고 싶은 launch가 있다면, `부팅 설정` 페이지로 이동합니다. `사용자 스크립트 목록`에서 부팅 시 실행할 스크립트를 활성/비활성화할 수 있습니다.
-<img src="./image/minipi_launcher_startup.png" alt="ip 화면" width="90%" style="display: block; margin: 0 auto;">
+<img src="./image/minipi_launcher_startup.png" alt="부팅 설정 - 사용자 스크립트 설정 화면" width="90%" style="display: block; margin: 0 auto;">
 <br>
 
 새 스크립트를 만들어 실행할 수도 있습니다.
-<img src="./image/minipi_launcher_startup2.png" alt="ip 화면" width="90%" style="display: block; margin: 0 auto;">
+<img src="./image/minipi_launcher_startup2.png" alt="사용자 스크립트 제작 화면" width="90%" style="display: block; margin: 0 auto;">
 <br>

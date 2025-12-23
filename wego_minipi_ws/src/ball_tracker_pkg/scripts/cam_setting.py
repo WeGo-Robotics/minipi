@@ -54,7 +54,7 @@ PROP = {
     "AUTO_WB": getattr(CAP, "CAP_PROP_AUTO_WB", 45),  # white_balance_temperature_auto
 }
 
-# ⚠️ 파싱 결과가 없을 경우를 대비한 폴백(Fallback) 초기값 및 영역
+# 파싱 결과가 없을 경우를 대비한 폴백(Fallback) 초기값 및 영역
 FALLBACK_RANGES = {
     "BRIGHTNESS": (-64, 64),
     "CONTRAST": (0, 64),
@@ -78,8 +78,6 @@ FALLBACK_DEFAULTS = {
 
 RES_LIST = [(640, 480), (800, 600), (1280, 720), (1280, 960), (1920, 1080), (2560, 1440), (3840, 2160)]
 FPS_LIST = [15, 30, 60, 120]
-
-# --- 유틸리티 함수 (중략) ---
 
 
 def bgr_to_qimage(frame):

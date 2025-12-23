@@ -21,8 +21,6 @@ def startup_page():
     os.makedirs(DEFAULT_DIR, exist_ok=True)
     os.makedirs(ADDITIONAL_DIR, exist_ok=True)
 
-    AUTOSTART_DIR = os.path.join(HOME_DIR, ".config", "autostart")
-    MY_DESKTOP_FILE = os.path.join(AUTOSTART_DIR, "wego_gui_user_startup.desktop")
     WRAPPER_SCRIPT = os.path.join(STARTUP_ROOT, "launcher_wrapper.sh")
 
     checkboxes = {}
@@ -204,7 +202,6 @@ def startup_page():
 
         if is_on:  # ON
             try:
-                os.makedirs(AUTOSTART_DIR, exist_ok=True)
                 with open(WRAPPER_SCRIPT, "w") as f:
                     f.write("#!/bin/bash\n")
                     f.write(f"{ROS_SETUP_COMMAND}\n\n")
@@ -226,30 +223,11 @@ def startup_page():
                 st = os.stat(WRAPPER_SCRIPT)
                 os.chmod(WRAPPER_SCRIPT, st.st_mode | stat.S_IEXEC)
 
-                term_cmd = ""
-                if shutil.which("gnome-terminal"):
-                    term_cmd = f"gnome-terminal --window --title='User Scripts Launcher' -- bash -c '{WRAPPER_SCRIPT}; exec bash'"
-                elif shutil.which("xfce4-terminal"):
-                    term_cmd = f"xfce4-terminal --title='User Scripts Launcher' --hold --command='bash -c {WRAPPER_SCRIPT}'"
-                else:
-                    term_cmd = f"x-terminal-emulator -e 'bash -c \"{WRAPPER_SCRIPT}; read\"'"
-
-                with open(MY_DESKTOP_FILE, "w") as f:
-                    f.write("[Desktop Entry]\n")
-                    f.write("Type=Application\n")
-                    f.write("Name=Wego GUI User Startup\n")
-                    f.write(f"Exec={term_cmd}\n")
-                    f.write("Hidden=false\n")
-                    f.write("NoDisplay=false\n")
-                    f.write("X-GNOME-Autostart-enabled=true\n")
-
                 ui.notify(f"자동 실행 등록됨! (부팅 50초 후 실행)", type="positive")
             except Exception as err:
                 ui.notify(f"설정 실패: {err}", type="negative")
                 e.source.set_value(False)
         else:  # OFF
-            if os.path.exists(MY_DESKTOP_FILE):
-                os.remove(MY_DESKTOP_FILE)
             if os.path.exists(WRAPPER_SCRIPT):
                 os.remove(WRAPPER_SCRIPT)
             ui.notify("사용자 스크립트 자동 실행: 꺼짐", type="warning")
@@ -318,7 +296,7 @@ def startup_page():
                 ui.chip("Always ON", color="gray", icon="lock").props("dense")
 
             with ui.row().classes("w-full items-center justify-between px-4 py-3 bg-indigo-50 rounded mt-2"):
-                is_global_on = os.path.exists(MY_DESKTOP_FILE)
+                is_global_on = os.path.exists(WRAPPER_SCRIPT)
                 with ui.column().classes("gap-0"):
                     ui.label("2. User Scripts (Additional)").classes("font-bold text-indigo-700")
                     ui.label("활성화 시, 부팅 직후 터미널이 열리고 50초 카운트다운 후 실행됩니다.").classes("text-xs text-indigo-500")

@@ -4,10 +4,8 @@
 
 0. 하드웨어 점검
 1. nomachine 설치
-2. python 셀치
-3. startup 등록
-4. wego_minipi_ws 설치
-5. 부가 설치 사항
+2. python 설치
+3. 미니파이 프로그램 설치 및 시작 프로그램 등록
 
 
 ## 0. 하드웨어 점검
@@ -167,7 +165,7 @@ mini pi의 기본 디렉토리 (/home/hightorque)에 startup 내 startup 폴더�
 - joy_Switch_alg.desktop: 기본 로봇 구동 실행입니다.
 - robot_wego.desktop: master_autostart.sh를 실행합니다.
 
-또한, .config/autostart에 robot_wego.desktop을 지정하여 재부팅 및 재로그인 시 구동되도록 설정합니다.
+또한 .config/autostart에 robot_wego.desktop을 지정하여 재부팅 및 재로그인 시 구동되도록 설정합니다.
 
 wego_minipi_ws는 mini를 활용하여 다양한 기능을 할 수 있도록 한 워크스페이스입니다.
 공 추적, llm 기반 대화 등 다양한 기능에 대한 패키지가 들어있습니다.
