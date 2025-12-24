@@ -341,7 +341,15 @@ class NiceGUIRos:
         self._save_store(store)
 
         self._launch_files_loaded = False
-        asyncio.create_task(self.start_launch_search())
+        if not getattr(self, "_reload_task_running", False):
+            self._reload_task_running = True
+            asyncio.create_task(self._reload_wrapper())
+
+    async def _reload_wrapper(self):
+        try:
+            await self.start_launch_search()
+        finally:
+            self._reload_task_running = False
 
     def set_package_pinned(self, pkg: str, value: bool):
         store = self._load_store()
@@ -357,6 +365,7 @@ class NiceGUIRos:
         asyncio.create_task(self.start_launch_search())
 
     def set_workspace_role(self, ws_path: str, new_role: str):
+        print("[DEBUG] set_workspace_role", ws_path, new_role)
         if new_role not in ("system", "external", "user"):
             return
 
@@ -377,6 +386,10 @@ class NiceGUIRos:
             return
 
         self._save_store(store)
+
+        self._launch_files_loaded = False
+        asyncio.create_task(self.start_launch_search())
+
         ui.notify(f"워크스페이스 role 변경됨 → {new_role}", type="positive")
 
     def remove_workspace(self, ws_path):

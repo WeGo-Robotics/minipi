@@ -107,8 +107,17 @@ def workspace_manage_dialog():
 
                         role_select = (
                             ui.select(
-                                options=["SYSTEM", "EXTERNAL", "USER"],
-                                value=role.upper(),
+                                options={
+                                    "system": "System",
+                                    "external": "External",
+                                    "user": "User",
+                                },
+                                value=role,  # role은 이미 "system" | "external" | "user"
+                                on_change=lambda e, p=ws_path: (
+                                    NiceGUIRos_instance.set_workspace_role(p, e.value),
+                                    NiceGUIRos_instance.render_launch_list(),
+                                    ui.notify(f"{p} → role = {e.value}", type="positive"),
+                                ),
                             )
                             .props("outlined dense")
                             .classes("w-[120px]")
@@ -119,7 +128,14 @@ def workspace_manage_dialog():
 
                         role_select.on(
                             "update:model-value",
-                            lambda e, p=ws_path: NiceGUIRos_instance.set_workspace_role(p, e.value.lower()),
+                            lambda e, p=ws_path: (
+                                NiceGUIRos_instance.set_workspace_role(p, e.args["value"].lower()),
+                                NiceGUIRos_instance.render_launch_list(),
+                                ui.notify(
+                                    f"{p} → role = {e.args['value'].lower()}",
+                                    type="positive",
+                                ),
+                            ),
                         )
 
                         if role == "user":
