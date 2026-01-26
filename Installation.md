@@ -8,7 +8,7 @@ mini pi 로봇 내부에서 git clone을 받은 후, branch를 merge-manual로 �
 ```sh
 git clone https://github.com/WeGo-Robotics/minipi.git
 cd minipi
-git checkout merge-manual
+git checkout merge_manual
 ```
 
 ```sh
@@ -49,17 +49,13 @@ python3.10 --version
 cd ~/minipi/startup
 chmod +x *
 ./setting.sh
-```
-
-```sh
 ./update_bashrc.sh
-```
-
-```sh
 ./install_pkg_deps.sh
 ./install_llm.sh
 ./install_llm_model.sh
+```
 
+```sh
 cd ~/wego_minipi_ws
 pip install -r requirements.txt
 ```
@@ -67,7 +63,7 @@ pip install -r requirements.txt
 ```sh
 cd ~/wego_minipi_ws/src/sim2real_msg/msg
 find ~/sim2real_master/install/share/sim2real_msg/msg -maxdepth 1 -name "*.msg" | grep -v 'lowlevel_' | xargs -I {} cp {} .
-sudo vim ../CMakeLists.txt
+sudo vi ../CMakeLists.txt
 ```
 
 CMakeLists.txt에 추가된 메세지를 넣습니다.
