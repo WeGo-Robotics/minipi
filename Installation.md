@@ -9,7 +9,7 @@ mini pi 로봇 내부에서 git clone을 받습니다.
 
 만약 해당 워크스페이스를 새로 다운받는 경우에는 우선 아래 명령어를 따라주세요.
 
-```sh {"name":"workspace initialize (optional)"}
+```sh {"name":"initial"}
 cd
 rm -rf wego_minipi_ws .config/autostart/* startup
 rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custom_startup.desktop
@@ -17,7 +17,7 @@ rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custo
 
 이후 아래 명령어를 통해 레포지토리를 다운받고, merge_manual 브랜치로 전환합니다.
 
-```sh {"name":"python3.10 install"}
+```sh {"name":"initial"}
 sudo apt  update
 sudo apt  install  software-properties-common
 sudo add-apt-repository  ppa:deadsnakes/ppa
@@ -55,7 +55,7 @@ python3.10 --version
 
 이제, 다운받은 레포지토리를 로봇에 적용시킵니다. 아래 명령어를 실행해주세요.
 
-```sh {"name":"mini pi repository setup"}
+```sh {"name":"initial"}
 cd ~/minipi/startup
 chmod +x *
 ./setting.sh
@@ -65,14 +65,14 @@ chmod +x *
 ./install_llm_model.sh
 ```
 
-```sh {"name":"workspace requirements install"}
+```sh {"name":"initial"}
 cd ~/wego_minipi_ws
 pip install -r requirements.txt
 ```
 
 기존 로봇의 sim2real_master에서 사용하는 sim2real_msg를 복사하여줍니다.
 
-```sh {"name":"sim2real_msg copy"}
+```sh {"name":"initial"}
 cd ~/wego_minipi_ws/src/sim2real_msg/msg
 find ~/sim2real_master/install/share/sim2real_msg/msg -maxdepth 1 -name "*.msg" | grep -v 'lowlevel_' | xargs -I {} cp {} .
 ```
@@ -80,7 +80,7 @@ find ~/sim2real_master/install/share/sim2real_msg/msg -maxdepth 1 -name "*.msg" 
 이후, 빌드를 수행합니다.
 만약 기존에 사용하던 워크스페이스가 있다면 편의에 따라 패키지를 통합하거나 독립적으로 사용하시면 됩니다.
 
-```sh {"name":"workspace build"}
+```sh {"name":"initial"}
 cd ~/wego_minpi_ws
 catkin_make
 ```
