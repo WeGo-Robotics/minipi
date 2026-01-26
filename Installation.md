@@ -2,20 +2,33 @@
 
 이 설치 가이드는 mini pi를 처음 사용하시는 분들을 위한 기본 예제 워크스페이스 설치 가이드입니다.
 
-vscode extension에서 **Runme Notebooks for DevOps**를 다운받아주세요. 
-이후 md 파일에서 코드를 실행하며 설치를 진행할 수 있습니다.
+minipi에 runme CLI를 설치한 후, 간단히 초기 설정을 할 수 있습니다.
+
+
+```bash
+wget https://downloads.runme.dev/runme/3.16.5-rc.1/runme_linux_arm64.deb
+sudo dpkg -i runme_linux_arm64.deb
+```
 
 mini pi 로봇 내부에서 git clone을 받습니다.
 
-만약 해당 워크스페이스를 새로 다운받는 경우에는 우선 아래 명령어를 따라주세요.
+```bash
+git clone https://github.com/WeGo-Robotics/minipi.git
+cd minipi
+git checkout merge_manual
+
+runme run initial
+```
+
+시간이 지난 후, minipi에 워크스페이스가 설치완료됩니다.
 
 ```sh {"name":"initial"}
 cd
 rm -rf wego_minipi_ws .config/autostart/* startup
 rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custom_startup.desktop
-./install_python310.sh
 cd ~/minipi/startup
 chmod +x *
+./install_python310.sh
 ./setting.sh
 ./update_bashrc.sh
 ./install_pkg_deps.sh
