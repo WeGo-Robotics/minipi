@@ -13,6 +13,13 @@ add_message_files(
   FILES
   Yolo.msg
   YoloDetect.msg
+  Joy.msg
+  MtrState.msg
+  Orient.msg
+  PD2RL.msg
+  RL2PD.msg
+  RbtState.msg
+  RbtTarget.msg
 )
 
 generate_messages(
