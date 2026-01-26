@@ -9,7 +9,7 @@ mini pi 로봇 내부에서 git clone을 받습니다.
 
 만약 해당 워크스페이스를 새로 다운받는 경우에는 우선 아래 명령어를 따라주세요.
 
-```sh
+```sh {"name":"workspace initialize (optional)"}
 cd
 rm -rf wego_minipi_ws .config/autostart/* startup
 rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custom_startup.desktop
@@ -17,13 +17,13 @@ rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custo
 
 이후 아래 명령어를 통해 레포지토리를 다운받고, merge_manual 브랜치로 전환합니다.
 
-```sh
+```sh {"name":"git clone and set branch"}
 git clone https://github.com/WeGo-Robotics/minipi.git
 cd minipi
 git checkout merge_manual
 ```
 
-```sh
+```sh {"name":"python3.10 install"}
 sudo apt  update
 sudo apt  install  software-properties-common
 sudo add-apt-repository  ppa:deadsnakes/ppa
@@ -33,7 +33,7 @@ sudo apt  install  python3.10  python3.10-distutils  python3.10-venv
 
 만약 위의 명령어로 설치가 되지 않는다면 아래 명령어를 통해 설치해주세요
 
-```sh
+```sh {"name":"python3.10 install (backup)"}
 sudo apt update
 sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
 
@@ -51,7 +51,7 @@ sudo ldconfig
 
 아래 명령어로 각 python 버전을 확인할 수 있습니다.
 
-```sh
+```sh {"name":"python version check"}
 python3 --version
 # Python 3.8.x
 
@@ -61,7 +61,7 @@ python3.10 --version
 
 이제, 다운받은 레포지토리를 로봇에 적용시킵니다. 아래 명령어를 실행해주세요.
 
-```sh
+```sh {"name":"mini pi repository setup"}
 cd ~/minipi/startup
 chmod +x *
 ./setting.sh
@@ -71,21 +71,21 @@ chmod +x *
 ./install_llm_model.sh
 ```
 
-```sh
+```sh {"name":"workspace requirements install"}
 cd ~/wego_minipi_ws
 pip install -r requirements.txt
 ```
 
 기존 로봇의 sim2real_master에서 사용하는 sim2real_msg를 복사하여줍니다.
 
-```sh
+```sh {"name":"sim2real_msg copy"}
 cd ~/wego_minipi_ws/src/sim2real_msg/msg
 find ~/sim2real_master/install/share/sim2real_msg/msg -maxdepth 1 -name "*.msg" | grep -v 'lowlevel_' | xargs -I {} cp {} .
 ```
 
 CMakeLists.txt에 추가된 메세지를 넣습니다.
 
-```sh
+```sh {"name":"sim2real_msg CMake write"}
 sudo vi ~/wego_minipi_ws/src/sim2real_msg/CMakeLists.txt
 ```
 
@@ -101,7 +101,7 @@ add_message_files(
 이후, 빌드를 수행합니다.
 만약 기존에 사용하던 워크스페이스가 있다면 편의에 따라 패키지를 통합하거나 독립적으로 사용하시면 됩니다.
 
-```sh
+```sh {"name":"workspace build"}
 cd ~/wego_minpi_ws
 catkin_make
 ```
