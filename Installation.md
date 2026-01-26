@@ -49,6 +49,8 @@ echo "/usr/local/lib" | sudo tee /etc/ld.so.conf.d/python3.10.conf
 sudo ldconfig
 ```
 
+아래 명령어로 각 python 버전을 확인할 수 있습니다.
+
 ```sh
 python3 --version
 # Python 3.8.x
@@ -56,6 +58,8 @@ python3 --version
 python3.10 --version
 # Python 3.10.x
 ```
+
+이제, 다운받은 레포지토리를 로봇에 적용시킵니다. 아래 명령어를 실행해주세요.
 
 ```sh
 cd ~/minipi/startup
@@ -72,13 +76,18 @@ cd ~/wego_minipi_ws
 pip install -r requirements.txt
 ```
 
+기존 로봇의 sim2real_master에서 사용하는 sim2real_msg를 복사하여줍니다.
+
 ```sh
 cd ~/wego_minipi_ws/src/sim2real_msg/msg
 find ~/sim2real_master/install/share/sim2real_msg/msg -maxdepth 1 -name "*.msg" | grep -v 'lowlevel_' | xargs -I {} cp {} .
-sudo vi ../CMakeLists.txt
 ```
 
 CMakeLists.txt에 추가된 메세지를 넣습니다.
+
+```sh
+sudo vi ~/wego_minipi_ws/src/sim2real_msg/CMakeLists.txt
+```
 
 ```sh
 add_message_files(
