@@ -13,11 +13,7 @@ mini pi 로봇 내부에서 git clone을 받습니다.
 cd
 rm -rf wego_minipi_ws .config/autostart/* startup
 rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custom_startup.desktop
-sudo apt  update
-sudo apt  install  software-properties-common
-sudo add-apt-repository  ppa:deadsnakes/ppa
-sudo apt  update
-sudo apt  install  python3.10  python3.10-distutils  python3.10-venv
+./install_python310.sh
 cd ~/minipi/startup
 chmod +x *
 ./setting.sh
