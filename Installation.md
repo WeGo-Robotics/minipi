@@ -17,12 +17,6 @@ rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custo
 
 이후 아래 명령어를 통해 레포지토리를 다운받고, merge_manual 브랜치로 전환합니다.
 
-```sh {"name":"git clone and set branch"}
-git clone https://github.com/WeGo-Robotics/minipi.git
-cd minipi
-git checkout merge_manual
-```
-
 ```sh {"name":"python3.10 install"}
 sudo apt  update
 sudo apt  install  software-properties-common
@@ -81,21 +75,6 @@ pip install -r requirements.txt
 ```sh {"name":"sim2real_msg copy"}
 cd ~/wego_minipi_ws/src/sim2real_msg/msg
 find ~/sim2real_master/install/share/sim2real_msg/msg -maxdepth 1 -name "*.msg" | grep -v 'lowlevel_' | xargs -I {} cp {} .
-```
-
-CMakeLists.txt에 추가된 메세지를 넣습니다.
-
-```sh {"name":"sim2real_msg CMake write"}
-sudo vi ~/wego_minipi_ws/src/sim2real_msg/CMakeLists.txt
-```
-
-```sh
-add_message_files(
-  FILES
-  Yolo.msg
-  YoloDetect.msg
-  # 추가된 .msg 파일
-)
 ```
 
 이후, 빌드를 수행합니다.
