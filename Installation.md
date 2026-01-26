@@ -1,9 +1,21 @@
 # Mini pi 사용자 설치 가이드
 
+이 설치 가이드는 mini pi를 처음 사용하시는 분들을 위한 기본 예제 워크스페이스 설치 가이드입니다.
+
 vscode extension에서 **Runme Notebooks for DevOps**를 다운받아주세요. 
 이후 md 파일에서 코드를 실행하며 설치를 진행할 수 있습니다.
 
-mini pi 로봇 내부에서 git clone을 받은 후, branch를 merge-manual로 변환합니다.
+mini pi 로봇 내부에서 git clone을 받습니다.
+
+만약 해당 워크스페이스를 새로 다운받는 경우에는 우선 아래 명령어를 따라주세요.
+
+```sh
+cd
+rm -rf wego_minipi_ws .config/autostart/* startup
+rm -rf /Desktop/joy_Switch_alg.destop /Desktop/robot_wego.desktop /Desktop/custom_startup.desktop
+```
+
+이후 아래 명령어를 통해 레포지토리를 다운받고, merge_manual 브랜치로 전환합니다.
 
 ```sh
 git clone https://github.com/WeGo-Robotics/minipi.git
@@ -76,6 +88,9 @@ add_message_files(
   # 추가된 .msg 파일
 )
 ```
+
+이후, 빌드를 수행합니다.
+만약 기존에 사용하던 워크스페이스가 있다면 편의에 따라 패키지를 통합하거나 독립적으로 사용하시면 됩니다.
 
 ```sh
 cd ~/wego_minpi_ws
