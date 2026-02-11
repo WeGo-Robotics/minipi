@@ -15,13 +15,32 @@ class WifiPage:
         self.log_content = ""
         self.log_element = None
         self.is_running = False
+        self.ssid_label = None  # 와이파이 이름 표시용 라벨
 
-        # [수정됨] 기존에 존재하는 파일 경로를 직접 지정
-        # 위치: ~/soccer_ws/ble_wifi_setup.py
+        # 기존 파일 경로
         self.script_path = os.path.join(HOME_DIR, "soccer_ws", "ble_wifi_setup.py")
 
+    def get_current_ssid(self):
+        """현재 연결된 와이파이 SSID를 가져옵니다."""
+        try:
+            # nmcli 명령어로 활성 연결 확인
+            # -t: terse output (스크립트용)
+            # -f ACTIVE,SSID: 활성여부와 SSID만 출력
+            result = subprocess.run(["nmcli", "-t", "-f", "ACTIVE,SSID", "dev", "wifi"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+            # 출력 예시:
+            # no:Wifi_A
+            # yes:My_Home_Wifi
+            # no:Wifi_B
+            if result.returncode == 0:
+                for line in result.stdout.splitlines():
+                    if line.startswith("yes:"):
+                        return line.split(":", 1)[1]
+            return "연결 안 됨"
+        except Exception:
+            return "확인 불가"
+
     def start_ble_process(self):
-        # 파일이 실제로 있는지 확인
         if not os.path.exists(self.script_path):
             ui.notify(f"파일을 찾을 수 없습니다: {self.script_path}", type="negative")
             return
@@ -35,19 +54,11 @@ class WifiPage:
             self.log_element.set_text("")
 
         try:
-            # sudo 권한으로 실행 (btmgmt, nmcli 등 필요)
             self.process = subprocess.Popen(
-                ["sudo", sys.executable, self.script_path],
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                bufsize=1,
-                preexec_fn=os.setsid,  # 프로세스 그룹 생성 (kill 용이)
+                ["sudo", sys.executable, self.script_path], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, preexec_fn=os.setsid
             )
             self.is_running = True
             ui.notify("BLE 모드 시작 (주변에서 검색 가능)", type="positive")
-
-            # 로그 읽기 시작
             asyncio.create_task(self.read_output())
 
         except Exception as e:
@@ -56,7 +67,6 @@ class WifiPage:
     def stop_ble_process(self):
         if self.process and self.process.poll() is None:
             try:
-                # sudo로 실행된 프로세스 그룹 전체 종료
                 os.system(f"sudo kill -TERM -{self.process.pid}")
                 self.process.wait(timeout=2)
             except:
@@ -75,14 +85,12 @@ class WifiPage:
                 self.log_content += line
                 if self.log_element:
                     self.log_element.set_text(self.log_content)
-                    # 최신 로그가 보이도록 자동 스크롤 기능 추가 가능
             except Exception:
                 break
             await asyncio.sleep(0.01)
 
         self.is_running = False
         if self.process and self.process.poll() is not None:
-            # 의도치 않게 종료된 경우 알림 (stop 버튼 누른 경우 제외)
             if self.log_element:
                 self.log_element.set_text(self.log_content + "\n[Process Terminated]")
 
@@ -92,6 +100,18 @@ wifi_manager = WifiPage()
 
 @ui.page("/wifi")
 def wifi_setup_page():
+
+    # 주기적으로 SSID 업데이트하는 함수
+    def update_ssid_label():
+        ssid = wifi_manager.get_current_ssid()
+        if wifi_manager.ssid_label:
+            wifi_manager.ssid_label.set_text(ssid)
+            # 연결 상태에 따라 색상 변경
+            if ssid in ["연결 안 됨", "확인 불가"]:
+                wifi_manager.ssid_label.classes("text-red-500")
+            else:
+                wifi_manager.ssid_label.classes("text-green-500")
+
     # ----- 헤더 -----
     with ui.header().classes("bg-slate-900 shadow-lg"):
         with ui.row().classes("w-full items-center h-full max-w-screen-xl mx-auto px-4"):
@@ -101,12 +121,19 @@ def wifi_setup_page():
             ui.button("메인으로", icon="home", color="indigo-6").props("flat").on("click", lambda: ui.navigate.to("/", new_tab=False))
 
     # ----- 메인 내용 -----
-    with ui.column().classes("p-4 w-full max-w-screen-md mx-auto"):
+    with ui.column().classes("p-4 w-full max-w-screen-md mx-auto space-y-4"):
 
-        # 파일 경로 확인용 (디버깅)
-        # ui.label(f"Target Script: {wifi_manager.script_path}").classes("text-xs text-gray-400 mb-2")
+        # [추가된 부분] 현재 상태 표시 카드
+        with ui.card().classes("w-full flex flex-row items-center justify-between px-6 py-4 border-l-4 border-blue-500"):
+            with ui.column().classes("gap-0"):
+                ui.label("현재 연결된 Wi-Fi").classes("text-lg font-bold text-gray-700")
+                ui.label("실시간 상태입니다.").classes("text-xs text-gray-400")
 
-        with ui.card().classes("w-full mb-4"):
+            # SSID 표시 라벨
+            wifi_manager.ssid_label = ui.label("불러오는 중...").classes("text-2xl font-bold")
+
+        # BLE 제어 카드
+        with ui.card().classes("w-full"):
             ui.label("📡 블루투스 와이파이 설정").classes("text-xl font-bold mb-2")
             ui.label("이 기능을 켜면 스마트폰 웹 블루투스를 통해 로봇의 와이파이를 설정할 수 있습니다.").classes("text-gray-600 mb-4")
 
@@ -115,5 +142,8 @@ def wifi_setup_page():
                 ui.button("중지", icon="stop", color="red", on_click=wifi_manager.stop_ble_process).classes("flex-1 h-12 text-lg")
 
         # 로그 창
-        with ui.card().classes("w-full bg-black text-green-400 p-4 font-mono h-64 overflow-y-auto"):
-            wifi_manager.log_element = ui.label("대기 중...").classes("whitespace-pre-wrap")
+        # with ui.card().classes("w-full bg-black text-green-400 p-4 font-mono h-64 overflow-y-auto"):
+        #     wifi_manager.log_element = ui.label("대기 중...").classes("whitespace-pre-wrap")
+
+    # 3초마다 와이파이 상태 갱신
+    ui.timer(3.0, update_ssid_label)

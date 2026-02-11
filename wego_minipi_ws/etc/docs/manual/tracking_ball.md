@@ -6,7 +6,7 @@
 
 ![start](/etc/docs/image/manual/GUI_start.png)
 
-차례대로 `soccer_ws`, `roboworld_gui`를 입력하면 GUI 창이 나타납니다.
+차례대로 `wego_minipi_ws`, `roboworld_gui`를 입력하면 GUI 창이 나타납니다.
 
 ![start2](/etc/docs/image/manual/GUI_start2.png)
 
@@ -51,11 +51,11 @@ $ roslaunch dataset_making record_bag.launch bag_prefix:=(저장할 파일 이�
 ```
 
 이 명령어를 수행한 후, 직접 로봇을 움직이면 자동으로 이미지 토픽들이 .bag 파일에 저장됩니다.
-ctrl+c를 통해 녹화를 끝내면 /home/hightorque/soccer_ws/src/dataset_making/bags에 "bag_prefix".bag 으로 bag 파일이 저장됩니다. 
+ctrl+c를 통해 녹화를 끝내면 /home/hightorque/wego_minipi_ws/src/dataset_making/bags에 "bag_prefix".bag 으로 bag 파일이 저장됩니다. 
 
 이후, 아래 명령어를 통해 bag파일로부터 이미지를 추출하여 저장합니다. bag_filename에는 이미지로 추출할 bag파일의 전체 경로를 넣어주세요.
 ```bash
-$ roslaunch dataset_making get_image.launch bag_filename:=/home/hightorque/soccer_ws/src/dataset_making/bags/(bag파일 이름).bag
+$ roslaunch dataset_making get_image.launch bag_filename:=/home/hightorque/wego_minipi_ws/src/dataset_making/bags/(bag파일 이름).bag
 ```
 
 #### 2. YOLO 학습
@@ -79,7 +79,7 @@ $ yolo export model=(변경할 pt 모델) format=rknn
 #### rknn을 공 추적 launch 파일에 지정
 생성된 .rknn과 metadata.yaml을 공 추적에 사용되는 launch 파일에 저장합니다.
 
-아래 사진과 같이 soccer_ws/src/yolo11_detect_pkg/config/rknn에 저장합니다.
+아래 사진과 같이 wego_minipi_ws/src/yolo11_detect_pkg/config/rknn에 저장합니다.
 
 ![rknn file dir](/etc/docs/image/manual/rknn_file.png)
 

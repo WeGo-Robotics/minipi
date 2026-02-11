@@ -26,15 +26,41 @@ try:
     from .config import ROBOT_NAME, ROSBRIDGE_HOST, ROSBRIDGE_PORT, MAX_LOG_LINES, ROS_SETUP_COMMAND, ROS_SRC_DIR
 except ImportError as e:
     print(f"WARNING: Could not import config.py ({e}). Using Hardcoded Defaults.")
+
     ROBOT_NAME = "Mini Pi"
-    ROSBRIDGE_HOST = "0.0.0.0"  # rosbridge 호스트 적절히 설정 (로봇 측의 rosbridge와 주소 맞아야 함)
-    ROSBRIDGE_PORT = 9090  # rosbridge 호스트 적절히 설정 (로봇 측의 rosbridge와 주소 맞아야 함)
+    ROSBRIDGE_HOST = "0.0.0.0"
+    ROSBRIDGE_PORT = 9090
     MAX_LOG_LINES = 100
+
     HOME_DIR = Path(os.path.expanduser("~"))
-    ROS_SRC_DIR = HOME_DIR / "soccer_ws" / "src"
+    ROS_SRC_DIR = HOME_DIR / "wego_minipi_ws" / "src"
+
+    # 안전한 source 구현
+    def safe_source(path):
+        return f'[ -f "{path}" ] && source "{path}"'
+
     ROS_SETUP_COMMAND = (
-        f"source /opt/ros/noetic/setup.bash; " f"source {HOME_DIR}/realsense_ws/devel/setup.bash; " f"source {HOME_DIR}/soccer_ws/devel/setup.bash"
+        f"source /opt/ros/noetic/setup.bash; "
+        f"{safe_source(HOME_DIR / 'realsense_ws/devel/setup.bash')}; "
+        f"{safe_source(HOME_DIR / 'wego_minipi_ws/devel/setup.bash')}"
     )
+
+# ============================================================
+# Workspace / Package Store
+# ============================================================
+STORE_PATH = Path.home() / ".wego_launch_manager" / "minipi_workspaces.json"
+STORE_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+DEFAULT_STORE = {
+    "workspaces": [
+        {
+            "path": str(ROS_SRC_DIR.parent),  # ~/wego_minipi_ws
+            "role": "system",
+        }
+    ],
+    "pinned_packages": [],
+    "hidden_packages": [],
+}
 
 
 # ============================================================
@@ -122,7 +148,7 @@ class NiceGUIRos:
         # UI References
         self.launch_list_container: Optional[ui.column] = None
         self.search_status_label: Optional[ui.label] = None
-        self.log_container: Optional[ui.label] = None
+        self.logs_container: Optional[ui.label] = None
         self.image_topic_select: Optional[ui.select] = None
         self.image_display: Optional[ui.image] = None
         self.last_frame_label: Optional[ui.label] = None
@@ -133,9 +159,12 @@ class NiceGUIRos:
         self._last_ros_connected = False
 
         # Logs
-        self.current_log_process: Optional[subprocess.Popen] = None
-        self.log_buffer: List[str] = []
-        self.log_executor_task: Optional[asyncio.Task] = None
+        # self.current_log_process: Optional[subprocess.Popen] = None
+        # self.log_buffer: List[str] = []
+        # self.log_executor_task: Optional[asyncio.Task] = None
+        self.log_dir = Path.home() / ".wego_launch_logs"
+        self.log_dir.mkdir(parents=True, exist_ok=True)
+        self.log_views = {}
 
         # Image
         self.current_image_topic: Optional[roslibpy.Topic] = None
@@ -155,6 +184,8 @@ class NiceGUIRos:
         self.chat_log_container: Optional[ui.html] = None
         self.chat_input: Optional[ui.input] = None
         self.send_button: Optional[ui.button] = None
+        self.is_llm_streaming = False
+        self.current_llm_stream_text = ""
 
         # Cam Setting
         self.local_cam = None
@@ -164,6 +195,7 @@ class NiceGUIRos:
         # Main Loop Capture
         self.main_loop = None
         app.on_startup(self._capture_loop)
+        self.on_launch_started = None
 
     async def _capture_loop(self):
         try:
@@ -236,19 +268,243 @@ class NiceGUIRos:
     # ============================================================
     # Workspace Search
     # ============================================================
-    def get_workspace_packages(self) -> List[str]:
-        src_path = ROS_SRC_DIR
-        print(f"DEBUG: Scanning packages in: {src_path}")
-        found_packages = set()
-        if src_path.exists():
-            for item in src_path.iterdir():
-                if item.is_dir() and (item / "package.xml").exists():
-                    found_packages.add(item.name)
+    def _load_store(self) -> dict:
+        if not STORE_PATH.exists():
+            self._save_store(DEFAULT_STORE)
+            return DEFAULT_STORE.copy()
+
+        try:
+            import json
+
+            with open(STORE_PATH, "r") as f:
+                store = json.load(f)
+        except Exception as e:
+            print("[STORE] load failed:", e)
+            return DEFAULT_STORE.copy()
+
+        # ---- normalize ----
+        store.setdefault("workspaces", [])
+        store.setdefault("pinned_packages", [])
+        store.setdefault("hidden_packages", [])
+
+        for ws in store["workspaces"]:
+            ws.setdefault("role", "user")
+
+        return store
+
+    def _save_store(self, data: dict):
+        try:
+            import json
+
+            with open(STORE_PATH, "w") as f:
+                json.dump(data, f, indent=2)
+        except Exception as e:
+            print("[STORE] save failed:", e)
+
+    def load_workspaces(self) -> List[dict]:
+        store = self._load_store()
+        return store.get("workspaces", [])
+
+    def add_workspace(self, path: Path):
+        path = path.expanduser().resolve()
+
+        if not path.exists():
+            ui.notify(f"경로 없음: {path}", type="negative")
+            return
+
+        store = self._load_store()
+        ws = store.get("workspaces", [])
+
+        if any(Path(w["path"]) == path for w in ws):
+            ui.notify("이미 등록된 워크스페이스입니다", type="warning")
+            return
+
+        ws.append(
+            {
+                "path": str(path),
+                "role": "user",
+            }
+        )
+        store["workspaces"] = ws
+        self._save_store(store)
+
+        ui.notify(f"워크스페이스 추가됨: {path}", type="positive")
+
+    def set_package_hidden(self, pkg: str, value: bool):
+        store = self._load_store()
+        s = set(store.get("hidden_packages", []))
+        if value:
+            s.add(pkg)
         else:
-            print(f"ERROR: Source path {src_path} not found!")
-        explicit_packages = ["realsense2_camera", "usb_cam", "using_llm", "sim2real_master"]  # 사용자 정의 추가 패키지
-        found_packages.update(explicit_packages)
-        return sorted(list(found_packages))  # src 경로 내 패키지 + 추가 패키지
+            s.discard(pkg)
+        store["hidden_packages"] = sorted(s)
+        self._save_store(store)
+
+        self._launch_files_loaded = False
+        if not getattr(self, "_reload_task_running", False):
+            self._reload_task_running = True
+            asyncio.create_task(self._reload_wrapper())
+
+    async def _reload_wrapper(self):
+        try:
+            await self.start_launch_search()
+        finally:
+            self._reload_task_running = False
+
+    def set_package_pinned(self, pkg: str, value: bool):
+        store = self._load_store()
+        s = set(store.get("pinned_packages", []))
+        if value:
+            s.add(pkg)
+        else:
+            s.discard(pkg)
+        store["pinned_packages"] = sorted(s)
+        self._save_store(store)
+
+        self._launch_files_loaded = False
+        asyncio.create_task(self.start_launch_search())
+
+    def set_workspace_role(self, ws_path: str, new_role: str):
+        print("[DEBUG] set_workspace_role", ws_path, new_role)
+        if new_role not in ("system", "external", "user"):
+            return
+
+        store = self._load_store()
+        changed = False
+
+        for ws in store.get("workspaces", []):
+            if ws["path"] == ws_path:
+                if ws.get("role") == "system" and new_role != "system":
+                    ui.notify("system 워크스페이스는 role 변경 불가", type="warning")
+                    return
+
+                ws["role"] = new_role
+                changed = True
+                break
+
+        if not changed:
+            return
+
+        self._save_store(store)
+
+        self._launch_files_loaded = False
+        asyncio.create_task(self.start_launch_search())
+
+        ui.notify(f"워크스페이스 role 변경됨 → {new_role}", type="positive")
+
+    def remove_workspace(self, ws_path):
+        ws_path = str(ws_path)
+
+        store = self._load_store()
+        new_list = []
+
+        removed = False
+        for ws in store.get("workspaces", []):
+            if ws["path"] == ws_path:
+                if ws.get("role") != "user":
+                    ui.notify("user 워크스페이스만 삭제할 수 있습니다", type="warning")
+                    return
+                removed = True
+                continue
+            new_list.append(ws)
+
+        if not removed:
+            ui.notify("워크스페이스를 찾을 수 없습니다", type="warning")
+            return
+
+        store["workspaces"] = new_list
+        self._save_store(store)
+
+        ui.notify("워크스페이스가 삭제되었습니다", type="positive")
+
+    def _scan_packages_recursive(self, src: Path, max_depth: int = 4) -> Dict[str, Path]:
+        """src 아래에서 package.xml을 재귀적으로 찾아 패키지 디렉토리들을 반환"""
+        found: Dict[str, Path] = {}
+
+        # depth 제한을 걸고 싶으면 rglob 대신 수동 depth 체크도 가능하지만,
+        # 실무에선 max_depth 4 정도면 충분히 안전함.
+        for pkg_xml in src.rglob("package.xml"):
+            try:
+                pkg_dir = pkg_xml.parent
+                # src 기준 depth 계산
+                rel_parts = pkg_dir.relative_to(src).parts
+                if len(rel_parts) > max_depth:
+                    continue
+                found[pkg_dir.name] = pkg_dir
+            except Exception:
+                continue
+
+        return found
+
+    def get_workspace_packages(self) -> List[str]:
+        store = self._load_store()
+
+        hidden = set(store.get("hidden_packages", []))
+        pinned = set(store.get("pinned_packages", []))
+
+        found: Dict[str, Path] = {}
+
+        # -------------------------------------------------
+        # 1. workspace별 패키지 수집 (role 규칙 적용)
+        # -------------------------------------------------
+        for ws in store.get("workspaces", []):
+            role = ws.get("role", "user")
+            ws_path = Path(ws["path"])
+            src = ws_path / "src"
+
+            if not src.exists():
+                continue
+
+            scanned = self._scan_packages_recursive(src, max_depth=4)
+
+            for pkg_name, pkg_path in scanned.items():
+
+                # USER workspace → hidden만 제외
+                if role == "user":
+                    if pkg_name in hidden:
+                        continue
+                    found[pkg_name] = pkg_path
+
+                # SYSTEM / EXTERNAL → pinned만 허용
+                else:
+                    if pkg_name not in pinned:
+                        continue
+                    found[pkg_name] = pkg_path
+
+        # -------------------------------------------------
+        # 2. 정렬: pinned 먼저, 그 다음 나머지
+        # -------------------------------------------------
+        ordered: List[str] = []
+
+        # pinned 우선
+        for p in pinned:
+            if p in found:
+                ordered.append(p)
+
+        # 나머지 (user workspace에서만 의미 있음)
+        for p in sorted(found.keys()):
+            if p not in ordered:
+                ordered.append(p)
+
+        return ordered
+
+    def get_running_launches(self) -> Set[str]:
+        """현재 OS에서 실행 중인 roslaunch 목록을 .launch 파일명 기준으로 반환"""
+        try:
+            cmd = "ps aux | grep roslaunch | grep -v grep"
+            result = subprocess.check_output(cmd, shell=True).decode()
+
+            running = set()
+            for line in result.splitlines():
+                parts = line.split()
+                # roslaunch pkg file.launch 형태가 마지막 인자로 등장함
+                for token in parts:
+                    if token.endswith(".launch"):
+                        running.add(token)
+            return running
+        except Exception as e:
+            print("Failed to get running launches:", e)
+            return set()
 
     def find_launch_files(self, packages: List[str]) -> Dict[str, Any]:
         result: Dict[str, Any] = {}
@@ -326,53 +582,75 @@ class NiceGUIRos:
 
     def run_launch(self, pkg: str, file_name: str, info: Dict[str, Any], args: List[str] = None):
         try:
+            log_path = self.log_dir / f"{pkg}_{file_name.replace('.launch','').replace('.xml','')}.log"
+
             launch_cmd = f"roslaunch {pkg} {file_name}"
             if args:
                 launch_cmd += " " + " ".join(args)
-            cmd = f"{ROS_SETUP_COMMAND} && {launch_cmd}"
-            p = subprocess.Popen(cmd, shell=True, executable="/bin/bash", stdout=subprocess.PIPE, stderr=subprocess.PIPE, preexec_fn=os.setsid)
-            info["process"] = p
-            info["status"] = "RUNNING"
+
+            cmd = f"{ROS_SETUP_COMMAND} && " f'{launch_cmd} >> "{log_path}" 2>&1'
+
+            wrapper = f'nohup setsid bash -c "{cmd}" >/dev/null 2>&1 & echo $!'
+
+            p = subprocess.Popen(
+                wrapper,
+                shell=True,
+                executable="/bin/bash",
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                preexec_fn=os.setsid,
+            )
+
+            out, _ = p.communicate(timeout=3)
+            pid = int(out.decode().strip())
+
+            info.update(
+                {
+                    "status": "RUNNING",
+                    "pid": pid,
+                    "pgid": pid,
+                    "log_path": str(log_path),
+                    "owned": True,
+                }
+            )
+
             if info.get("button"):
                 info["button"].set_text("RUNNING")
                 info["button"].props("color=red icon=pause")
-            self.current_log_process = p
-            self.log_buffer = []
-            if not self.log_executor_task or self.log_executor_task.done():
-                self.log_executor_task = asyncio.create_task(self.monitor_log())
-            ui.notify(f"Started {file_name}", type="positive")
 
-            # ★★★ [핵심 수정] 실행 3초 후 토픽 목록 자동 갱신 ★★★
-            # ROS 노드가 뜨고 토픽을 advertise하는데 시간이 걸리므로 지연 실행
-            ui.timer(3.0, self.update_topic_list, once=True)
+            self.create_log_view(pkg, file_name, str(log_path))
+            ui.notify(f"{file_name} started (PID={pid})", type="positive")
 
-            if pkg == "using_llm" and file_name == "llm_gui.launch":
-                ui.navigate.to("/LLM_chat", new_tab=False)
-
-            elif pkg == "ball_tracker_pkg" and file_name == "cam_setting.launch":
-                ui.navigate.to("/cam_setting", new_tab=False)
+            if self.on_launch_started:
+                self.on_launch_started(pkg, file_name)
 
         except Exception as e:
-            ui.notify(f"Fail: {e}", type="negative")
+            ui.notify(f"Launch failed: {e}", type="negative")
 
     def stop_launch(self, pkg: str, file_name: str, info: Dict[str, Any]):
-        p = info.get("process")
-        if p:
+        pid = info.get("pid")
+        pgid = info.get("pgid")
+
+        if pid:
             try:
-                if p.poll() is None:
-                    os.killpg(os.getpgid(p.pid), signal.SIGTERM)
-                    p.wait(timeout=3)
-            except:
-                pass
-        info["status"] = "STOPPED"
-        info["process"] = None
+                os.killpg(pgid or pid, signal.SIGTERM)
+            except Exception as e:
+                ui.notify(f"Stop failed: {e}", type="negative")
+
+        info.update(
+            {
+                "status": "STOPPED",
+                "pid": None,
+                "pgid": None,
+                "owned": False,
+            }
+        )
+
         if info.get("button"):
             info["button"].set_text("RUN")
             info["button"].props("color=green icon=play_arrow")
 
-        # ★★★ [핵심 수정] 정지 1초 후 토픽 목록 자동 갱신 ★★★
-        # 죽은 토픽을 목록에서 제거하기 위함
-        ui.timer(1.0, self.update_topic_list, once=True)
+        self.remove_log_view(pkg, file_name)
 
     def stop_all_launches(self):
         for pkg, pkg_data in self.launch_files_data.items():
@@ -381,34 +659,49 @@ class NiceGUIRos:
                     self.stop_launch(pkg, file_name, info)
         self.render_launch_list()
 
-    async def monitor_log(self):
-        if not self.current_log_process:
+    def get_store_snapshot(self) -> dict:
+        return self._load_store()
+
+    def get_workspaces(self) -> List[dict]:
+        return self._load_store().get("workspaces", [])
+
+    def create_log_view(self, pkg: str, file: str, log_path: str):
+        if not self.logs_container:
             return
-        proc, loop = self.current_log_process, asyncio.get_event_loop()
-        while proc and proc.poll() is None:
-            try:
-                out = await loop.run_in_executor(None, proc.stdout.readline)
-                err = await loop.run_in_executor(None, proc.stderr.readline)
-                updated = False
-                if out:
-                    self.log_buffer.append("[OUT] " + out.decode(errors="replace").strip())
-                    updated = True
-                if err:
-                    self.log_buffer.append("[ERR] " + err.decode(errors="replace").strip())
-                    updated = True
-                if updated and self.log_container:
-                    if len(self.log_buffer) > MAX_LOG_LINES:
-                        self.log_buffer = self.log_buffer[-MAX_LOG_LINES:]
-                    self.log_container.set_text("\n".join(self.log_buffer))
-                    try:
-                        self.log_container.client.run_javascript(
-                            f'document.getElementById("{self.log_container.id}").parentElement.scrollTop = document.getElementById("{self.log_container.id}").parentElement.scrollHeight'
-                        )
-                    except:
-                        pass
-                await asyncio.sleep(0.01)
-            except:
-                break
+
+        key = (pkg, file)
+        if key in self.log_views:
+            return
+
+        with self.logs_container:
+            with ui.expansion(f"{pkg} / {file}", value=True) as exp:
+                label = ui.label("").classes("whitespace-pre-wrap font-mono text-xs bg-black text-green-400 p-3 rounded h-80 overflow-auto")
+
+        async def tail():
+            proc = await asyncio.create_subprocess_exec("tail", "-F", log_path, stdout=asyncio.subprocess.PIPE)
+            buf = []
+            while True:
+                line = await proc.stdout.readline()
+                if not line:
+                    await asyncio.sleep(0.1)
+                    continue
+                buf.append(line.decode(errors="replace").rstrip())
+                buf[:] = buf[-MAX_LOG_LINES:]
+                label.set_text("\n".join(buf))
+
+        task = asyncio.create_task(tail())
+        self.log_views[key] = {"task": task, "exp": exp}
+
+    def remove_log_view(self, pkg: str, file: str):
+        key = (pkg, file)
+        view = self.log_views.pop(key, None)
+        if not view:
+            return
+        try:
+            view["task"].cancel()
+            view["exp"].delete()
+        except Exception:
+            pass
 
     # ============================================================
     # Render Logic
@@ -419,6 +712,15 @@ class NiceGUIRos:
         # 컨테이너가 없으면(초기화 안됨) 무시
         if not self.launch_list_container:
             return
+
+        running_set = self.get_running_launches()
+
+        for pkg, pkg_data in self.launch_files_data.items():
+            for file_name, info in pkg_data["files"].items():
+                if file_name in running_set:
+                    info["status"] = "RUNNING"
+                else:
+                    info["status"] = "STOPPED"
 
         try:
             # 1. 컨테이너 비우기 (여기서 에러가 가장 많이 발생)
@@ -497,27 +799,26 @@ class NiceGUIRos:
 
         def _cb(res):
             opts = []
+            topic_dict = {}  # [추가] 토픽 저장을 위한 임시 딕셔너리
+
             # 이름과 타입을 가져와서 이미지 토픽만 필터링
             for n, t in zip(res.get("topics", []), res.get("types", [])):
                 if "sensor_msgs/Image" in str(t) or "sensor_msgs/CompressedImage" in str(t):
                     opts.append(n)
+                    topic_dict[n] = t  # [추가] 타입 정보도 저장
 
-            # UI 업데이트
+            # ★★★ [핵심 수정] 클래스 변수에 저장해야 다른 페이지에서 갖다 쓸 수 있음! ★★★
+            self.available_image_topics = topic_dict
+
+            # (기존) 메인 페이지 UI 업데이트
             if self.image_topic_select:
                 sorted_opts = sorted(opts)
                 self.image_topic_select.set_options(sorted_opts)
 
-                # 현재 선택된 토픽이 사라졌으면 선택 해제 및 구독 중지
                 if self.image_topic_select.value and self.image_topic_select.value not in sorted_opts:
                     self.image_topic_select.set_value(None)
                     self.unsubscribe_current_image_topic()
                     ui.notify("선택된 영상 토픽이 사라졌습니다.", type="warning")
-
-                # (옵션) 선택된 것이 없고, 가능한 토픽이 1개 이상이면 첫 번째 자동 선택?
-                # -> 사용자가 직접 선택하는게 나을 수 있어 자동선택은 주석처리
-                # elif not self.image_topic_select.value and sorted_opts:
-                #     self.image_topic_select.set_value(sorted_opts[0])
-                #     self.subscribe_image_topic(sorted_opts[0])
 
         try:
             self.ros_client.get_topics(callback=_cb)
@@ -618,12 +919,35 @@ class NiceGUIRos:
         self.llm_sub.subscribe(cb)
 
     def _handle_llm_callback(self, msg):
-        answer = msg.get("data", "ERR")
-        if self.chat_log_buffer and self.chat_log_buffer[-1]["text"] == answer:
+        token = msg.get("data", "")
+        if not token:
+            return
+
+        # --- 스트림 시작 ---
+        if token == "__LLM_START__":
+            self.is_llm_streaming = True
+            self.current_llm_stream_text = ""
+            self._remove_loading_indicator()
+
+            self.chat_log_buffer.append({"sender": "LLM", "text": ""})
+            self._render_chat_log()
+            return
+
+        # --- 스트림 종료 ---
+        if token == "__LLM_END__":
+            self.is_llm_streaming = False
+            self.current_llm_stream_text = ""
             self._remove_loading_indicator()
             return
-        self._remove_loading_indicator()
-        self._append_to_chat_log("LLM", answer)
+
+        # --- 스트리밍 중 토큰 ---
+        if not self.is_llm_streaming:
+            # 방어: START 없이 들어온 토큰 무시
+            return
+
+        self.current_llm_stream_text += token
+        self.chat_log_buffer[-1]["text"] = self.current_llm_stream_text
+        self._render_chat_log()
 
     def _render_chat_log(self):
         if not self.chat_log_container:
@@ -664,6 +988,9 @@ class NiceGUIRos:
         txt = self.chat_input.value.strip()
         if not txt:
             return
+
+        self.is_llm_streaming = False
+        self.current_llm_stream_text = ""
         self._append_to_chat_log("User", txt)
         self._append_loading_indicator()
         self.llm_pub.publish(roslibpy.Message({"data": txt}))

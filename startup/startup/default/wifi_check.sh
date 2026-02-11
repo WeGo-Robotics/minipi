@@ -2,7 +2,7 @@
 
 # ==============================================================================
 # [확인된 절대 경로]
-TARGET_FILE="/home/hightorque/soccer_ws/ble_wifi_setup.py"
+TARGET_FILE="/home/hightorque/wego_minipi_ws/ble_wifi_setup.py"
 # ==============================================================================
 
 LOGFILE="/home/hightorque/ble_startup.log"

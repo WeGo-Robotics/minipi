@@ -3,7 +3,7 @@
   <name>ball_tracker_pkg</name>
   <version>0.0.0</version>
   <description>The ball_tracker_pkg package</description>
-  <maintainer email="hightorque@todo.todo">hightorque</maintainer>
+  <maintainer email="go.support@wego-robotics.com">wego-robotics</maintainer>
   <license>TODO</license>
 
   <buildtool_depend>catkin</buildtool_depend>

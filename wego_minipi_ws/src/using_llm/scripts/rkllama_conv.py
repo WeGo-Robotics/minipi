@@ -1,438 +1,467 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os, json, requests, sys, re, time
+"""
+rkllama_conv.py (model-agnostic, ROS1)
+
+Design goals:
+- Tool decision is rule-based (no LLM tool_calls dependency)
+- LLM is only a text generator (no tools/system/multi-role history)
+- GUI streaming markers are always guaranteed: __LLM_START__ / __LLM_END__
+- Robust against /api/chat streaming format differences
+"""
+
+import os
+import json
+import time
+import threading
+import requests
+
 import rospy
 from std_msgs.msg import String
-from yolo11_detect_pkg.msg import Yolo 
-from sim2real_msg.msg import ControlState # sim2real_msg 토픽에 대한 가정
 from geometry_msgs.msg import Twist
-import numpy as np
 from math import pi
+import numpy as np
+
+from yolo11_detect_pkg.msg import Yolo
+from sim2real_msg.msg import Joy  # adjust if your actual msg differs
+
 
 RK_BASE = os.environ.get("RK_BASE", "http://127.0.0.1:8080")
-MODEL = os.environ.get("RK_MODEL", "Qwen2.5-3B") 
+MODEL = os.environ.get("RK_MODEL", "gemma2:2b")  # gemma2:2b or qwen2.5:3b etc.
 
+
+# -------------------------------
+# Utilities
+# -------------------------------
+def _safe_json_loads(s: str):
+    try:
+        return json.loads(s)
+    except Exception:
+        return None
+
+
+def _extract_stream_payload_line(raw_line: bytes) -> str:
+    """
+    rkllama sometimes streams like:
+      b'data: {...json...}'
+    or just:
+      b'{...json...}'
+    """
+    if not raw_line:
+        return ""
+    line = raw_line.strip()
+    if line.startswith(b"data:"):
+        line = line[len(b"data:") :].strip()
+    try:
+        return line.decode("utf-8", errors="replace")
+    except Exception:
+        return ""
+
+
+def _extract_text_from_chunk(chunk: dict) -> str:
+    """
+    Be flexible: different servers/models may put text in different fields.
+    """
+    if not isinstance(chunk, dict):
+        return ""
+
+    # most common:
+    msg = chunk.get("message")
+    if isinstance(msg, dict):
+        c = msg.get("content")
+        if isinstance(c, str) and c:
+            return c
+
+    # some servers:
+    c = chunk.get("response")
+    if isinstance(c, str) and c:
+        return c
+
+    # some may do:
+    c = chunk.get("content")
+    if isinstance(c, str) and c:
+        return c
+
+    return ""
+
+
+# -------------------------------
+# Main Node
+# -------------------------------
 class RkllamaPi:
     def __init__(self):
-        self.TOOLS=[
-            {
-                "type": "function",
-                "function": {
-                    "name": "check_around",
-                    "description": "로봇 주변에 보이는 모든 물체(예: 컵, 의자)의 목록을 확인하여 사용자에게 알려줄 때 사용합니다. (예: '주변에 뭐가 있어?')" 
-                },
-            },
-            {
-                "type": "function",
-                "function": {
-                    "name": "go_to_object",
-                    "description": "사용자가 지정한 특정 물체로 로봇을 이동시킬 때 사용합니다. 반드시 이동할 물체의 이름이 필요합니다.",
-                    "parameters": {
-                        "type": "object",
-                        "properties": {
-                            "object_name": {
-                                "type": "string",
-                                "description": "이동할 대상 물체의 이름 (예: 'cup', 'table', 'person')"
-                            }
-                        },
-                        "required": ["object_name"]
-                    }
-                },
-            },
-        ]
-        
-        rospy.init_node("rkllama_pi")
+        rospy.init_node("rkllama_pi", anonymous=False)
 
+        # ROS IO
         self.usr_input = rospy.Subscriber("/gui/input", String, self.usr_input_cb)
         self.yolo_input = rospy.Subscriber("/yolo/detections", Yolo, self.yolo_input_cb)
-        
-        self.last_yolo_data = None 
 
-        self.rkllama_output = rospy.Publisher("/rkllama/output", String, queue_size=10)
+        self.rkllama_output = rospy.Publisher("/rkllama/output", String, queue_size=50)
         self.cmd_vel_pub = rospy.Publisher("/cmd_vel/auto", Twist, queue_size=10)
-        self.joy_dance_pub=rospy.Publisher("/joy_msg", ControlState, queue_size=10)
-        self.joy_msg=ControlState()
-        
-        # 추가된 비동기 이동 제어 상태 변수
+        self.joy_pub = rospy.Publisher("/joy_msg", Joy, queue_size=10)
+
+        # Perception cache
+        self.last_yolo_data = None
+
+        # Movement state
         self.is_moving = False
         self.target_object_name = None
-        self.is_aligned = False      # 정렬 완료 여부 플래그
-        self.alignment_time = 0.0    # 정렬 완료된 시점의 시간 기록
-        
-        # 춤추기 상태 변수 추가
+        self.is_aligned = False
+        self.alignment_time = 0.0
+
+        # Optional action state (dance etc.)
         self.is_dancing = False
         self.dance_end_time = 0.0
-        
-        # 10Hz (0.1초마다) 실행되는 ROS Timer 설정
-        rospy.Timer(rospy.Duration(0.1), self.move_to_target_cb) 
-    
+        self.joy_msg = Joy()
 
+        # Timer for motion control
+        rospy.Timer(rospy.Duration(0.1), self.move_to_target_cb)
+
+        # Streaming control (prevent overlapping streams)
+        self._req_lock = threading.Lock()
+        self._active_request_id = 0  # increments each user input
+        self._streaming = False
+
+        rospy.loginfo("[rkllama_conv] node ready. RK_BASE=%s MODEL=%s", RK_BASE, MODEL)
+
+    # -------------------------------
+    # ROS Callbacks
+    # -------------------------------
     def yolo_input_cb(self, msg: Yolo):
-        """YOLO 데이터를 받으면 최신 정보를 저장합니다."""
         self.last_yolo_data = msg
 
     def usr_input_cb(self, msg: String):
-        user_input = msg.data
-        rospy.loginfo(f"User Input: {user_input}")
+        user_input = (msg.data or "").strip()
+        if not user_input:
+            return
 
-        # --- (LLM 호출 및 도구 실행 로직은 변경 없음) ---
-        base_system_prompt = (
-            "You are a Lubancat ROS robot control agent. Your **sole function is to call a tool** "
-            "when the user's request requires it, or reply with a **single, short, plain-text sentence** "
-            "if no tool is needed. **DO NOT output markdown, lists, or any explanatory text.** "
-            "For a query like 'what can you see', you **MUST** call the 'check_around' tool. "
-            "For commands like 'go to X', you **MUST** call the 'go_to_object' tool. "
-            "If the JSON tool call fails, only output 'GO_TO_OBJECT_NAME' or 'CHECK_AROUND' as plain text."
-            "All responses must be strictly in **English or Korean**. Never use any other language, especially Chinese (Mandarin/Cantonese)."
+        rospy.loginfo("[USER] %s", user_input)
+
+        # cancel any ongoing stream by bumping request id
+        with self._req_lock:
+            self._active_request_id += 1
+            req_id = self._active_request_id
+
+        # 1) Rule-based intent routing (NO LLM for tool decision)
+        intent, args = self.parse_intent(user_input)
+
+        if intent == "check_around":
+            self.publish_bubble(req_id, lambda: self.execute_check_around()["message"])
+            return
+
+        if intent == "go_to_object":
+            self.publish_bubble(req_id, lambda: self.execute_go_to_object(args)["message"])
+            return
+
+        # 2) Otherwise: "normal chat" → LLM text generator only
+        t = threading.Thread(
+            target=self.llm_stream_chat,
+            args=(req_id, user_input),
+            daemon=True,
         )
+        t.start()
 
-        messages = [
-            {"role": "system", "content": base_system_prompt},
-            {"role": "user", "content": user_input}
-        ]
-        
-        function_name = None
-        function_args = {}
-        tool_call_requested = False
-        is_go_to_command = user_input.lower().strip().startswith("go to ")
+    # -------------------------------
+    # Intent (model-independent)
+    # -------------------------------
+    def parse_intent(self, text: str):
+        t = (text or "").strip()
+        lower = t.lower()
 
+        # check_around keywords
+        if any(
+            k in lower
+            for k in [
+                "주변",
+                "보여",
+                "보이는",
+                "뭐 있어",
+                "뭐있어",
+                "뭐가 있어",
+                "뭐가있어",
+                "what can you see",
+                "what is around",
+                "around you",
+                "find objects",
+                "see around",
+            ]
+        ):
+            return ("check_around", {})
+
+        # go_to patterns (Korean + English)
+        # e.g., "go to cup", "컵으로 가", "컵으로 가줘", "cup로 가"
+        if lower.startswith("go to "):
+            name = t[6:].strip()
+            return ("go_to_object", {"object_name": name})
+
+        # very simple Korean patterns
+        # "XX로 가", "XX으로 가", "XX로 이동", "XX으로 이동"
+        for suffix in ["로 가", "으로 가", "로가", "으로가", "로 이동", "으로 이동", "로이동", "으로이동"]:
+            if suffix in t:
+                name = t.split(suffix)[0].strip()
+                if name:
+                    return ("go_to_object", {"object_name": name})
+
+        return ("chat", {})
+
+    # -------------------------------
+    # GUI Bubble helpers (START/END guaranteed)
+    # -------------------------------
+    def publish_bubble(self, req_id: int, producer_fn):
+        """
+        Runs producer_fn() and publishes it as one bubble,
+        always wrapping with START/END, and respecting cancellation.
+        """
+        self._publish_start(req_id)
         try:
-            # Phase 1: LLM 호출 및 응답 받기
-            response_msg = self.chat_once(messages, self.TOOLS)
-            messages.append(response_msg) 
-            
-            llm_raw_text = response_msg.get('message', {}).get('content', "No text content found.")
-            rospy.loginfo(f"LLM Raw Text Response: {llm_raw_text}")
-
-
-            if response_msg.get('tool_calls'):
-                tool_call_requested = True
-                rospy.loginfo("LLM requested Tool Call (JSON). Executing tool...")
-                
-                tool_call = response_msg['tool_calls'][0]
-                function_name = tool_call['function']['name']
-                
-                try:
-                    function_args = json.loads(tool_call['function']['arguments'])
-                except json.JSONDecodeError:
-                    rospy.logerr(f"JSONDecodeError: Failed to parse tool arguments for {function_name}. Using empty args.")
-                    function_args = {}
-                    
-            elif is_go_to_command:
-                rospy.logwarn(f"LLM failed to use JSON/Text Tool, but input was a 'go to' command. FORCING go_to_object call.")
-                tool_call_requested = True
-                function_name = "go_to_object"
-
-            else:
-                final_content = (llm_raw_text or "").strip()
-                final_content_upper = final_content.upper().replace("#", "") 
-                
-                tool_names = {"CHECK_AROUND": "check_around", "GO_TO_OBJECT": "go_to_object"}
-                
-                if final_content_upper in tool_names or final_content_upper.startswith("GO_TO_"):
-                    tool_call_requested = True
-                    function_name = tool_names.get(final_content_upper, "go_to_object") 
-                    if final_content_upper.startswith("GO_TO_"):
-                        object_name = final_content_upper.replace("GO_TO_", "", 1).strip()
-                        function_args = {"object_name": object_name}
-                    else:
-                        function_args = {}
-                    rospy.logwarn(f"Model returned non-JSON text: {final_content}. Executing {function_name} fallback.")
-                
-                elif final_content:
-                    rospy.loginfo(f"Final Response (Non-Tool): {final_content}")
-                    self.rkllama_output.publish(final_content)
-                    return 
-                
-                else:
-                    rospy.logerr("LLM returned empty content or unparsable structure (e.g., 'none'). Terminating command.")
-                    self.rkllama_output.publish("명령을 인식하지 못했습니다.")
-                    return 
-
-            
-            # 도구 실행
-            if not tool_call_requested:
-                return 
-            
-            if function_name == "go_to_object":
-                 if not function_args.get("object_name") and is_go_to_command:
-                     potential_name = user_input[len("go to "):].strip()
-                     if potential_name:
-                          function_args["object_name"] = potential_name
-                          rospy.logwarn(f"RECOVERY: Object name successfully extracted from user input: {potential_name}")
-
-
-            rospy.loginfo(f"Executing Tool: {function_name}({function_args})")
-
-            if function_name == "check_around":
-                tool_result = self.execute_check_around()
-            elif function_name == "go_to_object":
-                # go_to_object는 이제 상태 설정만 합니다.
-                tool_result = self.execute_go_to_object(function_args)
-            else:
-                tool_result = {"status": "error", "message": f"Unknown tool: {function_name}"}
-
-            # 도구 실행 결과를 메시지에 추가
-            messages.append({
-                "role": "tool",
-                "tool_call_id": "fallback_id" if not response_msg.get('tool_calls') else response_msg['tool_calls'][0]['id'],
-                "content": json.dumps(tool_result, ensure_ascii=False)
-            })
-            
-            # --- PHASE 2: 최종 응답 생성 ---
-            phase2_messages = messages[:] 
-            phase2_messages[0] = {
-                "role": "system",
-                "content": (
-                    "You are a Lubancat ROS robot control agent. Based on the previous tool output, "
-                    "provide a **single, short, plain-text sentence** to the user. "
-                    "Do not output markdown, lists, or technical jargon. "
-                    "All responses must be strictly in **English or Korean**. Never use any other language, especially Chinese (Mandarin/Cantonese). "
-                    "Example: '주변에 컵과 책이 보입니다.' or '컵으로 이동을 시작합니다.' or 'I see a cup and a book.' or 'Starting movement to the cup.'"
-                )
-            }
-            
-            rospy.loginfo("Phase 2: Calling LLM with tool results for final response (Enhanced Prompt)...")
-            final_response_msg = self.chat_once(phase2_messages, self.TOOLS) 
-            
-            final_content = final_response_msg.get('content') or final_response_msg.get('message', {}).get('content')
-            final_content = (final_content or "LLM이 최종 응답을 생성하지 못했습니다.").strip()
-            
-            if final_content.upper().startswith("GO_TO_") or final_content.upper().startswith("CHECK_AROUND"):
-                 final_content = tool_result.get("message", "요청 처리가 완료되었습니다.")
-
-            rospy.loginfo(f"Final Response: {final_content}")
-            self.rkllama_output.publish(final_content)
-
-        except requests.exceptions.RequestException as e:
-            rospy.logerr(f"API Call Failed: {e}")
-            self.rkllama_output.publish(f"LLM 서버 호출 오류: {e}")
+            if not self._is_request_active(req_id):
+                return
+            text = producer_fn() or ""
+            if self._is_request_active(req_id):
+                self.rkllama_output.publish(text)
         except Exception as e:
-            rospy.logerr(f"An unexpected error occurred: {e}")
-            self.rkllama_output.publish(f"처리 중 예기치 않은 오류 발생: {e}")
+            rospy.logerr("[publish_bubble] error: %r", e)
+            if self._is_request_active(req_id):
+                self.rkllama_output.publish("(처리 중 오류)")
+        finally:
+            self._publish_end(req_id)
 
+    def _publish_start(self, req_id: int):
+        if not self._is_request_active(req_id):
+            return
+        self._streaming = True
+        self.rkllama_output.publish("__LLM_START__")
+
+    def _publish_end(self, req_id: int):
+        if not self._is_request_active(req_id):
+            return
+        self.rkllama_output.publish("__LLM_END__")
+        self._streaming = False
+
+    def _is_request_active(self, req_id: int) -> bool:
+        with self._req_lock:
+            return req_id == self._active_request_id
+
+    # -------------------------------
+    # Tools (no LLM involvement)
+    # -------------------------------
     def execute_check_around(self):
-        """'check_around' 도구의 실제 구현: 마지막 YOLO 데이터 기반으로 물체 목록 반환"""
-        
-        rospy.loginfo("[CHECK_AROUND] 도구 호출 시도.")
-        if self.last_yolo_data is None or not self.last_yolo_data.detections:
-            rospy.loginfo("[CHECK_AROUND] 물체 데이터 없음.")
+        rospy.loginfo("[TOOL] check_around")
+        if self.last_yolo_data is None or not getattr(self.last_yolo_data, "detections", None):
             return {"status": "success", "objects_found": [], "message": "주변에 식별된 물체가 없습니다."}
-        
-        object_list = [(d.label, d.x_center, d.y_center) for d in self.last_yolo_data.detections]
-        unique_object_names = sorted(list(set([d[0] for d in object_list])))
-        
-        if unique_object_names:
-             msg = f"식별된 객체: {', '.join(unique_object_names)}"
-        else:
-             msg = "주변에 식별된 물체가 없습니다."
-        
-        rospy.loginfo(f"[CHECK_AROUND] 발견된 객체 목록: {unique_object_names}")
-        return {"status": "success", "objects_found": unique_object_names, "message": msg}
+
+        detections = self.last_yolo_data.detections
+        names = sorted(set([d.label for d in detections if getattr(d, "label", "")]))
+        if names:
+            return {"status": "success", "objects_found": names, "message": f"식별된 객체: {', '.join(names)}"}
+        return {"status": "success", "objects_found": [], "message": "주변에 식별된 물체가 없습니다."}
 
     def execute_go_to_object(self, args):
-        """ 변경: 이동 명령을 시작하고 제어권을 Timer 콜백으로 넘깁니다."""
-        
-        object_name = args.get("object_name")
-        rospy.loginfo(f"[GO_TO] 요청 수신: object_name={object_name}") 
-        
+        rospy.loginfo("[TOOL] go_to_object args=%s", args)
+        object_name = (args or {}).get("object_name", "").strip()
         if not object_name:
             return {"status": "error", "message": "이동할 물체의 이름이 지정되지 않았습니다."}
 
-        if self.last_yolo_data is None or not self.last_yolo_data.detections:
+        if self.last_yolo_data is None or not getattr(self.last_yolo_data, "detections", None):
             return {"status": "error", "message": f"현재 화면에서 '{object_name}'을(를) 찾을 수 없어 이동을 시작할 수 없습니다."}
 
-        # 상태 변수 설정 및 이동 시작 시, is_aligned 초기화
+        # Start motion control loop
         self.target_object_name = object_name
         self.is_moving = True
         self.is_aligned = False
-        
-        # 이전의 단발성 이동 명령을 중지
-        self.cmd_vel_pub.publish(Twist())
-        
-        rospy.loginfo(f"[GO_TO] 이동 제어 시작. 목표: {object_name}. Timer가 제어를 인계받습니다.")
+        self.cmd_vel_pub.publish(Twist())  # clear any previous cmd
 
         return {"status": "success", "message": f"'{object_name}'(으)로 이동을 시작합니다."}
 
-    def start_dance_sequence(self):
-        """ 춤 동작 명령을 발행하고, 춤이 끝날 시간을 설정합니다."""
-        
-        # 이동 중에는 춤추기 불가 (move_to_target_cb에서 처리되지만 안전을 위해)
-        if self.is_moving:
-            return
-            
-        # 춤 동작 시간 설정 (예: 3초)
-        DANCE_DURATION = 3.0 
-        self.is_dancing = True
-        self.dance_end_time = rospy.get_time() + DANCE_DURATION
-        
-        rospy.loginfo(f"[DANCE] 춤 동작 시작 명령 발행. {DANCE_DURATION}초간 대기합니다.")
-        
-        # 춤 동작 메시지 발행 (원래의 순서대로 발행)
-        self.joy_msg.running_standby_switch=1.0
-        self.joy_dance_pub.publish(self.joy_msg) # 1
-        rospy.sleep(0.05)
-        
-        self.joy_msg.running_standby_switch=0.0
-        self.joy_msg.candidate_left=1.0
-        self.joy_msg.candidate_right=-1.0
-        self.joy_msg.quit=1.0
-        self.joy_msg.knee_angle_increase=1.0
-        self.joy_dance_pub.publish(self.joy_msg) # 2 (실제 춤 동작)
-        
-        # 마지막 초기화 명령 (3)은 춤이 끝난 후 Timer에서 발행합니다.
-
+    # -------------------------------
+    # Motion control (unchanged essence)
+    # -------------------------------
     def move_to_target_cb(self, event):
-        """ ROS 타이머에 의해 주기적으로 호출되며 지속적인 이동 제어를 수행합니다."""
-        from geometry_msgs.msg import Twist
-        
-        # 춤 동작 중인지 최우선으로 확인합니다.
         if self.is_dancing:
-            current_time = rospy.get_time()
-            if current_time < self.dance_end_time:
-                # 춤 동작이 끝날 때까지 이동 제어(Twist)를 발행하지 않고 대기합니다.
-                rospy.loginfo(f"[DANCE] 춤 동작 대기 중. 남은 시간: {self.dance_end_time - current_time:.2f}s")
-                return 
-            else:
-                # 춤 동작 완료
-                rospy.loginfo("[DANCE] 춤 동작 완료. 상태 초기화 및 최종 정지 명령.")
-                self.cmd_vel_pub.publish(Twist()) # 정지
-                self.is_dancing = False
-                self.is_moving = False # 이동 전체 종료
-                self.target_object_name = None
-                self.rkllama_output.publish("춤 동작을 마쳤습니다.") # 최종 사용자 응답
-
-                # 춤 동작 메시지 최종 초기화 (3)
-                self.joy_msg.running_standby_switch=1.0
-                self.joy_msg.candidate_left=0.0
-                self.joy_msg.candidate_right=0.0
-                self.joy_msg.quit=0.0
-                self.joy_msg.knee_angle_increase=0.0
-                self.joy_dance_pub.publish(self.joy_msg)
-                
-                return # 초기화 후 함수 종료
-        
-        
-        if not self.is_moving or self.target_object_name is None:
+            # (optional) keep if you use dance logic
             return
-            
-        object_name = self.target_object_name
-        
-        # 1. 데이터 확인 및 목표 객체 검색
-        if self.last_yolo_data is None or not self.last_yolo_data.detections:
+
+        if not self.is_moving or not self.target_object_name:
+            return
+
+        if self.last_yolo_data is None or not getattr(self.last_yolo_data, "detections", None):
             self.cmd_vel_pub.publish(Twist())
-            rospy.logwarn(f"[MOVE] YOLO 데이터 없음. '{object_name}' 이동 중단.")
             self.is_moving = False
             self.target_object_name = None
             self.is_aligned = False
+            rospy.logwarn("[MOVE] no YOLO data -> stop")
             return
 
-        target_detection = None
+        obj = self.target_object_name
+        target = None
         for d in self.last_yolo_data.detections:
-            if d.label.lower() == object_name.lower():
-                target_detection = d
+            if getattr(d, "label", "").lower() == obj.lower():
+                target = d
                 break
 
-        if target_detection is None:
+        if target is None:
             self.cmd_vel_pub.publish(Twist())
-            rospy.logwarn(f"[MOVE] 목표 '{object_name}'을(를) 놓쳤습니다. 이동 중단.")
             self.is_moving = False
             self.target_object_name = None
             self.is_aligned = False
+            rospy.logwarn("[MOVE] lost target '%s' -> stop", obj)
             return
 
-        # 3. 제어 파라미터 및 오차 계산
-        LINEAR_SPEED = 0.35              # 직진 속도 상한
-        MIN_LINEAR_SPEED = 0.2           # 회전 중 최소 전진 속도 (Deadband 회피)
-        PIXEL_TOLERANCE = 50 
-        FINAL_STOP_Y_CENTER = 400 
-        ALIGNMENT_HOLD_TIME = 0.8        # 직진 강제 유지 시간
+        LINEAR_SPEED = 0.35
+        MIN_LINEAR_SPEED = 0.2
+        PIXEL_TOL = 50
+        FINAL_STOP_Y = 400
+        ALIGN_HOLD = 0.8
 
-        cx = target_detection.x_center
-        image_width = getattr(self.last_yolo_data, 'image_width', 640)
-        center_x = image_width / 2.0
-        error_x = center_x - cx # 픽셀 오차 (왼쪽 회전 시 양수, 오른쪽 회전 시 음수)
-        
-        # 4. Twist 메시지 계산
-        twist_msg = Twist()
-        calculated_angular_z = error_x * (pi / image_width)
+        image_width = getattr(self.last_yolo_data, "image_width", 640)
+        cx = getattr(target, "x_center", image_width / 2.0)
+        err_x = (image_width / 2.0) - cx
+        ang = float(err_x) * (pi / float(image_width))
+        ang = float(np.clip(ang, -0.6, 0.6))
+
+        twist = Twist()
         should_stop = False
 
-        
-        # ----------------------------------------------------
-        # A. 최종 정지 조건 검사 (최우선)
-        if target_detection.y_center > FINAL_STOP_Y_CENTER: 
-            twist_msg.linear.x = 0.0
-            twist_msg.angular.z = 0.0
+        if getattr(target, "y_center", 0) > FINAL_STOP_Y:
+            twist.linear.x = 0.0
+            twist.angular.z = 0.0
             should_stop = True
-            self.is_aligned = False 
-            rospy.loginfo("[MOVE] 목표 근접 도달. 최종 정지 명령.")
-            
-        # B. 정렬 강제 유지 조건 검사
+
         elif self.is_aligned:
-            current_time = rospy.get_time()
-            if current_time - self.alignment_time < ALIGNMENT_HOLD_TIME:
-                # 정렬 직후, 강제로 직진 명령을 유지
-                twist_msg.linear.x = LINEAR_SPEED
-                twist_msg.angular.z = 0.0
-                rospy.loginfo(f"[MOVE] 정렬 강제 유지 중 ({current_time - self.alignment_time:.2f}s).")
+            now = rospy.get_time()
+            if now - self.alignment_time < ALIGN_HOLD:
+                twist.linear.x = LINEAR_SPEED
+                twist.angular.z = 0.0
             else:
-                # 유지 시간이 지나면 일반 추적 모드로 복귀
-                self.is_aligned = False 
-                rospy.loginfo("[MOVE] 강제 유지 종료. 일반 추적 복귀.")
+                self.is_aligned = False
 
-
-        # C. 정렬 완료 (직진 시작) 조건 검사
-        elif abs(error_x) < PIXEL_TOLERANCE:
-            
-            # 정렬 완료가 감지되면, 강제 유지 상태로 전환
+        elif abs(err_x) < PIXEL_TOL:
             self.is_aligned = True
             self.alignment_time = rospy.get_time()
-            
-            # 이 틱에서는 직진 명령을 발행하고, 다음 틱부터 강제 유지 시작
-            twist_msg.linear.x = LINEAR_SPEED
-            twist_msg.angular.z = 0.0
-            rospy.loginfo("[MOVE] 정렬 완료 감지! 직진 및 강제 유지 시작.")
-            
-        # D. 정렬 중 조건 검사 
-        else: 
-            # 회전 중에도 최소 속도 이상으로 전진 (Deadband 회피)
-            twist_msg.linear.x = MIN_LINEAR_SPEED
-            twist_msg.angular.z = np.clip(calculated_angular_z, -0.6, 0.6)
-            print(f"@@@@@@@@@조정중!!!!!! error_x: {error_x}, angular.z: {twist_msg.angular.z}, linear.x: {twist_msg.linear.x}") # 사용자 피드백 반영
-            rospy.loginfo(f"[MOVE] 일반 정렬 중. L:{twist_msg.linear.x:.2f}, A:{twist_msg.angular.z:.2f}")
+            twist.linear.x = LINEAR_SPEED
+            twist.angular.z = 0.0
 
-        # 5. cmd_vel 발행
-        self.cmd_vel_pub.publish(twist_msg)
-        
-        # 6. 정지 명령을 내렸으면 이동 상태를 종료하고 춤 동작을 시작합니다.
+        else:
+            twist.linear.x = MIN_LINEAR_SPEED
+            twist.angular.z = ang
+
+        self.cmd_vel_pub.publish(twist)
+
         if should_stop:
-            rospy.loginfo(f"[MOVE] 목표 '{object_name}' 근접 도달. 이동 제어를 완전히 종료합니다.")
+            self.cmd_vel_pub.publish(Twist())
             self.is_moving = False
             self.target_object_name = None
-            
-            # 춤 동작 시작
-            # self.start_dance_sequence()
-            
-            # move_to_target_cb의 다음 호출부터 is_dancing 로직이 제어를 인계받습니다.
+            self.is_aligned = False
 
+    # -------------------------------
+    # LLM (model-agnostic)
+    # -------------------------------
+    def llm_stream_chat(self, req_id: int, user_text: str):
+        """
+        Model-agnostic:
+        - Single "user" message only (no system/tools/history) to avoid:
+          "Conversation roles must alternate ..." template errors
+        - If streaming fails, fallback to non-stream once.
+        - Always guarantees START/END.
+        """
+        self._publish_start(req_id)
 
-    def chat_once(self, messages, tools):
-        """rkllama API를 호출하고 응답을 JSON으로 반환"""
+        # minimalist prompt wrapper: keeps the model on-track without system role
+        prompt = "Reply in Korean or English in 1-2 short sentences. " "Do not use markdown or lists.\n\n" f"User: {user_text}\nAssistant:"
+
+        messages = [{"role": "user", "content": prompt}]
+
+        try:
+            # 1) try streaming
+            ok = self._rk_stream(req_id, messages)
+            if ok:
+                return
+
+            # 2) fallback once (non-stream)
+            if self._is_request_active(req_id):
+                text = self._rk_once(messages)
+                if text:
+                    self.rkllama_output.publish(text)
+
+        except Exception as e:
+            rospy.logerr("[llm_stream_chat] error: %r", e)
+            if self._is_request_active(req_id):
+                self.rkllama_output.publish("(LLM 오류)")
+        finally:
+            self._publish_end(req_id)
+
+    def _rk_stream(self, req_id: int, messages) -> bool:
         payload = {
             "model": MODEL,
             "messages": messages,
-            "tools": tools,
-            "stream": False # JSONDecodeError 방지를 위해 스트리밍 비활성화
+            "stream": True,
         }
 
-        r=requests.post(f"{RK_BASE}/api/chat", json=payload, timeout=120) 
-        
-        r.raise_for_status()
-        return r.json()
+        try:
+            with requests.post(
+                f"{RK_BASE}/api/chat",
+                json=payload,
+                stream=True,
+                timeout=120,
+            ) as r:
+                if r.status_code != 200:
+                    rospy.logerr("[rk_stream] http %s", r.status_code)
+                    return False
+
+                for raw_line in r.iter_lines():
+                    if not self._is_request_active(req_id):
+                        return True  # canceled, treat as handled
+
+                    line = _extract_stream_payload_line(raw_line)
+                    if not line:
+                        continue
+
+                    chunk = _safe_json_loads(line)
+                    if not chunk:
+                        continue
+
+                    if chunk.get("done") is True:
+                        return True
+
+                    txt = _extract_text_from_chunk(chunk)
+                    if txt:
+                        # minor cleanup (optional)
+                        txt = txt.replace("#", "")
+                        self.rkllama_output.publish(txt)
+
+                return True
+        except Exception as e:
+            rospy.logerr("[rk_stream] exception: %r", e)
+            return False
+
+    def _rk_once(self, messages) -> str:
+        payload = {
+            "model": MODEL,
+            "messages": messages,
+            "stream": False,
+        }
+        r = requests.post(f"{RK_BASE}/api/chat", json=payload, timeout=120)
+        if r.status_code != 200:
+            rospy.logerr("[rk_once] http %s body=%s", r.status_code, r.text[:2000])
+            return ""
+
+        data = r.json()
+        # common:
+        msg = data.get("message")
+        if isinstance(msg, dict):
+            c = msg.get("content")
+            if isinstance(c, str):
+                return c.replace("#", "").strip()
+
+        # fallback:
+        c = data.get("response")
+        if isinstance(c, str):
+            return c.replace("#", "").strip()
+
+        return ""
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     RkllamaPi()
     rospy.spin()

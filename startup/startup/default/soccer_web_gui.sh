@@ -6,7 +6,7 @@ echo "1️⃣ ROS Noetic 환경 설정을 로드합니다..."
 source /opt/ros/noetic/setup.bash
 
 # --- 2. ROS 워크스페이스 환경 설정 및 이동 ---
-WS_DIR="/home/hightorque/soccer_ws"
+WS_DIR="/home/hightorque/wego_minipi_ws"
 
 # 워크스페이스 디렉토리로 이동 시도
 echo "2️⃣ 워크스페이스 디렉토리로 이동합니다: ${WS_DIR}"
@@ -24,12 +24,10 @@ fi
 source devel/setup.bash
 
 # --- 3. NiceGUI 애플리케이션 실행 ---
-APP_SCRIPT="src/niceGUI_ROS_funcCom.py"
-PYTHON_EXEC="python3.10"
 
-echo "3️⃣ NiceGUI 애플리케이션 실행을 시도합니다: ${PYTHON_EXEC} ${APP_SCRIPT}"
+echo "3️⃣ NiceGUI 애플리케이션 실행을 시도합니다: rosrun web_gui_pkg run_webgui.py"
 # NiceGUI 실행 시도
-"${PYTHON_EXEC}" "${APP_SCRIPT}"
+rosrun web_gui_pkg run_webgui.py
 STATUS=$?
 
 echo "---"

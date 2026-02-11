@@ -170,7 +170,7 @@ catkin_install_python(PROGRAMS
   scripts/visualize_ball_tracking.py
   scripts/visualize_ballDetect.py
   scripts/visualize_person_tracking.py
-  scripts/visualize_person_tracking(1119).py
+  scripts/visualize_person_tracking_1119.py
   scripts/visualize_display.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

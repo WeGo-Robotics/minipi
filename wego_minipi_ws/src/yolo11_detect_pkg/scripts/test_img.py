@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 from rknnlite.api import RKNNLite
 
+
 # -------------------- 메타 로더 --------------------
 def load_meta(meta_path):
     with open(meta_path, "r", encoding="utf-8") as f:
@@ -34,45 +35,52 @@ def load_meta(meta_path):
     else:
         meta["class_names"] = [str(i) for i in range(80)]
 
-    meta["strides"]      = [8, 16, 32]  # raw-head용 기본값(이번 모델은 end2end라 사용 안됨)
-    meta["conf_thres"]   = float(raw.get("conf_thres", 0.05))
-    meta["iou_thres"]    = float(raw.get("iou_thres", 0.45))
-    meta["nms_max_det"]  = int(raw.get("nms_max_det", 300))
-    meta["rgb"]          = bool(raw.get("rgb", True))
-    meta["letterbox"]    = bool(raw.get("letterbox", True))
+    meta["strides"] = [8, 16, 32]  # raw-head용 기본값(이번 모델은 end2end라 사용 안됨)
+    meta["conf_thres"] = float(raw.get("conf_thres", 0.05))
+    meta["iou_thres"] = float(raw.get("iou_thres", 0.45))
+    meta["nms_max_det"] = int(raw.get("nms_max_det", 300))
+    meta["rgb"] = bool(raw.get("rgb", True))
+    meta["letterbox"] = bool(raw.get("letterbox", True))
     return meta
 
+
 # -------------------- 전처리 --------------------
-def letterbox(im, new_shape=(640,640), color=(114,114,114), scaleup=True):
+def letterbox(im, new_shape=(640, 640), color=(114, 114, 114), scaleup=True):
     h0, w0 = im.shape[:2]
-    r = min(new_shape[0]/w0, new_shape[1]/h0)
-    if not scaleup: r = min(r, 1.0)
-    new_unpad = (int(round(w0*r)), int(round(h0*r)))
-    dw, dh = new_shape[0]-new_unpad[0], new_shape[1]-new_unpad[1]
-    dw /= 2; dh /= 2
+    r = min(new_shape[0] / w0, new_shape[1] / h0)
+    if not scaleup:
+        r = min(r, 1.0)
+    new_unpad = (int(round(w0 * r)), int(round(h0 * r)))
+    dw, dh = new_shape[0] - new_unpad[0], new_shape[1] - new_unpad[1]
+    dw /= 2
+    dh /= 2
     if (w0, h0) != new_unpad:
         im = cv2.resize(im, new_unpad, interpolation=cv2.INTER_LINEAR)
-    top, bottom = int(round(dh-0.1)), int(round(dh+0.1))
-    left, right = int(round(dw-0.1)), int(round(dw+0.1))
+    top, bottom = int(round(dh - 0.1)), int(round(dh + 0.1))
+    left, right = int(round(dw - 0.1)), int(round(dw + 0.1))
     im = cv2.copyMakeBorder(im, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)
     return im, r, (dw, dh)
 
+
 def scale_coords_xyxy(box, ratio, pad, orig_shape):
-    x1,y1,x2,y2 = box
+    x1, y1, x2, y2 = box
     dw, dh = pad
-    x1 -= dw; x2 -= dw
-    y1 -= dh; y2 -= dh
-    x1 /= ratio; x2 /= ratio
-    y1 /= ratio; y2 /= ratio
+    x1 -= dw
+    x2 -= dw
+    y1 -= dh
+    y2 -= dh
+    x1 /= ratio
+    x2 /= ratio
+    y1 /= ratio
+    y2 /= ratio
     h, w = orig_shape[:2]
-    return [max(0, min(w-1, x1)),
-            max(0, min(h-1, y1)),
-            max(0, min(w-1, x2)),
-            max(0, min(h-1, y2))]
+    return [max(0, min(w - 1, x1)), max(0, min(h - 1, y1)), max(0, min(w - 1, x2)), max(0, min(h - 1, y2))]
+
 
 # -------------------- 후처리 --------------------
 def _sigmoid(x):
     return 1.0 / (1.0 + np.exp(-x))
+
 
 def process_end2end_output(out, conf_thres, class_names, lb_ratio, lb_pad, orig_shape, print_hist=True):
     """
@@ -132,6 +140,7 @@ def process_end2end_output(out, conf_thres, class_names, lb_ratio, lb_pad, orig_
 
         # 점수열 추정
         rest = [k for k in tail_idxs if k != cls_col_idx] if cls_col_idx is not None else tail_idxs[:]
+
         def score_pref(col):
             v = col
             frac01 = np.mean((v >= 0.0) & (v <= 1.0))
@@ -186,37 +195,38 @@ def process_end2end_output(out, conf_thres, class_names, lb_ratio, lb_pad, orig_
 
     return dets, dets_all
 
+
 # -------------------- 시각화 --------------------
-def draw_dets(img, dets, class_names, color=(0,255,0), thickness=2):
-    for x1,y1,x2,y2,score,cid in dets:
-        p1, p2 = (int(x1),int(y1)), (int(x2),int(y2))
-        cv2.rectangle(img,p1,p2,color,thickness)
+def draw_dets(img, dets, class_names, color=(0, 255, 0), thickness=2):
+    for x1, y1, x2, y2, score, cid in dets:
+        p1, p2 = (int(x1), int(y1)), (int(x2), int(y2))
+        cv2.rectangle(img, p1, p2, color, thickness)
         label = f"{class_names[cid] if 0 <= cid < len(class_names) else cid} {score:.2f}"
-        t_sz,_ = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
-        cv2.rectangle(img,(p1[0],p1[1]-t_sz[1]-6),(p1[0]+t_sz[0]+4,p1[1]),color,-1)
-        cv2.putText(img,label,(p1[0]+2,p1[1]-4),cv2.FONT_HERSHEY_SIMPLEX,0.5,(0,0,0),1)
+        t_sz, _ = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)
+        cv2.rectangle(img, (p1[0], p1[1] - t_sz[1] - 6), (p1[0] + t_sz[0] + 4, p1[1]), color, -1)
+        cv2.putText(img, label, (p1[0] + 2, p1[1] - 4), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
     return img
 
+
 # -------------------- 메인 --------------------
-def run_inference(rknn_path, image_path, meta_path, out_path, core_mask=None,
-                  conf_override=None, debug_low=False, low_th=0.005):
+def run_inference(rknn_path, image_path, meta_path, out_path, core_mask=None, conf_override=None, debug_low=False, low_th=0.005):
     meta = load_meta(meta_path)
     if conf_override is not None:
         meta["conf_thres"] = float(conf_override)
 
     in_w, in_h = meta["input_size"]
-    use_lb     = meta["letterbox"]
-    to_rgb     = True  # Ultralytics 기본 RGB
+    use_lb = meta["letterbox"]
+    to_rgb = True  # Ultralytics 기본 RGB
 
     img0 = cv2.imread(image_path)
     if img0 is None:
         raise FileNotFoundError(image_path)
 
     if use_lb:
-        img, ratio, pad = letterbox(img0.copy(), (in_w,in_h))
+        img, ratio, pad = letterbox(img0.copy(), (in_w, in_h))
     else:
-        img = cv2.resize(img0.copy(), (in_w,in_h))
-        ratio, pad = min(in_w/img0.shape[1], in_h/img0.shape[0]), (0,0)
+        img = cv2.resize(img0.copy(), (in_w, in_h))
+        ratio, pad = min(in_w / img0.shape[1], in_h / img0.shape[0]), (0, 0)
 
     img_in = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) if to_rgb else img
     img_in = img_in.astype(np.uint8)
@@ -230,33 +240,33 @@ def run_inference(rknn_path, image_path, meta_path, out_path, core_mask=None,
         rknn.init_runtime()
 
     # NCHW 입력
-    inputs = [img_in.transpose(2,0,1)[None,...]]
+    inputs = [img_in.transpose(2, 0, 1)[None, ...]]
     outputs = rknn.inference(inputs=inputs)
-    for i,o in enumerate(outputs):
+    for i, o in enumerate(outputs):
         print(f"head{i}: shape={o.shape}, dtype={o.dtype}, min={o.min():.3f}, max={o.max():.3f}")
     rknn.release()
 
     # end2end 처리
     dets, dets_all = [], []
-    if len(outputs)==1 and outputs[0].ndim>=2 and outputs[0].shape[-1]>=6:
-        dets, dets_all = process_end2end_output(outputs[0], meta["conf_thres"], meta["class_names"],
-                                                ratio, pad, img0.shape, print_hist=True)
+    if len(outputs) == 1 and outputs[0].ndim >= 2 and outputs[0].shape[-1] >= 6:
+        dets, dets_all = process_end2end_output(outputs[0], meta["conf_thres"], meta["class_names"], ratio, pad, img0.shape, print_hist=True)
     else:
         print("[WARN] unexpected output structure; no detections decoded")
 
     # 메인 결과
-    out_img = draw_dets(img0.copy(), dets, meta["class_names"], color=(0,255,0), thickness=2)
+    out_img = draw_dets(img0.copy(), dets, meta["class_names"], color=(0, 255, 0), thickness=2)
     cv2.imwrite(out_path, out_img)
 
     # 저신뢰도 디버그 시각화
     if debug_low and len(dets_all):
         low = [d for d in dets_all if (d[4] < meta["conf_thres"] and d[4] >= low_th)]
         if low:
-            img_dbg = draw_dets(img0.copy(), low, meta["class_names"], color=(0,255,255), thickness=1)
+            img_dbg = draw_dets(img0.copy(), low, meta["class_names"], color=(0, 255, 255), thickness=1)
             cv2.imwrite("detect_low.jpg", img_dbg)
             print(f"[DEBUG] low-score boxes visualized to detect_low.jpg (>= {low_th})")
 
     return dets, out_path
+
 
 # -------------------- CLI --------------------
 def parse_args():
@@ -271,6 +281,7 @@ def parse_args():
     ap.add_argument("--all-cores", action="store_true", help="use all NPU cores if available")
     return ap.parse_args()
 
+
 if __name__ == "__main__":
     args = parse_args()
     core_mask = None
@@ -278,21 +289,18 @@ if __name__ == "__main__":
         core_mask = RKNNLite.NPU_CORE_0_1_2
 
     dets, saved = run_inference(
-        args.rknn, args.image, args.meta, args.out,
-        core_mask=core_mask, conf_override=args.conf,
-        debug_low=args.debug_low, low_th=args.low_th
+        args.rknn, args.image, args.meta, args.out, core_mask=core_mask, conf_override=args.conf, debug_low=args.debug_low, low_th=args.low_th
     )
     print(f"[OK] saved: {saved}")
     if not dets:
         print("No detections.")
     else:
-        for x1,y1,x2,y2,conf,cid in dets:
+        for x1, y1, x2, y2, conf, cid in dets:
             print(f"cls={cid} conf={conf:.3f} box=({x1:.1f},{y1:.1f},{x2:.1f},{y2:.1f})")
 
 
 # python3 test_img.py \
-#   --rknn /home/hightorque/soccer_ws/src/yolo11_detect_pkg/config/rknn/roboworld_best2-rk3588.rknn \
-#   --image /home/hightorque/soccer_ws/src/yolo11_detect_pkg/scripts/test.jpg \
-#   --meta  /home/hightorque/soccer_ws/src/yolo11_detect_pkg/config/rknn/roboworld_metadata2.yaml \
+#   --rknn /home/hightorque/wego_minipi_ws/src/yolo11_detect_pkg/config/rknn/roboworld_best2-rk3588.rknn \
+#   --image /home/hightorque/wego_minipi_ws/src/yolo11_detect_pkg/scripts/test.jpg \
+#   --meta  /home/hightorque/wego_minipi_ws/src/yolo11_detect_pkg/config/rknn/roboworld_metadata2.yaml \
 #   --out   detect.jpg \
-

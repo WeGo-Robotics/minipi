@@ -1,0 +1,79 @@
+teleop:
+  walk:
+    type: topic
+    message_type: geometry_msgs/Twist
+    topic_name: cmd_vel/joy
+    # deadman_buttons: [ 6 ]   # # 4 map F710 Speed commands can only be issued by pressing this button  
+    axis_mappings:
+      - axis: 3
+        target: angular.z
+        scale: 0.6
+      - axis: 1
+        target: linear.x
+        scale: 0.6
+      - axis: 0
+        target: linear.y
+        scale: 0.6
+      - axis: 2
+        target: linear.z
+        scale: 0.6
+
+  mode_change:
+    type: topic
+    message_type: sim2real_msg/Joy
+    topic_name: /joy_msg
+    axis_mappings:
+      - axis: 0
+        scale: 1.0
+        offset: 0.0
+        target: l_horizontal
+      - axis: 1
+        scale: 1.0
+        offset: 0.0
+        target: l_vertical
+      - axis: 2
+        scale: 1.0
+        offset: 0.0
+        target: lt
+      - axis: 3
+        scale: 1.0
+        offset: 0.0
+        target: r_horizontal
+      - axis: 4
+        scale: 1.0
+        offset: 0.0
+        target: r_vertical
+      - axis: 5
+        scale: 1.0
+        offset: 0.0
+        target: rt
+      - axis: 6
+        scale: 1.0
+        offset: 0.0
+        target: dpad_horizontal
+      - axis: 7
+        scale: 1.0
+        offset: 0.0
+        target: dpad_vertical
+      - button: 0
+        target: a
+      - button: 1
+        target: b
+      - button: 2
+        target: x
+      - button: 3
+        target: y
+      - button: 4
+        target: lb
+      - button: 5
+        target: rb
+      - button: 6
+        target: back
+      - button: 7
+        target: start
+      - button: 8
+        target: center
+      - button: 9
+        target: L
+      - button: 10
+        target: R

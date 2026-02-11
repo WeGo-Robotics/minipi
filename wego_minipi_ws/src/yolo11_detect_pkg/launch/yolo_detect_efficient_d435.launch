@@ -1,8 +1,10 @@
 <launch>
   <!-- <arg name="rknn_file" default="$(find yolo11_detect_pkg)/config/rknn/roboworld3_best-rk3588.rknn" />
   <arg name="yaml_file" default="$(find yolo11_detect_pkg)/config/rknn/roboworld3_metadata.yaml" /> -->
-  <arg name="rknn_file" default="$(find yolo11_detect_pkg)/config/rknn/things_roboworld2_best-rk3588.rknn" />
-  <arg name="yaml_file" default="$(find yolo11_detect_pkg)/config/rknn/things_roboworld2_metadata.yaml" />
+  <!-- <arg name="rknn_file" default="$(find yolo11_detect_pkg)/config/rknn/things_roboworld2_best-rk3588.rknn" />
+  <arg name="yaml_file" default="$(find yolo11_detect_pkg)/config/rknn/things_roboworld2_metadata.yaml" /> -->
+  <arg name="rknn_file" default="$(find yolo11_detect_pkg)/config/rknn/yolo11n-rk3588.rknn" />
+  <arg name="yaml_file" default="$(find yolo11_detect_pkg)/config/rknn/yolo11n_metadata.yaml" />
   <arg name="output_topic" default="/yolo/detections" />
   <arg name="tracker_output_topic" default="/ball/state" />
 

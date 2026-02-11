@@ -64,7 +64,8 @@ class YoloInfo(object):
         self.image_topic = str(rospy.get_param("~image_topic", DEFAULT_IMAGE_TOPIC))
         self.bridge = CvBridge()
 
-        self.info_pub = rospy.Publisher("/YoloInfo", Yolo, queue_size=10)
+        # self.info_pub = rospy.Publisher("/YoloInfo", Yolo, queue_size=10)
+        self.info_pub = rospy.Publisher("/yolo/detections", Yolo, queue_size=10)
 
         # YOLO 제어를 위한 토픽 구독
         self.control_sub = rospy.Subscriber(YOLO_CONTROL_TOPIC, Int8, self.control_cb, queue_size=1)
@@ -75,12 +76,11 @@ class YoloInfo(object):
         print(f"[INFO] Subscribing (Image): {self.image_topic}")
 
         self.class_names = load_class_names(yaml_path)
-        self.num_classes = len(self.class_names) # 클래스 개수 저장 (C=7 대응에 사용)
+        self.num_classes = len(self.class_names)  # 클래스 개수 저장 (C=7 대응에 사용)
         print(f"[INFO] Loaded class names from {yaml_path}:")
         for k, v in self.class_names.items():
             print(f"  ID {k}: '{v}'")
         print(f"[INFO] Total number of classes: {self.num_classes}")
-
 
         self.rknn_available = False
         try:
@@ -121,18 +121,18 @@ class YoloInfo(object):
         a = np.array(out0)
         # N이 8400 (proposals), C가 5 or 7 or 8 (channels)일 때
         # YOLOv8은 (1, C, N), YOLOv5는 (1, N, C) 형태로 나옴
-        
+
         # 텐서의 두 번째 차원이 클래스 관련 차원일 경우 (C < N)
         C_candidate = a.shape[1] if a.ndim >= 2 else 0
-        
+
         # (1, C, N) 형태일 경우 (C < N)
         if a.ndim == 3 and C_candidate < a.shape[2] and C_candidate >= 5:
             # (1, C, N) -> (1, N, C)로 변환
-            a = np.transpose(a, (0, 2, 1)) 
-        
+            a = np.transpose(a, (0, 2, 1))
+
         if a.ndim > 1:
-            a = a.reshape(-1, a.shape[-1]) # (N, C)
-        
+            a = a.reshape(-1, a.shape[-1])  # (N, C)
+
         return a
 
     # 간단 NMS (xywh dict 리스트 입력)
@@ -149,10 +149,10 @@ class YoloInfo(object):
             x2 = xc + w / 2.0
             y2 = yc + h / 2.0
             boxes.append([x1, y1, x2, y2, d["conf"], d["cls"], d])
-        
+
         # Score 기준으로 내림차순 정렬
         boxes.sort(key=lambda x: x[4], reverse=True)
-        
+
         keep = []
         while boxes:
             a = boxes.pop(0)
@@ -163,7 +163,6 @@ class YoloInfo(object):
                 if a[5] != b[5]:
                     tmp.append(b)
                     continue
-                
                 # IOU 계산
                 xx1 = max(a[0], b[0])
                 yy1 = max(a[1], b[1])
@@ -173,7 +172,6 @@ class YoloInfo(object):
                 h = max(0.0, yy2 - yy1)
                 inter = w * h
                 iou = inter / (((a[2] - a[0]) * (a[3] - a[1])) + ((b[2] - b[0]) * (b[3] - b[1])) - inter + 1e-6)
-                
                 if iou <= iou_th:
                     tmp.append(b)
             boxes = tmp
@@ -222,14 +220,13 @@ class YoloInfo(object):
 
         # 2. 채널 구조 파악: obj_conf 유무에 따른 동적 인덱스 설정
         # 표준 YOLO 출력: 4 (Box) + 1 (Obj Conf) + N_cls (Class Probs)
-        C_FULL = 4 + 1 + self.num_classes 
+        C_FULL = 4 + 1 + self.num_classes
         # Obj Conf 누락 출력: 4 (Box) + N_cls (Class Probs)
-        C_TRUNCATED = 4 + self.num_classes 
+        C_TRUNCATED = 4 + self.num_classes
 
         has_obj_conf = False
         obj_conf_idx = -1
         cls_probs_start_idx = -1
-        
         if C == C_FULL:
             # Case 1: Obj Conf 존재 (예: 3클래스 C=8, 1클래스 C=6)
             has_obj_conf = True
@@ -246,7 +243,6 @@ class YoloInfo(object):
             return dets
 
         # 3. 점수 및 클래스 추출 (통합 로직)
-        
         # Obj Conf 추출 및 정규화
         obj_conf = None
         if has_obj_conf:
@@ -255,17 +251,16 @@ class YoloInfo(object):
             if max_obj_conf > 1.5:
                 # 255/65535 등으로 정규화되지 않은 경우, 최대값으로 정규화
                 obj_conf /= max_obj_conf
-        
         # Class Probs 추출 및 정규화
         cls_probs = arr[:, cls_probs_start_idx:].astype(np.float32)
         max_cls_probs = float(cls_probs.max())
         if max_cls_probs > 1.5:
-             # 255/65535 등으로 정규화되지 않은 경우, 최대값으로 정규화
+            # 255/65535 등으로 정규화되지 않은 경우, 최대값으로 정규화
             cls_probs /= max_cls_probs
 
         # 최대 클래스 ID 및 확률 결정
         cls_ids = np.argmax(cls_probs, axis=1)
-        max_cls_conf = cls_probs[np.arange(N), cls_ids] 
+        max_cls_conf = cls_probs[np.arange(N), cls_ids]
 
         # 최종 점수 계산
         if has_obj_conf:
@@ -277,29 +272,20 @@ class YoloInfo(object):
             scores = max_cls_conf.reshape(-1)
             print(f"[INFO] Using Max Class Conf only for scoring (C={C_TRUNCATED}).")
 
-
         # 4. 필터링 및 디테일 구성
         for i in range(N):
             score = scores[i]
             if score < CONF_THRES or xywh[i, 2] <= 1 or xywh[i, 3] <= 1:
                 continue
-            
+
             xc, yc, wv, hv = xywh[i]
             ox, oy, ow, oh = to_orig_xywh(xc, yc, wv, hv)
-            
+
             # 단일 클래스 모델(num_classes=1)이고 obj_conf가 없는 C=5 케이스를 위해 cls=0으로 고정
             current_cls_id = int(cls_ids[i]) if self.num_classes > 1 else 0
 
-            dets.append(dict(
-                cls=current_cls_id, 
-                conf=float(score), 
-                x_center=ox, 
-                y_center=oy, 
-                w=ow, 
-                h=oh, 
-                size=ow * oh
-            ))
-        
+            dets.append(dict(cls=current_cls_id, conf=float(score), x_center=ox, y_center=oy, w=ow, h=oh, size=ow * oh))
+
         # NMS 적용 후 반환
         return self._nms_xywh(dets, IOU_THRES)
 

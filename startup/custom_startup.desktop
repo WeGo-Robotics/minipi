@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Wego GUI User Startup
+Exec=gnome-terminal --window --title='User Scripts Launcher' -- bash -c '/home/hightorque/startup/launcher_wrapper.sh; exec bash'
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
